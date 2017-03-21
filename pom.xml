@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yuanxd</groupId>
 	<artifactId>wechat4jmvn</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>wechat4j maven</name>
 	<description>克隆自wechat4j，改版为maven项目</description>
 	<properties>
@@ -51,10 +51,6 @@
 					<source>1.7</source>
 					<target>1.7</target>
 					<showWarnings>true</showWarnings>
-					<compilerArguments>
-						<verbose />
-						<bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
-					</compilerArguments>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -63,18 +59,6 @@
 		<dependencies>
 		</dependencies>
 	</dependencyManagement>
-	<distributionManagement>
-		<repository>
-			<id>xt-repository</id>
-			<name>xt Repository</name>
-			<url>${deploy.url}</url>
-		</repository>
-		<snapshotRepository>
-			<id>xt-repository-snapshots</id>
-			<name>xt Repository Snapshots</name>
-			<url>${deploy.snapshots.url}</url>
-		</snapshotRepository>
-	</distributionManagement>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
@@ -128,4 +112,14 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>${deploy-id}</id>
+			<url>${deploy.url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>${deploy.snapshots-id}</id>
+			<url>${deploy.snapshots.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
