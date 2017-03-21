@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * å¾®ä¿¡requestçš„å¯¹è±¡å±æ€§
- * ä¸ç”¨cdataæ ‡è®°ç›´æ¥å¯ä»¥è§£æ
- * åŒ…æ‹¬æ‰€æœ‰ç±»å‹çš„èŠ‚ç‚¹,è‹¥æŠ¥æ–‡ä¸­æ— æ­¤å±æ€§åˆ™è§£æçš„æ—¶å€™ä¸ä¼šç”Ÿæˆæœ¬å±æ€§
+ * Î¢ĞÅrequestµÄ¶ÔÏóÊôĞÔ
+ * ²»ÓÃcdata±ê¼ÇÖ±½Ó¿ÉÒÔ½âÎö
+ * °üÀ¨ËùÓĞÀàĞÍµÄ½Úµã,Èô±¨ÎÄÖĞÎŞ´ËÊôĞÔÔò½âÎöµÄÊ±ºò²»»áÉú³É±¾ÊôĞÔ
  * @author ChengNing
  * @date   2014-12-4
  */
@@ -35,14 +35,14 @@ public class WechatRequest {
 	private String MediaId;
 	private String Format;
 	private String Status;
-	private String Latitude;  //ä¸ŠæŠ¥åœ°ç†ä½ç½®äº‹ä»¶Latitude
-	private String Longitude; //ä¸ŠæŠ¥åœ°ç†ä½ç½®äº‹ä»¶Longitude
-	private String Precision; //ä¸ŠæŠ¥åœ°ç†ä½ç½®äº‹ä»¶Precision
-	private String Ticket;    //æ‰«æå¸¦å‚æ•°äºŒç»´ç äº‹ä»¶Ticket
-	private String ThumbMediaId; //è§†é¢‘æ¶ˆæ¯ ThumbMediaId è§†é¢‘æ¶ˆæ¯ç¼©ç•¥å›¾çš„åª’ä½“idï¼Œå¯ä»¥è°ƒç”¨å¤šåª’ä½“æ–‡ä»¶ä¸‹è½½æ¥å£æ‹‰å–æ•°æ®
-	private ScanCodeInfo ScanCodeInfo; //æ‰«æä¿¡æ¯
-	private SendPicsInfo SendPicsInfo; //å‘é€çš„å›¾ç‰‡ä¿¡æ¯
-	private SendLocationInfo SendLocationInfo;   //å‘é€çš„ä½ç½®ä¿¡æ¯
+	private String Latitude;  //ÉÏ±¨µØÀíÎ»ÖÃÊÂ¼şLatitude
+	private String Longitude; //ÉÏ±¨µØÀíÎ»ÖÃÊÂ¼şLongitude
+	private String Precision; //ÉÏ±¨µØÀíÎ»ÖÃÊÂ¼şPrecision
+	private String Ticket;    //É¨Ãè´ø²ÎÊı¶şÎ¬ÂëÊÂ¼şTicket
+	private String ThumbMediaId; //ÊÓÆµÏûÏ¢ ThumbMediaId ÊÓÆµÏûÏ¢ËõÂÔÍ¼µÄÃ½Ìåid£¬¿ÉÒÔµ÷ÓÃ¶àÃ½ÌåÎÄ¼şÏÂÔØ½Ó¿ÚÀ­È¡Êı¾İ
+	private ScanCodeInfo ScanCodeInfo; //É¨ÃèĞÅÏ¢
+	private SendPicsInfo SendPicsInfo; //·¢ËÍµÄÍ¼Æ¬ĞÅÏ¢
+	private SendLocationInfo SendLocationInfo;   //·¢ËÍµÄÎ»ÖÃĞÅÏ¢
 	private String Recognition;
 	
 	@XmlElement(name="Recognition")

@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ29æ—¥
+ * @date   2015Äê1ÔÂ29ÈÕ
  */
 public abstract class AbsServer implements IServer{
 
@@ -25,8 +25,8 @@ public abstract class AbsServer implements IServer{
 		return server().token();
 	}
 	/**
-	 * å¾—åˆ°ç³»ç»Ÿå¯ç”¨çš„ä¸­æ§æœåŠ¡å™¨
-	 * @return æ­£åœ¨ä½¿ç”¨çš„ä¸­æ§æœåŠ¡å™¨
+	 * µÃµ½ÏµÍ³¿ÉÓÃµÄÖĞ¿Ø·şÎñÆ÷
+	 * @return ÕıÔÚÊ¹ÓÃµÄÖĞ¿Ø·şÎñÆ÷
 	 */
 	public IServer server(){
 		if(isCustomer())
@@ -35,8 +35,8 @@ public abstract class AbsServer implements IServer{
 	}
 	
 	/**
-	 * åŠ è½½è‡ªå®šä¹‰ä¸­æ§æœåŠ¡å™¨
-	 * @return è‡ªå®šä¹‰çš„ä¸­æ§æœåŠ¡å™¨
+	 * ¼ÓÔØ×Ô¶¨ÒåÖĞ¿Ø·şÎñÆ÷
+	 * @return ×Ô¶¨ÒåµÄÖĞ¿Ø·şÎñÆ÷
 	 */
 	public IServer customerServer(){
 		String className = customerServerClass;
@@ -45,16 +45,16 @@ public abstract class AbsServer implements IServer{
 			Class clazz = Class.forName(className);
 			customerServer = (IServer)clazz.newInstance();
 		} catch (Exception e) {
-			logger.error("ç³»ç»Ÿæ‰¾ä¸åˆ°" + className);
-			logger.error("è‡ªå®šä¹‰serverå®ä¾‹åŒ–å¤±è´¥ï¼Œ" + e.getMessage());
+			logger.error("ÏµÍ³ÕÒ²»µ½" + className);
+			logger.error("×Ô¶¨ÒåserverÊµÀı»¯Ê§°Ü£¬" + e.getMessage());
 			e.printStackTrace();
 		}
 		return customerServer;
 	}
 	
 	/**
-	 * å¦‚æœé…ç½®æ–‡ä»¶ä¸­é…ç½®äº†AccessTokenServerï¼Œé‚£ä¹ˆä½¿ç”¨å®¢æˆ·è‡ªå®šä¹‰server
-	 * @return æ˜¯å¦é…ç½®äº†è‡ªå®šä¹‰ä¸­æ§æœåŠ¡å™¨
+	 * Èç¹ûÅäÖÃÎÄ¼şÖĞÅäÖÃÁËAccessTokenServer£¬ÄÇÃ´Ê¹ÓÃ¿Í»§×Ô¶¨Òåserver
+	 * @return ÊÇ·ñÅäÖÃÁË×Ô¶¨ÒåÖĞ¿Ø·şÎñÆ÷
 	 */
 	public boolean isCustomer(){
 		if(StringUtils.isBlank(customerServerClass))
@@ -63,13 +63,13 @@ public abstract class AbsServer implements IServer{
 	}
 	
 	/**
-	 * æŒ‡å®šçš„é»˜è®¤ä¸­æ§æœåŠ¡å™¨
-	 * @return é»˜è®¤çš„ä¸­æ§æœåŠ¡å™¨
+	 * Ö¸¶¨µÄÄ¬ÈÏÖĞ¿Ø·şÎñÆ÷
+	 * @return Ä¬ÈÏµÄÖĞ¿Ø·şÎñÆ÷
 	 */
 	public abstract IServer defaultServer() ;
 
 	/**
-	 * è‡ªå®šä¹‰æœåŠ¡å™¨çš„ç±»
+	 * ×Ô¶¨Òå·şÎñÆ÷µÄÀà
 	 * @return
 	 */
 	protected abstract String getCustomerServerClass();

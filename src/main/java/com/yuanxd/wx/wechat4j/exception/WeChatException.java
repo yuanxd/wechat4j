@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.exception;
 
 /**
- * ÂºÇÂ∏∏Â§ÑÁêÜ
+ * “Ï≥£¥¶¿Ì
  * @author Zhangxs
  * @version 2015-7-4
  */

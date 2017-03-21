@@ -8,15 +8,15 @@ import com.yuanxd.wx.wechat4j.token.Ticket;
 import com.yuanxd.wx.wechat4j.token.TicketType;
 
 /**
- * å†…å­˜ä¸­æ§æœåŠ¡å™¨
- * access_token ä¸­æ§æœåŠ¡å™¨
- * access_tokenä¿å­˜åœ¨å†…å­˜ä¸­,è¿‡æœŸåˆ™è‡ªåŠ¨åˆ·æ–°
- * æ­¤ä¸­æ§æœåŠ¡å™¨é‡‡ç”¨å•ä¾‹æ¨¡å¼ï¼Œæä¾›å•ä¸€çš„è®¿é—®ç‚¹ï¼Œå¹¶ä¸”æŒæœ‰å…¨å±€å”¯ä¸€çš„accessTokenå¯¹è±¡
- * é‡‡ç”¨è¿™ç§æ¨¡å¼è€Œä¸æ˜¯AccessTokenæä¾›å…¨å±€å”¯ä¸€è®¿é—®æ˜¯
- * å› ä¸ºAccessTokenéœ€è¦ä¸ºå…¶ä»–ç±»å‹çš„ä¸­æ§æœåŠ¡å™¨æä¾›æœåŠ¡ï¼Œ
- * æ¯”å¦‚æ˜¯å®šæ—¶å™¨åˆ·æ–°å­˜æ•°æ®åº“æˆ–è€…æ–‡ä»¶ä¹‹ç±»çš„å°±ä¸éœ€è¦æä¾›å…¨å±€å”¯ä¸€
+ * ÄÚ´æÖĞ¿Ø·şÎñÆ÷
+ * access_token ÖĞ¿Ø·şÎñÆ÷
+ * access_token±£´æÔÚÄÚ´æÖĞ,¹ıÆÚÔò×Ô¶¯Ë¢ĞÂ
+ * ´ËÖĞ¿Ø·şÎñÆ÷²ÉÓÃµ¥ÀıÄ£Ê½£¬Ìá¹©µ¥Ò»µÄ·ÃÎÊµã£¬²¢ÇÒ³ÖÓĞÈ«¾ÖÎ¨Ò»µÄaccessToken¶ÔÏó
+ * ²ÉÓÃÕâÖÖÄ£Ê½¶ø²»ÊÇAccessTokenÌá¹©È«¾ÖÎ¨Ò»·ÃÎÊÊÇ
+ * ÒòÎªAccessTokenĞèÒªÎªÆäËûÀàĞÍµÄÖĞ¿Ø·şÎñÆ÷Ìá¹©·şÎñ£¬
+ * ±ÈÈçÊÇ¶¨Ê±Æ÷Ë¢ĞÂ´æÊı¾İ¿â»òÕßÎÄ¼şÖ®ÀàµÄ¾Í²»ĞèÒªÌá¹©È«¾ÖÎ¨Ò»
  * @author ChengNing
- * @date   2015å¹´1æœˆ8æ—¥
+ * @date   2015Äê1ÔÂ8ÈÕ
  */
 public class AccessTokenMemServer implements IServer{
 
@@ -25,30 +25,30 @@ public class AccessTokenMemServer implements IServer{
 	
 	private AccessToken accessToken = new AccessToken();
 	
-	private int requestTimes = 1;//tokenè¯·æ±‚å¤±è´¥åé‡æ–°è¯·æ±‚çš„æ¬¡æ•°
+	private int requestTimes = 1;//tokenÇëÇóÊ§°ÜºóÖØĞÂÇëÇóµÄ´ÎÊı
 	
 	/**
-	 * ç§æœ‰æ„é€ 
+	 * Ë½ÓĞ¹¹Ôì
 	 */
 	private AccessTokenMemServer(){
-		//è·å–æ–°çš„token
+		//»ñÈ¡ĞÂµÄtoken
 		refresh();
 	}
 	
 	/**
-	 * tokenä¸­æ§æœåŠ¡å™¨å®ä¾‹
-	 * @return ä¸­æ§æœåŠ¡å™¨å®ä¾‹
+	 * tokenÖĞ¿Ø·şÎñÆ÷ÊµÀı
+	 * @return ÖĞ¿Ø·şÎñÆ÷ÊµÀı
 	 */
 	public static AccessTokenMemServer instance(){
 		return tokenServer;
 	}
 	
 	/**
-	 * é€šè¿‡ä¸­æ§æœåŠ¡å™¨å¾—åˆ°token
+	 * Í¨¹ıÖĞ¿Ø·şÎñÆ÷µÃµ½token
 	 * @return
 	 */
 	private AccessToken accessToken(){
-		//æ²¡æœ‰å¯ç”¨çš„tokenï¼Œåˆ™å»åˆ·æ–°
+		//Ã»ÓĞ¿ÉÓÃµÄtoken£¬ÔòÈ¥Ë¢ĞÂ
 		if(!this.accessToken.isValid()){
 			refresh();
 		}
@@ -56,7 +56,7 @@ public class AccessTokenMemServer implements IServer{
 	}
 	
 	/**
-	 * é€šè¿‡ä¸­æ§æœåŠ¡å™¨å¾—åˆ°accessToken
+	 * Í¨¹ıÖĞ¿Ø·şÎñÆ÷µÃµ½accessToken
 	 * @return
 	 */
 	public String token(){
@@ -64,11 +64,11 @@ public class AccessTokenMemServer implements IServer{
 	}
 	
 	/**
-	 * æœåŠ¡å™¨åˆ·æ–°token
+	 * ·şÎñÆ÷Ë¢ĞÂtoken
 	 */
 	private void refresh(){
 		for(int i=0;i<requestTimes;i++){
-			//è¯·æ±‚æˆåŠŸåˆ™é€€å‡º
+			//ÇëÇó³É¹¦ÔòÍË³ö
 			if(this.accessToken.request())
 				break;
 		}

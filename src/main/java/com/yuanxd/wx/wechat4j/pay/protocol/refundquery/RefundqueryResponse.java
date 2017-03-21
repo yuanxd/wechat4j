@@ -4,8 +4,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 
 /**
- * æŸ¥è¯¢é€€æ¬¾å“åº”å¯¹è±¡
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_5">å¼€å‘æ–‡æ¡£</p>
+ * ²éÑ¯ÍË¿îÏìÓ¦¶ÔÏó
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_5">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */

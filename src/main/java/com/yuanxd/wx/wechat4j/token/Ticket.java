@@ -7,10 +7,10 @@ import org.apache.log4j.Logger;
 
 
 /**
- * å¾®ä¿¡ticketæ“ä½œç±»
- * ticketå’Œtokençš„é€»è¾‘åœ¨è…¾è®¯æ˜¯å·®ä¸å¤šçš„ï¼Œæ‰€ä»¥ç»§æ‰¿æŠ½è±¡ç±»token
+ * Î¢ĞÅticket²Ù×÷Àà
+ * ticketºÍtokenµÄÂß¼­ÔÚÌÚÑ¶ÊÇ²î²»¶àµÄ£¬ËùÒÔ¼Ì³Ğ³éÏóÀàtoken
  * @author ChengNing
- * @date   2015å¹´1æœˆ29æ—¥
+ * @date   2015Äê1ÔÂ29ÈÕ
  */
 public class Ticket extends Token {
 
@@ -34,7 +34,7 @@ public class Ticket extends Token {
 	protected String accessTokenUrl() {
 		String access_token = TokenProxy.accessToken();
 		String url = TICKET_URL + "access_token=" + access_token + "&type=" + this.type;
-		logger.info("è·å–ticket,ticketç±»å‹" + this.type);
+		logger.info("»ñÈ¡ticket,ticketÀàĞÍ" + this.type);
 		return url;
 	}
 

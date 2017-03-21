@@ -4,7 +4,7 @@
 package com.yuanxd.wx.wechat4j.param;
 
 /**
- * 寰俊鎺ュ彛涓璯et璇锋眰鏂瑰紡涓殑鍙傛暟鍚嶇О
+ * 微信接口中get请求方式中的参数名称
  * @author ChengNing
  * @date   2014-12-4
  */

@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * @author ChengNing
- * @date   2014å¹´10æœˆ30æ—¥
+ * @date   2014Äê10ÔÂ30ÈÕ
  */
 public class DateTime extends Date {
 	

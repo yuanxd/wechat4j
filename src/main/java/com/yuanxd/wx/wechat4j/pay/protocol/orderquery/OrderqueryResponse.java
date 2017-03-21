@@ -4,8 +4,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 
 /**
- * æŸ¥è¯¢è®¢å•å“åº”å¯¹è±¡
- * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">å¼€å‘æ–‡æ¡£</p>
+ * ²éÑ¯¶©µ¥ÏìÓ¦¶ÔÏó
+ * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-13.
  */
@@ -19,7 +19,7 @@ public class OrderqueryResponse {
     private String result_code;
     private String err_code;
     private String err_code_des;
-    // ä»¥ä¸‹å­—æ®µåœ¨return_code å’Œresult_codeéƒ½ä¸ºSUCCESSçš„æ—¶å€™æœ‰è¿”å›
+    // ÒÔÏÂ×Ö¶ÎÔÚreturn_code ºÍresult_code¶¼ÎªSUCCESSµÄÊ±ºòÓĞ·µ»Ø
     private String device_info;
     private String openid;
     private String is_subscribe;

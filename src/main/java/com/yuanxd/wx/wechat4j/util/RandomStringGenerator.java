@@ -3,7 +3,7 @@ package com.yuanxd.wx.wechat4j.util;
 import java.util.Random;
 
 /**
- * éšæœºå­—ç¬¦ä¸²ç”Ÿæˆå™¨
+ * Ëæ»ú×Ö·û´®Éú³ÉÆ÷
  */
 public class RandomStringGenerator {
 
@@ -11,10 +11,10 @@ public class RandomStringGenerator {
     private static final String CHARACTERS = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     /**
-     * è·å–ä¸€å®šé•¿åº¦çš„éšæœºå­—ç¬¦ä¸²
+     * »ñÈ¡Ò»¶¨³¤¶ÈµÄËæ»ú×Ö·û´®
      *
-     * @param length æŒ‡å®šå­—ç¬¦ä¸²é•¿åº¦
-     * @return ä¸€å®šé•¿åº¦çš„å­—ç¬¦ä¸²
+     * @param length Ö¸¶¨×Ö·û´®³¤¶È
+     * @return Ò»¶¨³¤¶ÈµÄ×Ö·û´®
      */
     public static String generate(int length) {
         Random random = new Random();
@@ -27,9 +27,9 @@ public class RandomStringGenerator {
     }
 
     /**
-     * è·å–é»˜è®¤é•¿åº¦çš„éšæœºå­—ç¬¦ä¸²
+     * »ñÈ¡Ä¬ÈÏ³¤¶ÈµÄËæ»ú×Ö·û´®
      *
-     * @return é»˜è®¤é•¿åº¦çš„å­—ç¬¦ä¸²
+     * @return Ä¬ÈÏ³¤¶ÈµÄ×Ö·û´®
      */
     public static String generate() {
         return generate(defaultLength);

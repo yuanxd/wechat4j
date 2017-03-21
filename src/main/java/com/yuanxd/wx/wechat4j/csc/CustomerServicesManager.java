@@ -13,7 +13,7 @@ import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 /**
- * å®¢æœç®¡ç†
+ * ¿Í·ş¹ÜÀí
  * @author Zhangxs
  * @date 2015-7-7
  * @version
@@ -21,29 +21,29 @@ import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 public class CustomerServicesManager {
 	private static Logger logger = Logger.getLogger(CustomerServicesManager.class);
 	
-	/* åˆ›å»ºä¼šè¯*/
+	/* ´´½¨»á»°*/
 	private static final String CUSTOMSERVICE_KFSESSION_CREATE_POST_URL = "https://api.weixin.qq.com/customservice/kfsession/create?access_token=";
-	/* å…³é—­ä¼šè¯*/
+	/* ¹Ø±Õ»á»°*/
 	private static final String CUSTOMSERVICE_KFSESSION_CLOSE_POST_URL = "https://api.weixin.qq.com/customservice/kfsession/close?access_token=";
-	/* è·å–å®¢æˆ·çš„ä¼šè¯çŠ¶æ€*/
+	/* »ñÈ¡¿Í»§µÄ»á»°×´Ì¬*/
 	private static final String CUSTOMSERVICE_KFSESSION_GETSESSION_GET_URL = "https://api.weixin.qq.com/customservice/kfsession/getsession?access_token=";
-	/* è·å–å®¢æœçš„ä¼šè¯åˆ—è¡¨*/
+	/* »ñÈ¡¿Í·şµÄ»á»°ÁĞ±í*/
 	private static final String CUSTOMSERVICE_KFSESSION_GETSESSIONLIST_GET_URL = "https://api.weixin.qq.com/customservice/kfsession/getsessionlist?access_token=";
-	/* è·å–æœªæ¥å…¥ä¼šè¯åˆ—è¡¨*/
+	/* »ñÈ¡Î´½ÓÈë»á»°ÁĞ±í*/
 	private static final String CUSTOMSERVICE_KFSESSION_GETWAITCASE_GET_URL = "https://api.weixin.qq.com/customservice/kfsession/getwaitcase?access_token=";
-	/* è·å–å®¢æœåŸºæœ¬ä¿¡æ¯*/
+	/* »ñÈ¡¿Í·ş»ù±¾ĞÅÏ¢*/
 	private static final String CUSTOMSERVICE_GETKFLIST_GET_URL = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token=";
-	/* è·å–åœ¨çº¿å®¢æœæ¥å¾…ä¿¡æ¯*/
+	/* »ñÈ¡ÔÚÏß¿Í·ş½Ó´ıĞÅÏ¢*/
 	private static final String CUSTOMSERVICE_GETONLIEKFLIST_GET_URL = "https://api.weixin.qq.com/cgi-bin/customservice/getonlinekflist?access_token=";
-	/* æ·»åŠ å®¢æœè´¦å·*/
+	/* Ìí¼Ó¿Í·şÕËºÅ*/
 	private static final String CUSTOMSERVICE_KFACCOUNT_ADD_POST_URL = "https://api.weixin.qq.com/customservice/kfaccount/add?access_token=";
-	/* è®¾ç½®å®¢æœä¿¡æ¯*/
+	/* ÉèÖÃ¿Í·şĞÅÏ¢*/
 	private static final String CUSTOMSERVICE_KFACCOUNT_UPDATE_POST_URL = "https://api.weixin.qq.com/customservice/kfaccount/update?access_token=";
-	/* ä¸Šä¼ å®¢æœå¤´åƒ*/
+	/* ÉÏ´«¿Í·şÍ·Ïñ*/
 	private static final String CUSTOMSERVICE_KFACCOUNT_UPLOADHEADIMG_POST_URL = "http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg?access_token=";
-	/* åˆ é™¤å®¢æœè´¦å·*/
+	/* É¾³ı¿Í·şÕËºÅ*/
 	private static final String CUSTOMSERVICE_KFACCOUNT_DEL_POST_URL = "https://api.weixin.qq.com/customservice/kfaccount/del?access_token=";
-	// è·å–å®¢æœèŠå¤©è®°å½•æ¥å£
+	// »ñÈ¡¿Í·şÁÄÌì¼ÇÂ¼½Ó¿Ú
 	private static final String CUSTOMSERVICE_MSGRECORD_GETRECORD_POST_URL="https://api.weixin.qq.com/customservice/msgrecord/getrecord?access_token=";
 	private static final String PARAM_FILE = "media";
 	private String accessToken;
@@ -51,9 +51,9 @@ public class CustomerServicesManager {
 		this.accessToken = TokenProxy.accessToken();
 	}
 	/**
-	 * åˆ›å»ºä¼šè¯
-	 * @param openid å®¢æˆ·openid
-	 * @param kf_account å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
+	 * ´´½¨»á»°
+	 * @param openid ¿Í»§openid
+	 * @param kf_account ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -61,10 +61,10 @@ public class CustomerServicesManager {
 		kfSessionCreate(openId, kfAccount, null);
 	}
 	/**
-	 * åˆ›å»ºä¼šè¯
-	 * @param openid å®¢æˆ·openid
-	 * @param kf_account å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
-	 * @param text é™„åŠ ä¿¡æ¯ï¼Œæ–‡æœ¬ä¼šå±•ç¤ºåœ¨å®¢æœäººå‘˜çš„å¤šå®¢æœå®¢æˆ·ç«¯
+	 * ´´½¨»á»°
+	 * @param openid ¿Í»§openid
+	 * @param kf_account ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
+	 * @param text ¸½¼ÓĞÅÏ¢£¬ÎÄ±¾»áÕ¹Ê¾ÔÚ¿Í·şÈËÔ±µÄ¶à¿Í·ş¿Í»§¶Ë
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -79,9 +79,9 @@ public class CustomerServicesManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * å…³é—­ä¼šè¯
-	 * @param openid å®¢æˆ·openid
-	 * @param kf_account å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
+	 * ¹Ø±Õ»á»°
+	 * @param openid ¿Í»§openid
+	 * @param kf_account ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -89,10 +89,10 @@ public class CustomerServicesManager {
 		kfSessionClose(openId, kfAccount, null);
 	}
 	/**
-	 * å…³é—­ä¼šè¯
-	 * @param openid å®¢æˆ·openid
-	 * @param kf_account å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
-	 * @param text å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
+	 * ¹Ø±Õ»á»°
+	 * @param openid ¿Í»§openid
+	 * @param kf_account ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
+	 * @param text ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -107,7 +107,7 @@ public class CustomerServicesManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * è·å–å®¢æˆ·çš„ä¼šè¯çŠ¶æ€ 
+	 * »ñÈ¡¿Í»§µÄ»á»°×´Ì¬ 
 	 * @param openId
 	 * @return
 	 */
@@ -124,7 +124,7 @@ public class CustomerServicesManager {
 		return customerServicesSession;
 	}
 	/**
-	 * è·å–å®¢æœçš„ä¼šè¯åˆ—è¡¨
+	 * »ñÈ¡¿Í·şµÄ»á»°ÁĞ±í
 	 * @param KfAccount
 	 * @return
 	 */
@@ -142,7 +142,7 @@ public class CustomerServicesManager {
 		return customerServicesSessions;
 	}
 	/**
-	 * è·å–æœªæ¥å…¥ä¼šè¯åˆ—è¡¨
+	 * »ñÈ¡Î´½ÓÈë»á»°ÁĞ±í
 	 * @return
 	 */
 	public List<CustomerServicesSession> getWaitCaseList() {
@@ -159,7 +159,7 @@ public class CustomerServicesManager {
 		return customerServicesSessions;
 	}
 	/**
-	 * è·å–æ‰€æœ‰å®¢æœè´¦å·	
+	 * »ñÈ¡ËùÓĞ¿Í·şÕËºÅ	
 	 * @return
 	 */
 	public List<CustomerServices> getKfList() {
@@ -177,7 +177,7 @@ public class CustomerServicesManager {
 	}
 	 
 	/**
-	 * è·å–åœ¨çº¿å®¢æœæ¥å¾…ä¿¡æ¯
+	 * »ñÈ¡ÔÚÏß¿Í·ş½Ó´ıĞÅÏ¢
 	 * @return
 	 */
 	 
@@ -196,10 +196,10 @@ public class CustomerServicesManager {
 	}
 	
 	/**
-	 * æ·»åŠ å®¢æœè´¦å· 
-	 * @param kfAccount å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·ï¼Œè´¦å·å‰ç¼€æœ€å¤š10ä¸ªå­—ç¬¦ï¼Œå¿…é¡»æ˜¯è‹±æ–‡æˆ–è€…æ•°å­—å­—ç¬¦ã€‚å¦‚æœæ²¡æœ‰å…¬ä¼—å·å¾®ä¿¡å·ï¼Œè¯·å‰å¾€å¾®ä¿¡å…¬ä¼—å¹³å°è®¾ç½®ã€‚
-	 * @param nickName å®¢æœæ˜µç§°ï¼Œæœ€é•¿6ä¸ªæ±‰å­—æˆ–12ä¸ªè‹±æ–‡å­—ç¬¦
-	 * @param password å®¢æœè´¦å·ç™»å½•å¯†ç ï¼Œæ ¼å¼ä¸ºå¯†ç æ˜æ–‡çš„32ä½åŠ å¯†MD5å€¼
+	 * Ìí¼Ó¿Í·şÕËºÅ 
+	 * @param kfAccount ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ£¬ÕËºÅÇ°×º×î¶à10¸ö×Ö·û£¬±ØĞëÊÇÓ¢ÎÄ»òÕßÊı×Ö×Ö·û¡£Èç¹ûÃ»ÓĞ¹«ÖÚºÅÎ¢ĞÅºÅ£¬ÇëÇ°ÍùÎ¢ĞÅ¹«ÖÚÆ½Ì¨ÉèÖÃ¡£
+	 * @param nickName ¿Í·şêÇ³Æ£¬×î³¤6¸öºº×Ö»ò12¸öÓ¢ÎÄ×Ö·û
+	 * @param password ¿Í·şÕËºÅµÇÂ¼ÃÜÂë£¬¸ñÊ½ÎªÃÜÂëÃ÷ÎÄµÄ32Î»¼ÓÃÜMD5Öµ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -212,10 +212,10 @@ public class CustomerServicesManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * è®¾ç½®å®¢æœä¿¡æ¯
-	 * @param kf_account å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
-	 * @param nickname	å®¢æœæ˜µç§°ï¼Œæœ€é•¿6ä¸ªæ±‰å­—æˆ–12ä¸ªè‹±æ–‡å­—ç¬¦
-	 * @param password	å®¢æœè´¦å·ç™»å½•å¯†ç ï¼Œæ ¼å¼ä¸ºå¯†ç æ˜æ–‡çš„32ä½åŠ å¯†MD5å€¼
+	 * ÉèÖÃ¿Í·şĞÅÏ¢
+	 * @param kf_account ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
+	 * @param nickname	¿Í·şêÇ³Æ£¬×î³¤6¸öºº×Ö»ò12¸öÓ¢ÎÄ×Ö·û
+	 * @param password	¿Í·şÕËºÅµÇÂ¼ÃÜÂë£¬¸ñÊ½ÎªÃÜÂëÃ÷ÎÄµÄ32Î»¼ÓÃÜMD5Öµ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -228,10 +228,10 @@ public class CustomerServicesManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * ä¸Šä¼ å®¢æœå¤´åƒ
-	 * å¤´åƒå›¾ç‰‡æ–‡ä»¶å¿…é¡»æ˜¯jpgæ ¼å¼ï¼Œæ¨èä½¿ç”¨640*640å¤§å°çš„å›¾ç‰‡ä»¥è¾¾åˆ°æœ€ä½³æ•ˆæœ
-	 * @param kfAccount å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
-	 * @param file	å®¢æœå¤´åƒ
+	 * ÉÏ´«¿Í·şÍ·Ïñ
+	 * Í·ÏñÍ¼Æ¬ÎÄ¼ş±ØĞëÊÇjpg¸ñÊ½£¬ÍÆ¼öÊ¹ÓÃ640*640´óĞ¡µÄÍ¼Æ¬ÒÔ´ïµ½×î¼ÑĞ§¹û
+	 * @param kfAccount ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
+	 * @param file	¿Í·şÍ·Ïñ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -241,8 +241,8 @@ public class CustomerServicesManager {
 	}
 
 	/**
-	 * åˆ é™¤å®¢æœè´¦å·
-	 * @param kfAccount	å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
+	 * É¾³ı¿Í·şÕËºÅ
+	 * @param kfAccount	ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -251,11 +251,11 @@ public class CustomerServicesManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * è·å–å®¢æœèŠå¤©è®°å½•
-	 * @param starttime æŸ¥è¯¢å¼€å§‹æ—¶é—´ï¼ŒUNIXæ—¶é—´æˆ³
-	 * @param endtime æŸ¥è¯¢ç»“æŸæ—¶é—´ï¼ŒUNIXæ—¶é—´æˆ³ï¼Œæ¯æ¬¡æŸ¥è¯¢ä¸èƒ½è·¨æ—¥æŸ¥è¯¢
-	 * @param pageindex æŸ¥è¯¢ç¬¬å‡ é¡µï¼Œä»1å¼€å§‹
-	 * @param pagesize æ¯é¡µå¤§å°ï¼Œæ¯é¡µæœ€å¤šæ‹‰å–50æ¡
+	 * »ñÈ¡¿Í·şÁÄÌì¼ÇÂ¼
+	 * @param starttime ²éÑ¯¿ªÊ¼Ê±¼ä£¬UNIXÊ±¼ä´Á
+	 * @param endtime ²éÑ¯½áÊøÊ±¼ä£¬UNIXÊ±¼ä´Á£¬Ã¿´Î²éÑ¯²»ÄÜ¿çÈÕ²éÑ¯
+	 * @param pageindex ²éÑ¯µÚ¼¸Ò³£¬´Ó1¿ªÊ¼
+	 * @param pagesize Ã¿Ò³´óĞ¡£¬Ã¿Ò³×î¶àÀ­È¡50Ìõ
 	 * @return
 	 */
 	public List<Record> getRecord(long starttime,long endtime, int pageindex,int pagesize) {

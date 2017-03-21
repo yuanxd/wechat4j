@@ -3,8 +3,8 @@ package com.yuanxd.wx.wechat4j.pay.protocol.closeorder;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * å…³é—­è®¢å•å“åº”å¯¹è±¡
- * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_3">å¼€å‘æ–‡æ¡£</p>
+ * ¹Ø±Õ¶©µ¥ÏìÓ¦¶ÔÏó
+ * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_3">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-13.
  */

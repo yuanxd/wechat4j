@@ -13,34 +13,34 @@ import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ29æ—¥
+ * @date   2015Äê1ÔÂ29ÈÕ
  */
 public abstract class Token {
 	private static Logger logger = Logger.getLogger(Token.class);
 	
 	private String token;   //token
-	private long expires;         //tokenæœ‰æ•ˆæ—¶é—´
+	private long expires;         //tokenÓĞĞ§Ê±¼ä
 	
-	private long tokenTime;       //tokenäº§ç”Ÿæ—¶é—´
-	private int redundance = 10*1000;  //å†—ä½™æ—¶é—´ï¼Œæå‰10ç§’å°±å»è¯·æ±‚æ–°çš„token
+	private long tokenTime;       //token²úÉúÊ±¼ä
+	private int redundance = 10*1000;  //ÈßÓàÊ±¼ä£¬ÌáÇ°10Ãë¾ÍÈ¥ÇëÇóĞÂµÄtoken
 	
 	/**
-	 * å¾—åˆ°access token
+	 * µÃµ½access token
 	 */
 	public String getToken(){
 		return this.token;
 	}
 	
 	/**
-	 * å¾—åˆ°æœ‰æ•ˆæ—¶é—´
+	 * µÃµ½ÓĞĞ§Ê±¼ä
 	 */
 	public long getExpires() {
 		return expires;
 	}
 	
 	/**
-	 * è¯·æ±‚ä¿¡çš„access token
-	 * httpè¯·æ±‚æ–¹å¼: GET
+	 * ÇëÇóĞÅµÄaccess token
+	 * httpÇëÇó·½Ê½: GET
 		https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
 		{"access_token":"ACCESS_TOKEN","expires_in":7200}
 		{"errcode":40013,"errmsg":"invalid appid"}
@@ -53,12 +53,12 @@ public abstract class Token {
 		if(!parseData(result)){
 			return false;
 		}
-		logger.info("tokenè·å–æˆåŠŸ");
+		logger.info("token»ñÈ¡³É¹¦");
 		return true;
 	}
 	
 	/**
-	 * è§£ætokenæ•°æ®
+	 * ½âÎötokenÊı¾İ
 	 * @param data
 	 * @return
 	 */
@@ -69,23 +69,23 @@ public abstract class Token {
 		try {
 			String token = jsonObject.get(tokenName).toString();
 			if(StringUtils.isBlank(token)){
-				logger.error("tokenè·å–å¤±è´¥,è·å–ç»“æœ" + data);
+				logger.error("token»ñÈ¡Ê§°Ü,»ñÈ¡½á¹û" + data);
 				return false;
 			}
 			this.token = token;
 			this.tokenTime = (new Date()).getTime();
 			String expiresIn = jsonObject.get(expiresInName).toString();
 			if(StringUtils.isBlank(expiresIn)){
-				logger.error("tokenè·å–å¤±è´¥,è·å–ç»“æœ" + expiresIn);
+				logger.error("token»ñÈ¡Ê§°Ü,»ñÈ¡½á¹û" + expiresIn);
 				return false;
 			}
 			else{
 				this.expires = Long.valueOf(expiresIn);
 			}
 		} catch (Exception e) {
-			logger.error("token ç»“æœè§£æå¤±è´¥ï¼Œtokenå‚æ•°åç§°: " + tokenName 
-					+ "æœ‰æ•ˆæœŸå‚æ•°åç§°:" + expiresInName
-					+ "tokenè¯·æ±‚ç»“æœ:" + data);
+			logger.error("token ½á¹û½âÎöÊ§°Ü£¬token²ÎÊıÃû³Æ: " + tokenName 
+					+ "ÓĞĞ§ÆÚ²ÎÊıÃû³Æ:" + expiresInName
+					+ "tokenÇëÇó½á¹û:" + data);
 			e.printStackTrace();
 			return false;
 		}
@@ -93,47 +93,47 @@ public abstract class Token {
 	}
 	
 	/**
-	 * tokençš„å‚æ•°åç§°
+	 * tokenµÄ²ÎÊıÃû³Æ
 	 * @return
 	 */
 	protected abstract String tokenName(); 
 	/**
-	 * expireInçš„å‚æ•°åç§°
+	 * expireInµÄ²ÎÊıÃû³Æ
 	 * @return
 	 */
 	protected abstract String expiresInName(); 
 
 	/**
-	 * ç»„ç»‡accesstokençš„è¯·æ±‚utl
+	 * ×éÖ¯accesstokenµÄÇëÇóutl
 	 * @return
 	 */
 	protected abstract String accessTokenUrl();
 	
 	/**
-	 * accessToken æ˜¯å¦æœ‰æ•ˆ
-	 * @return true:æœ‰æ•ˆï¼Œfalse: æ— æ•ˆ
+	 * accessToken ÊÇ·ñÓĞĞ§
+	 * @return true:ÓĞĞ§£¬false: ÎŞĞ§
 	 */
 	public boolean isValid(){
-		//é»‘åå•åˆ¤å®šæ³•
+		//ºÚÃûµ¥ÅĞ¶¨·¨
 		if(StringUtils.isBlank(this.token))
 			return false;
 		if(this.expires <= 0)
 			return false;
-		//è¿‡æœŸ
+		//¹ıÆÚ
 		if(isExpire())
 			return false;
 		return true;
 	}
 	
 	/**
-	 * æ˜¯å¦è¿‡æœŸ
-	 * @return true è¿‡æœŸ falseï¼šæœ‰æ•ˆ
+	 * ÊÇ·ñ¹ıÆÚ
+	 * @return true ¹ıÆÚ false£ºÓĞĞ§
 	 */
 	private boolean isExpire(){
 		Date currentDate = new Date();
 		long currentTime = currentDate.getTime();
 		long expiresTime = expires * 1000 - redundance;
-		//åˆ¤æ–­æ˜¯å¦è¿‡æœŸ
+		//ÅĞ¶ÏÊÇ·ñ¹ıÆÚ
 		if((tokenTime + expiresTime) > currentTime)
 			return false;
 		return true;

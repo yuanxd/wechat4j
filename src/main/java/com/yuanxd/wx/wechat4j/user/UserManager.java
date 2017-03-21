@@ -13,36 +13,36 @@ import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 /**
- * ç”¨æˆ·ç®¡ç†
+ * ÓÃ»§¹ÜÀí
  * @author Zhangxs
  * @version 2015-7-5
  */
 public class UserManager {
 
 	Logger logger = Logger.getLogger(UserManager.class);
-	//è·å–ç”¨æˆ·åˆ—è¡¨
+	//»ñÈ¡ÓÃ»§ÁĞ±í
 	private static final String USRE_GET_URL = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=";
-	//è®¾ç½®ç”¨æˆ·å¤‡æ³¨å
+	//ÉèÖÃÓÃ»§±¸×¢Ãû
 	private static final String USER_UPDATE_REMARK_POST_URL="https://api.weixin.qq.com/cgi-bin/user/info/updateremark?access_token=";
-	//è·å–ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
+	//»ñÈ¡ÓÃ»§»ù±¾ĞÅÏ¢
 	private static final String USER_INFO_GET_URL="https://api.weixin.qq.com/cgi-bin/user/info?access_token=";
-	//åˆ›å»ºåˆ†ç»„
+	//´´½¨·Ö×é
 	private static final String GROUP_CREATE_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/create?access_token=";
-	//æŸ¥è¯¢æ‰€æœ‰åˆ†ç»„
+	//²éÑ¯ËùÓĞ·Ö×é
 	private static final String GROUP_GET_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/get?access_token=";
-	//æŸ¥è¯¢ç”¨æˆ·æ‰€åœ¨åˆ†ç»„
+	//²éÑ¯ÓÃ»§ËùÔÚ·Ö×é
 	private static final String GROUP_GETID_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/getid?access_token=";
-	//ä¿®æ”¹åˆ†ç»„å
+	//ĞŞ¸Ä·Ö×éÃû
 	private static final String GROUP_UPDATE_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/update?access_token=";
-	//ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
+	//ÒÆ¶¯ÓÃ»§·Ö×é
 	private static final String GROUP_MEMBERS_UPDATE_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token=";
-	//æ‰¹é‡ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
+	//ÅúÁ¿ÒÆ¶¯ÓÃ»§·Ö×é
 	private static final String GROUP_MEMBERS_DATCHUPDATE_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate?access_token=";
-	//åˆ é™¤åˆ†ç»„
+	//É¾³ı·Ö×é
 	private static final String GROUP_DELETE_POST_URL="https://api.weixin.qq.com/cgi-bin/groups/delete?access_token=";
 	
 	/**
-	 * è·å–æ‰€æœ‰çš„å…³æ³¨è€…åˆ—è¡¨
+	 * »ñÈ¡ËùÓĞµÄ¹Ø×¢ÕßÁĞ±í
 	 * @return
 	 */
 	public List<String> allSubscriber(){
@@ -58,14 +58,14 @@ public class UserManager {
 		return follwers.getData().getOpenid();
 	}
 	/**
-	 * è·å–å¸å·çš„å…³æ³¨è€…åˆ—è¡¨å‰10000äºº
+	 * »ñÈ¡ÕÊºÅµÄ¹Ø×¢ÕßÁĞ±íÇ°10000ÈË
 	 * @return
 	 */
 	public Follwers subscriberList(){
 		return subscriberList(null);
 	}
 	/**
-	 * è·å–å¸å·çš„å…³æ³¨è€…åˆ—è¡¨
+	 * »ñÈ¡ÕÊºÅµÄ¹Ø×¢ÕßÁĞ±í
 	 * @param nextOpenId
 	 * @return
 	 */
@@ -86,9 +86,9 @@ public class UserManager {
 		return JSONObject.parseObject(resultStr, Follwers.class);
 	}
 	/**
-	 * è®¾ç½®ç”¨æˆ·å¤‡æ³¨å
-	 * @param openid ç”¨æˆ·openid
-	 * @param remark æ–°çš„å¤‡æ³¨åï¼Œé•¿åº¦å¿…é¡»å°äº30å­—ç¬¦
+	 * ÉèÖÃÓÃ»§±¸×¢Ãû
+	 * @param openid ÓÃ»§openid
+	 * @param remark ĞÂµÄ±¸×¢Ãû£¬³¤¶È±ØĞëĞ¡ÓÚ30×Ö·û
 	 * @return
 	 * @throws WeChatException 
 	 */
@@ -103,17 +103,17 @@ public class UserManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * è·å–ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
-	 * @param openid æ™®é€šç”¨æˆ·çš„æ ‡è¯†ï¼Œå¯¹å½“å‰å…¬ä¼—å·å”¯ä¸€
+	 * »ñÈ¡ÓÃ»§»ù±¾ĞÅÏ¢
+	 * @param openid ÆÕÍ¨ÓÃ»§µÄ±êÊ¶£¬¶Ôµ±Ç°¹«ÖÚºÅÎ¨Ò»
 	 * @return
 	 */
 	public User getUserInfo(String openId){
 		return getUserInfo(openId, null);
 	}
 	/**
-	 * è·å–ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
-	 * @param openid æ™®é€šç”¨æˆ·çš„æ ‡è¯†ï¼Œå¯¹å½“å‰å…¬ä¼—å·å”¯ä¸€
-	 * @param lang è¿”å›å›½å®¶åœ°åŒºè¯­è¨€ç‰ˆæœ¬ï¼Œzh_CN ç®€ä½“ï¼Œzh_TW ç¹ä½“ï¼Œen è‹±è¯­
+	 * »ñÈ¡ÓÃ»§»ù±¾ĞÅÏ¢
+	 * @param openid ÆÕÍ¨ÓÃ»§µÄ±êÊ¶£¬¶Ôµ±Ç°¹«ÖÚºÅÎ¨Ò»
+	 * @param lang ·µ»Ø¹ú¼ÒµØÇøÓïÑÔ°æ±¾£¬zh_CN ¼òÌå£¬zh_TW ·±Ìå£¬en Ó¢Óï
 	 * @return
 	 */
 	public User getUserInfo(String openId,LanguageType lang){
@@ -135,8 +135,8 @@ public class UserManager {
 	}
 	
 	/**
-	 * åˆ›å»ºåˆ†ç»„
-	 * @param name  åˆ†ç»„åå­—ï¼ˆ30ä¸ªå­—ç¬¦ä»¥å†…ï¼‰
+	 * ´´½¨·Ö×é
+	 * @param name  ·Ö×éÃû×Ö£¨30¸ö×Ö·ûÒÔÄÚ£©
 	 * @return 
 	 * @throws WeChatException 
 	 */
@@ -153,7 +153,7 @@ public class UserManager {
 		return JSONObject.parseObject(resultStr).getObject("group", Group.class);
 	}
 	/**
-	 * æŸ¥è¯¢æ‰€æœ‰åˆ†ç»„
+	 * ²éÑ¯ËùÓĞ·Ö×é
 	 * @return
 	 */
 	public List<Group> getGroup(){
@@ -171,9 +171,9 @@ public class UserManager {
 		return groups;
 	}
 	/**
-	 *  æŸ¥è¯¢ç”¨æˆ·æ‰€åœ¨åˆ†ç»„
-	 * @param openId ç”¨æˆ·çš„OpenID
-	 * @return ç”¨æˆ·æ‰€å±çš„groupid
+	 *  ²éÑ¯ÓÃ»§ËùÔÚ·Ö×é
+	 * @param openId ÓÃ»§µÄOpenID
+	 * @return ÓÃ»§ËùÊôµÄgroupid
 	 */
 	public Integer getIdGroup(String openId){
 		JSONObject jsonObject = new JSONObject();
@@ -195,9 +195,9 @@ public class UserManager {
 		return groupId;
 	}
 	/**
-	 * ä¿®æ”¹åˆ†ç»„å
-	 * @param groupId åˆ†ç»„id
-	 * @param name åˆ†ç»„åç§°
+	 * ĞŞ¸Ä·Ö×éÃû
+	 * @param groupId ·Ö×éid
+	 * @param name ·Ö×éÃû³Æ
 	 * @throws WeChatException 
 	 */
 	public void updateGroup(int groupId,String name) throws WeChatException{
@@ -213,9 +213,9 @@ public class UserManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
-	 * @param openid ç”¨æˆ·çš„OpenID
-	 * @param groupId åˆ†ç»„id
+	 * ÒÆ¶¯ÓÃ»§·Ö×é
+	 * @param openid ÓÃ»§µÄOpenID
+	 * @param groupId ·Ö×éid
 	 * @throws WeChatException 
 	 */
 	public void membersUpdateGroup(String openId,int groupId) throws WeChatException{
@@ -229,10 +229,10 @@ public class UserManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 *  æ‰¹é‡ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
-	 * @param openids ç”¨æˆ·å”¯ä¸€æ ‡è¯†ç¬¦openidçš„åˆ—è¡¨ï¼ˆsizeä¸èƒ½è¶…è¿‡50ï¼‰
-	 * @param toGroupid åˆ†ç»„id
-	 * @return æ˜¯å¦ä¿®æ”¹æˆåŠŸ
+	 *  ÅúÁ¿ÒÆ¶¯ÓÃ»§·Ö×é
+	 * @param openids ÓÃ»§Î¨Ò»±êÊ¶·ûopenidµÄÁĞ±í£¨size²»ÄÜ³¬¹ı50£©
+	 * @param toGroupid ·Ö×éid
+	 * @return ÊÇ·ñĞŞ¸Ä³É¹¦
 	 * @throws WeChatException 
 	 */
 	public void membersDatchUpdateGroup(String [] openIds,int groupId) throws WeChatException{
@@ -246,7 +246,7 @@ public class UserManager {
 		WeChatUtil.isSuccess(resultStr);
 	}
 	/**
-	 * åˆ é™¤åˆ†ç»„
+	 * É¾³ı·Ö×é
 	 * @param groupId
 	 * @throws WeChatException 
 	 */

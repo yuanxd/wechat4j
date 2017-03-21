@@ -8,16 +8,16 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 
 /**
- * äºŒç»´ç 
+ * ¶şÎ¬Âë
  * @author Zhangxs
  * @version 2015-7-5
  */
 public class Qrcode {
-    //é€šè¿‡ticketæ¢å–äºŒç»´ç 
+    //Í¨¹ıticket»»È¡¶şÎ¬Âë
     private static final String SHOWQRCODE_POST_URL = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=";
-	private String ticket;//	è·å–çš„äºŒç»´ç ticketï¼Œå‡­å€Ÿæ­¤ticketå¯ä»¥åœ¨æœ‰æ•ˆæ—¶é—´å†…æ¢å–äºŒç»´ç ã€‚
-	private Integer expireSeconds;//	äºŒç»´ç çš„æœ‰æ•ˆæ—¶é—´ï¼Œä»¥ç§’ä¸ºå•ä½ã€‚æœ€å¤§ä¸è¶…è¿‡1800ã€‚
-	private String url;//	äºŒç»´ç å›¾ç‰‡è§£æåçš„åœ°å€ï¼Œå¼€å‘è€…å¯æ ¹æ®è¯¥åœ°å€è‡ªè¡Œç”Ÿæˆéœ€è¦çš„äºŒç»´ç å›¾ç‰‡
+	private String ticket;//	»ñÈ¡µÄ¶şÎ¬Âëticket£¬Æ¾½è´Ëticket¿ÉÒÔÔÚÓĞĞ§Ê±¼äÄÚ»»È¡¶şÎ¬Âë¡£
+	private Integer expireSeconds;//	¶şÎ¬ÂëµÄÓĞĞ§Ê±¼ä£¬ÒÔÃëÎªµ¥Î»¡£×î´ó²»³¬¹ı1800¡£
+	private String url;//	¶şÎ¬ÂëÍ¼Æ¬½âÎöºóµÄµØÖ·£¬¿ª·¢Õß¿É¸ù¾İ¸ÃµØÖ·×ÔĞĞÉú³ÉĞèÒªµÄ¶şÎ¬ÂëÍ¼Æ¬
 	public String getTicket() {
 		return ticket;
 	}
@@ -40,8 +40,8 @@ public class Qrcode {
 	}
 
     /**
-     * æ¢å–äºŒç»´ç 
-     * @param qrcodeFile äºŒç»´ç å­˜å‚¨è·¯å¾„
+     * »»È¡¶şÎ¬Âë
+     * @param qrcodeFile ¶şÎ¬Âë´æ´¢Â·¾¶
      */
     public void getQrcode(String qrcodeFile){
         try {
@@ -57,7 +57,7 @@ public class Qrcode {
     }
 
     /**
-     * é€šè¿‡äºŒç»´ç è·å–äºŒç»´ç URL
+     * Í¨¹ı¶şÎ¬Âë»ñÈ¡¶şÎ¬ÂëURL
      * @return
      */
     public String getQrcodeUrl(){

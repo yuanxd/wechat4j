@@ -55,8 +55,8 @@ import com.yuanxd.wx.wechat4j.pay.protocol.unifiedorder.UnifiedorderRequest;
 import com.yuanxd.wx.wechat4j.pay.protocol.unifiedorder.UnifiedorderResponse;
 
 /**
- * <h2>æ”¯ä»˜ç®¡ç†</h2>
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_3">å¼€å‘æ–‡æ¡£</a></p>
+ * <h2>Ö§¸¶¹ÜÀí</h2>
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_3">¿ª·¢ÎÄµµ</a></p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */
@@ -65,37 +65,37 @@ public class PayManager {
     private static Logger logger = Logger.getLogger(PayManager.class);
 
     /**
-     * ç»Ÿä¸€ä¸‹å•
+     * Í³Ò»ÏÂµ¥
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAY_UNIFIEDORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     /**
-     * æŸ¥è¯¢è®¢å•
+     * ²éÑ¯¶©µ¥
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAY_ORDERQUERY = "https://api.mch.weixin.qq.com/pay/orderquery";
     /**
-     * å…³é—­è®¢å•
+     * ¹Ø±Õ¶©µ¥
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAY_CLOSEORDER = "https://api.mch.weixin.qq.com/pay/closeorder";
     /**
-     * ç”³è¯·é€€æ¬¾
+     * ÉêÇëÍË¿î
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_SECAPI_PAY_REFUND = "https://api.mch.weixin.qq.com/secapi/pay/refund";
     /**
-     * æŸ¥è¯¢é€€æ¬¾
+     * ²éÑ¯ÍË¿î
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAY_REFUNDQUERY = "https://api.mch.weixin.qq.com/pay/refundquery";
     /**
-     * ä¸‹è½½å¯¹è´¦å•
+     * ÏÂÔØ¶ÔÕËµ¥
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAY_DOWNLOADBILL = "https://api.mch.weixin.qq.com/pay/downloadbill";
     /**
-     * æµ‹é€Ÿä¸ŠæŠ¥
+     * ²âËÙÉÏ±¨
      */
     private static final String HTTPS_API_MCH_WEIXIN_QQ_COM_PAYITIL_REPORT = "https://api.mch.weixin.qq.com/payitil/report";
 
     /**
-     * ç»Ÿä¸€ä¸‹å•
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">å¼€å‘æ–‡æ¡£</p>
+     * Í³Ò»ÏÂµ¥
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -119,8 +119,8 @@ public class PayManager {
     }
 
     /**
-     * æŸ¥è¯¢è®¢å•
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">å¼€å‘æ–‡æ¡£</p>
+     * ²éÑ¯¶©µ¥
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -143,16 +143,16 @@ public class PayManager {
         try {
             parseCouponsForOrderquery(postResult, response);
         } catch (Exception e) {
-            logger.error("è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥", e);
-            PayApiException exception = new PayApiException(PayCode.FAIL, "è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥");
+            logger.error("½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü", e);
+            PayApiException exception = new PayApiException(PayCode.FAIL, "½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü");
             throw exception;
         }
         return response;
     }
 
     /**
-     * å…³é—­è®¢å•
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">å¼€å‘æ–‡æ¡£</p>
+     * ¹Ø±Õ¶©µ¥
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -176,8 +176,8 @@ public class PayManager {
     }
 
     /**
-     * ç”³è¯·é€€æ¬¾
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">å¼€å‘æ–‡æ¡£</p>
+     * ÉêÇëÍË¿î
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -201,8 +201,8 @@ public class PayManager {
     }
 
     /**
-     * æŸ¥è¯¢é€€æ¬¾
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">å¼€å‘æ–‡æ¡£</p>
+     * ²éÑ¯ÍË¿î
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -225,16 +225,16 @@ public class PayManager {
         try {
             parseCouponsForRefundquery(postResult, response);
         } catch (Exception e) {
-            logger.error("è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥", e);
-            PayApiException exception = new PayApiException(PayCode.FAIL, "è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥");
+            logger.error("½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü", e);
+            PayApiException exception = new PayApiException(PayCode.FAIL, "½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü");
             throw exception;
         }
         return response;
     }
 
     /**
-     * ä¸‹è½½å¯¹è´¦å•
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_6">å¼€å‘æ–‡æ¡£</p>
+     * ÏÂÔØ¶ÔÕËµ¥
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_6">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -253,7 +253,7 @@ public class PayManager {
             Map<String, Object> mapFromXMLString = getMapFromXMLString(postResult);
             exception = new PayApiException(mapFromXMLString.get("return_code").toString(), mapFromXMLString.get("return_msg").toString());
         } catch (Exception e) {
-            // å¦‚æœä¸æ˜¯XMLåˆ™è¯´æ˜å¯¹è´¦å•ä¸‹è½½æˆåŠŸ
+            // Èç¹û²»ÊÇXMLÔòËµÃ÷¶ÔÕËµ¥ÏÂÔØ³É¹¦
         }
         if (exception != null) {
             throw exception;
@@ -263,8 +263,8 @@ public class PayManager {
     }
 
     /**
-     * æµ‹é€Ÿä¸ŠæŠ¥
-     * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_8">å¼€å‘æ–‡æ¡£</p>
+     * ²âËÙÉÏ±¨
+     * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_8">¿ª·¢ÎÄµµ</p>
      *
      * @param request
      * @return
@@ -282,17 +282,17 @@ public class PayManager {
         logger.info("post result \n" + postResult);
         checkAccess(postResult);
         checkBusiness(postResult);
-        // æµ‹é€Ÿä¸ŠæŠ¥ä¸ä¼šè¿”å›ç­¾å
+        // ²âËÙÉÏ±¨²»»á·µ»ØÇ©Ãû
 //        validResponseSign(postResult);
         ReportResponse response = (ReportResponse) responseParser.toObj(postResult);
         return response;
     }
 
     /**
-     * å°è£…æ”¯ä»˜ç»“æœé€šçŸ¥
+     * ·â×°Ö§¸¶½á¹ûÍ¨Öª
      * <p/>
-     * <b>æ³¨æ„ï¼šåŒæ ·çš„é€šçŸ¥å¯èƒ½ä¼šå¤šæ¬¡å‘é€ç»™å•†æˆ·ç³»ç»Ÿã€‚å•†æˆ·ç³»ç»Ÿå¿…é¡»èƒ½å¤Ÿæ­£ç¡®å¤„ç†é‡å¤çš„é€šçŸ¥ã€‚ </b>
-     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_7">å¼€å‘æ–‡æ¡£</p>
+     * <b>×¢Òâ£ºÍ¬ÑùµÄÍ¨Öª¿ÉÄÜ»á¶à´Î·¢ËÍ¸øÉÌ»§ÏµÍ³¡£ÉÌ»§ÏµÍ³±ØĞëÄÜ¹»ÕıÈ·´¦ÀíÖØ¸´µÄÍ¨Öª¡£ </b>
+     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_7">¿ª·¢ÎÄµµ</p>
      *
      * @param servletRequest
      * @return
@@ -315,8 +315,8 @@ public class PayManager {
             }
             postResult = stream.toString(Consts.UTF_8.name());
         } catch (IOException e) {
-            logger.error("æ”¯ä»˜ç»“æœé€šçŸ¥æ•°æ®è§£æå¤±è´¥", e);
-            exception = new PayApiException(PayCode.FAIL, "æ”¯ä»˜ç»“æœé€šçŸ¥æ•°æ®è§£æå¤±è´¥");
+            logger.error("Ö§¸¶½á¹ûÍ¨ÖªÊı¾İ½âÎöÊ§°Ü", e);
+            exception = new PayApiException(PayCode.FAIL, "Ö§¸¶½á¹ûÍ¨ÖªÊı¾İ½âÎöÊ§°Ü");
             responseToWechat(servletResponse, exceptionParser.toXML(exception));
             throw exception;
         }
@@ -325,7 +325,7 @@ public class PayManager {
         try {
             validResponseSign(postResult);
         } catch (SignatureException e) {
-            exception = new PayApiException(PayCode.FAIL, "ç­¾åæ ¡éªŒå¤±è´¥");
+            exception = new PayApiException(PayCode.FAIL, "Ç©ÃûĞ£ÑéÊ§°Ü");
             responseToWechat(servletResponse, exceptionParser.toXML(exception));
             throw e;
         }
@@ -334,8 +334,8 @@ public class PayManager {
         try {
             parseCouponsForPayResultNotify(postResult, response);
         } catch (Exception e) {
-            logger.error("è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥", e);
-            exception = new PayApiException(PayCode.FAIL, "è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ å¤±è´¥");
+            logger.error("½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü", e);
+            exception = new PayApiException(PayCode.FAIL, "½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İÊ§°Ü");
             responseToWechat(servletResponse, exceptionParser.toXML(exception));
             throw exception;
         }
@@ -344,7 +344,7 @@ public class PayManager {
     }
 
     /**
-     * å•†æˆ·å¤„ç†æ”¯ä»˜ç»“æœé€šçŸ¥ååŒæ­¥è¿”å›ç»™å¾®ä¿¡å‚æ•°
+     * ÉÌ»§´¦ÀíÖ§¸¶½á¹ûÍ¨ÖªºóÍ¬²½·µ»Ø¸øÎ¢ĞÅ²ÎÊı
      *
      * @param servletResponse
      * @param postData
@@ -356,12 +356,12 @@ public class PayManager {
             servletResponse.getOutputStream().flush();
             servletResponse.getOutputStream().close();
         } catch (IOException e) {
-            throw new PayApiException(PayCode.FAIL, "æ”¯ä»˜ç»“æœé€šçŸ¥åŒæ­¥è¿”å›å¤±è´¥");
+            throw new PayApiException(PayCode.FAIL, "Ö§¸¶½á¹ûÍ¨ÖªÍ¬²½·µ»ØÊ§°Ü");
         }
     }
 
     /**
-     * è§£ææ”¯ä»˜ç»“æœé€šçŸ¥çš„ä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ 
+     * ½âÎöÖ§¸¶½á¹ûÍ¨ÖªµÄ´ú½ğÈ¯»òÁ¢¼õÓÅ»İ
      *
      * @param postResult
      * @param payResultNotifyResponse
@@ -376,7 +376,7 @@ public class PayManager {
         Iterator<String> iterator = mapFromPayResultNotifyXML.keySet().iterator();
         while (iterator.hasNext()) {
             String key = iterator.next();
-            // è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ ï¼Œ$nä¸ºä¸‹æ ‡ï¼Œä»0å¼€å§‹ç¼–å·
+            // ½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İ£¬$nÎªÏÂ±ê£¬´Ó0¿ªÊ¼±àºÅ
             if (key.matches("^coupon_id_[0-9]+$")) { // coupon_id_$n
                 coupon_id_$n.add(mapFromPayResultNotifyXML.get(key).toString());
             } else if (key.matches("^coupon_fee_[0-9]+$")) { // coupon_fee_$n
@@ -388,7 +388,7 @@ public class PayManager {
     }
 
     /**
-     * è§£ææŸ¥è¯¢è®¢å•çš„ä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ 
+     * ½âÎö²éÑ¯¶©µ¥µÄ´ú½ğÈ¯»òÁ¢¼õÓÅ»İ
      *
      * @param postResult
      * @param orderqueryResponse
@@ -404,7 +404,7 @@ public class PayManager {
         Iterator<String> iterator = mapFromPayResultNotifyXML.keySet().iterator();
         while (iterator.hasNext()) {
             String key = iterator.next();
-            // è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ ï¼Œ$nä¸ºä¸‹æ ‡ï¼Œä»0å¼€å§‹ç¼–å·
+            // ½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İ£¬$nÎªÏÂ±ê£¬´Ó0¿ªÊ¼±àºÅ
             if (key.matches("^coupon_batch_id_[0-9]+$")) { // coupon_batch_id_$n
                 coupon_batch_id_$n.add(mapFromPayResultNotifyXML.get(key).toString());
             } else if (key.matches("^coupon_id_[0-9]+$")) { // coupon_id_$n
@@ -419,7 +419,7 @@ public class PayManager {
     }
 
     /**
-     * è§£ææŸ¥è¯¢é€€æ¬¾çš„ä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ 
+     * ½âÎö²éÑ¯ÍË¿îµÄ´ú½ğÈ¯»òÁ¢¼õÓÅ»İ
      *
      * @param postResult
      * @param refundqueryResponse
@@ -442,7 +442,7 @@ public class PayManager {
         Iterator<String> iterator = mapFromPayResultNotifyXML.keySet().iterator();
         while (iterator.hasNext()) {
             String key = iterator.next();
-            // è§£æä»£é‡‘åˆ¸æˆ–ç«‹å‡ä¼˜æƒ ï¼Œ$nä¸ºä¸‹æ ‡ï¼Œ$nä¸ºä¸‹æ ‡ï¼Œä»0å¼€å§‹ç¼–å·
+            // ½âÎö´ú½ğÈ¯»òÁ¢¼õÓÅ»İ£¬$nÎªÏÂ±ê£¬$nÎªÏÂ±ê£¬´Ó0¿ªÊ¼±àºÅ
             if (key.matches("^out_refund_no_[0-9]+$")) { // out_refund_no_$n
                 out_refund_no_$n.add(mapFromPayResultNotifyXML.get(key).toString());
             } else if (key.matches("^refund_id_[0-9]+$")) { // refund_id_$n
@@ -510,7 +510,7 @@ public class PayManager {
     }
 
     /**
-     * æ„é€ H5è°ƒç”¨æ”¯ä»˜çš„å‚æ•°å¯¹è±¡
+     * ¹¹ÔìH5µ÷ÓÃÖ§¸¶µÄ²ÎÊı¶ÔÏó
      *
      * @param timeStamp
      * @param nonceStr
@@ -527,7 +527,7 @@ public class PayManager {
     }
 
     /**
-     * æ£€æŸ¥å“åº”ç»“æœæ˜¯å¦æ­£ç¡®
+     * ¼ì²éÏìÓ¦½á¹ûÊÇ·ñÕıÈ·
      *
      * @param postResult
      */
@@ -539,8 +539,8 @@ public class PayManager {
                 exception = new PayApiException(PayCode.FAIL, map.get("return_msg").toString());
             }
         } catch (Exception e) {
-            logger.error("å›åŒ…æ•°æ®è§£æå¤±è´¥", e);
-            exception = new PayApiException(PayCode.FAIL, "å›åŒ…æ•°æ®è§£æå¤±è´¥");
+            logger.error("»Ø°üÊı¾İ½âÎöÊ§°Ü", e);
+            exception = new PayApiException(PayCode.FAIL, "»Ø°üÊı¾İ½âÎöÊ§°Ü");
         }
         if (exception != null) {
             throw exception;
@@ -548,7 +548,7 @@ public class PayManager {
     }
 
     /**
-     * æ£€æŸ¥ä¸šåŠ¡ç»“æœæ˜¯å¦æ­£ç¡®
+     * ¼ì²éÒµÎñ½á¹ûÊÇ·ñÕıÈ·
      *
      * @param postResult
      */
@@ -560,8 +560,8 @@ public class PayManager {
                 exception = new PayBusinessException(PayCode.FAIL, map.get("err_code").toString(), map.get("err_code_des").toString());
             }
         } catch (Exception e) {
-            logger.error("å›åŒ…æ•°æ®è§£æå¤±è´¥", e);
-            exception = new PayBusinessException(PayCode.FAIL, "RESPONSE_PARSE_ERROR", "å›åŒ…æ•°æ®è§£æå¤±è´¥");
+            logger.error("»Ø°üÊı¾İ½âÎöÊ§°Ü", e);
+            exception = new PayBusinessException(PayCode.FAIL, "RESPONSE_PARSE_ERROR", "»Ø°üÊı¾İ½âÎöÊ§°Ü");
         }
         if (exception != null) {
             throw exception;
@@ -569,7 +569,7 @@ public class PayManager {
     }
 
     /**
-     * æ ¡éªŒå“åº”æ•°æ®çš„ç­¾å
+     * Ğ£ÑéÏìÓ¦Êı¾İµÄÇ©Ãû
      *
      * @param xmlStr
      */
@@ -580,23 +580,23 @@ public class PayManager {
             if (!orignalSign.equals(signature(map))) {
                 throw new SignatureException();
             }
-            logger.debug("è¿”å›æ•°æ®çš„ç­¾åæ ¡éªŒæˆåŠŸ");
+            logger.debug("·µ»ØÊı¾İµÄÇ©ÃûĞ£Ñé³É¹¦");
         } catch (Exception e) {
             throw new SignatureException();
         }
     }
 
     /**
-     * æ”¯ä»˜ç­¾åç®—æ³•
-     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3">å¼€å‘æ–‡æ¡£</p>
+     * Ö§¸¶Ç©ÃûËã·¨
+     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3">¿ª·¢ÎÄµµ</p>
      *
-     * @param object å¾…ç­¾åå¯¹è±¡
+     * @param object ´ıÇ©Ãû¶ÔÏó
      * @return
      */
     private static String signature(Object object) {
         Map<String, Object> map = new HashMap<String, Object>();
         Field[] fields = object.getClass().getDeclaredFields();
-        // å­—å…¸åº
+        // ×ÖµäĞò
         Arrays.sort(fields, new Comparator<Field>() {
             @Override
             public int compare(Field o1, Field o2) {
@@ -604,7 +604,7 @@ public class PayManager {
             }
         });
         for (Field field : fields) {
-            // signä¸å‚ä¸ç­¾å
+            // sign²»²ÎÓëÇ©Ãû
             if ("sign".equals(field.getName())) {
                 continue;
             }
@@ -629,14 +629,14 @@ public class PayManager {
     }
 
     /**
-     * æ”¯ä»˜ç­¾åç®—æ³•
-     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3">å¼€å‘æ–‡æ¡£</p>
+     * Ö§¸¶Ç©ÃûËã·¨
+     * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3">¿ª·¢ÎÄµµ</p>
      *
-     * @param map å¾…ç­¾åå¯¹è±¡
+     * @param map ´ıÇ©Ãû¶ÔÏó
      * @return
      */
     private static String signature(Map<String, Object> map) {
-        map.put("sign", ""); // signä¸å‚ä¸ç­¾å
+        map.put("sign", ""); // sign²»²ÎÓëÇ©Ãû
         ArrayList<String> list = new ArrayList<String>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             if (entry.getValue() != null && !"".equals(entry.getValue())) {
@@ -659,7 +659,7 @@ public class PayManager {
     }
 
     /**
-     * XMLä¸²è½¬åŒ–æˆMap
+     * XML´®×ª»¯³ÉMap
      *
      * @param xmlString
      * @return
@@ -670,7 +670,7 @@ public class PayManager {
     private static Map<String, Object> getMapFromXMLString(String xmlString) throws ParserConfigurationException, IOException, SAXException {
 //        xmlString = xmlString.replaceAll("\n","");
 //        xmlString = xmlString.replaceAll("<!\\[CDATA\\[(.*?)\\]\\]","$1");
-        //è¿™é‡Œç”¨Domçš„æ–¹å¼è§£æå›åŒ…çš„æœ€ä¸»è¦ç›®çš„æ˜¯é˜²æ­¢APIæ–°å¢å›åŒ…å­—æ®µ
+        //ÕâÀïÓÃDomµÄ·½Ê½½âÎö»Ø°üµÄ×îÖ÷ÒªÄ¿µÄÊÇ·ÀÖ¹APIĞÂÔö»Ø°ü×Ö¶Î
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         ByteArrayInputStream is = null;
@@ -678,7 +678,7 @@ public class PayManager {
             is = new ByteArrayInputStream(xmlString.getBytes());
         }
         Document document = builder.parse(is);
-        //è·å–åˆ°documenté‡Œé¢çš„å…¨éƒ¨ç»“ç‚¹
+        //»ñÈ¡µ½documentÀïÃæµÄÈ«²¿½áµã
         NodeList allNodes = document.getFirstChild().getChildNodes();
         Node node;
         Map<String, Object> map = new LinkedHashMap<String, Object>();
@@ -695,7 +695,7 @@ public class PayManager {
     }
 
     /**
-     * æ„å»ºXMLè§£æå™¨JAXBPaser
+     * ¹¹½¨XML½âÎöÆ÷JAXBPaser
      *
      * @param clazz
      * @return
@@ -712,7 +712,7 @@ public class PayManager {
     }
 
     /**
-     * post è¯·æ±‚
+     * post ÇëÇó
      *
      * @param url
      * @param xml
@@ -730,7 +730,7 @@ public class PayManager {
             }
             return null;
         } catch (Exception e) {
-            logger.error("postè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\npost url:" + url);
+            logger.error("postÇëÇóÒì³££¬" + e.getMessage() + "\npost url:" + url);
             e.printStackTrace();
         }
         return null;

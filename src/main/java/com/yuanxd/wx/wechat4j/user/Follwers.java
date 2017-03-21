@@ -3,15 +3,15 @@ package com.yuanxd.wx.wechat4j.user;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
- * å…³æ³¨è€…é›†åˆ
+ * ¹Ø×¢Õß¼¯ºÏ
  * @author Zhangxs
  * @version 2015-7-5
  */
 public class Follwers {
-	private int total;//	å…³æ³¨è¯¥å…¬ä¼—è´¦å·çš„æ€»ç”¨æˆ·æ•°
-	private int count;//	æ‹‰å–çš„OPENIDä¸ªæ•°ï¼Œæœ€å¤§å€¼ä¸º10000
-	private Data data;//	åˆ—è¡¨æ•°æ®ï¼ŒOPENIDçš„åˆ—è¡¨
-	private String nextOpenid;//æ‹‰å–åˆ—è¡¨çš„åä¸€ä¸ªç”¨æˆ·çš„OPENID
+	private int total;//	¹Ø×¢¸Ã¹«ÖÚÕËºÅµÄ×ÜÓÃ»§Êı
+	private int count;//	À­È¡µÄOPENID¸öÊı£¬×î´óÖµÎª10000
+	private Data data;//	ÁĞ±íÊı¾İ£¬OPENIDµÄÁĞ±í
+	private String nextOpenid;//À­È¡ÁĞ±íµÄºóÒ»¸öÓÃ»§µÄOPENID
 	public int getTotal() {
 		return total;
 	}

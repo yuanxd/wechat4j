@@ -1,5 +1,5 @@
 /**
- * å¯¹åº”æ¥å£æ–‡æ¡£åœ°å€
+ * ¶ÔÓ¦½Ó¿ÚÎÄµµµØÖ·
  * http://mp.weixin.qq.com/wiki/17/304c1885ea66dbedf7dc170d84999a9d.html
  */
 package com.yuanxd.wx.wechat4j.message;
@@ -14,19 +14,19 @@ import com.yuanxd.wx.wechat4j.message.template.TemplateMsgData;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 
 /**
- * æ¨¡æ¿æ¶ˆæ¯æ¥å£
+ * Ä£°åÏûÏ¢½Ó¿Ú
  * @author ChengNing
- * @date   2014å¹´12æœˆ24æ—¥
+ * @date   2014Äê12ÔÂ24ÈÕ
  */
 public class TemplateMsg {
 	
 	private static Logger logger = Logger.getLogger(TemplateMsg.class);
 	
-	//è®¾ç½®æ‰€å±è¡Œä¸šæ¥å£åœ°å€
+	//ÉèÖÃËùÊôĞĞÒµ½Ó¿ÚµØÖ·
 	public static final String SET_INDUSTRY_URL = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=";
-	//æ·»åŠ æ¨¡æ¿idæ¥å£åœ°å€
+	//Ìí¼ÓÄ£°åid½Ó¿ÚµØÖ·
 	public static final String GET_TEMPLATE_ID_URL = "https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=";
-	//å‘é€æ¨¡æ¿æ¶ˆæ¯æ¥å£åœ°å€
+	//·¢ËÍÄ£°åÏûÏ¢½Ó¿ÚµØÖ·
 	public static final String SEND_MSG_URL = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=";
 	
 	private String accessToken;
@@ -36,8 +36,8 @@ public class TemplateMsg {
 	}
 	
 	/**
-	 * è®¾ç½®æ‰€å±è¡Œä¸š
-	 * æ¥å£è¯´æ˜ä¸­æ²¡æœ‰ç»™å‡º
+	 * ÉèÖÃËùÊôĞĞÒµ
+	 * ½Ó¿ÚËµÃ÷ÖĞÃ»ÓĞ¸ø³ö
 	 */
 	public void setIndustry(String...industrys){
 		String url = SET_INDUSTRY_URL + this.accessToken;
@@ -50,20 +50,20 @@ public class TemplateMsg {
 	}
 
 	/**
-	 * è·å¾—æ¨¡æ¿ID
+	 * »ñµÃÄ£°åID
 	 * @param templateIdShort    template_id_short
 	 * @return                   template_id
 	 */
 	public String getTemplateId(String templateIdShort){
 		logger.info("get template id,short template id is:" + templateIdShort);
-		//æ„é€ è¯·æ±‚æ•°æ®
+		//¹¹ÔìÇëÇóÊı¾İ
 		String url = GET_TEMPLATE_ID_URL + this.accessToken;
 		JSONObject json = new JSONObject();
 		json.put("template_id_short", templateIdShort);
 		String data = json.toJSONString();
 		String result = HttpUtils.post(url, data);
 		logger.info("post result:" + result);
-		//è§£æè¯·æ±‚æ•°æ®
+		//½âÎöÇëÇóÊı¾İ
 		JSONObject resultJson = JSONObject.parseObject(result);
 		if(resultJson.getString("errcode").equals("0"))
 			return resultJson.getString("template_id");
@@ -72,11 +72,11 @@ public class TemplateMsg {
 	}
 	
 	/**
-	 * å‘é€æ¨¡æ¿æ¶ˆæ¯
+	 * ·¢ËÍÄ£°åÏûÏ¢
 	 */
 	public String send(TemplateMsgBody postData){
 		logger.info("send template message");
-		//æ„é€ è¯·æ±‚æ•°æ®
+		//¹¹ÔìÇëÇóÊı¾İ
 		String url = SEND_MSG_URL + this.accessToken;
 		JSONObject json = new JSONObject();
 		json.put("touser", postData.getTouser());
@@ -95,7 +95,7 @@ public class TemplateMsg {
 		String data = json.toJSONString();
 		String result = HttpUtils.post(url, data);
 		logger.info("post result:" + result);
-		//è§£æè¯·æ±‚æ•°æ®
+		//½âÎöÇëÇóÊı¾İ
 		JSONObject resultJson = JSONObject.parseObject(result);
 		if(resultJson.getString("errcode").equals("0"))
 			return resultJson.getString("msgid");

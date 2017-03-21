@@ -7,7 +7,7 @@ import com.yuanxd.wx.wechat4j.token.Token;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ30æ—¥
+ * @date   2015Äê1ÔÂ30ÈÕ
  */
 public abstract class CustomerServer implements IServer {
 	
@@ -16,15 +16,15 @@ public abstract class CustomerServer implements IServer {
 	}
 	
 	/**
-	 * ä¿å­˜æˆ–è€…æ›´æ–°accesstokenåˆ°æ•°æ®åº“
-	 * ç”±å®¢æˆ·è‡ªå·±å®ç°æ•°æ®åº“æ’å…¥æˆ–è€…æ›´æ–°æ“ä½œ
-	 * @param token   å¾—åˆ°çš„tokenæˆ–è€…ticketï¼Œéœ€è¦ä¿å­˜
+	 * ±£´æ»òÕß¸üĞÂaccesstokenµ½Êı¾İ¿â
+	 * ÓÉ¿Í»§×Ô¼ºÊµÏÖÊı¾İ¿â²åÈë»òÕß¸üĞÂ²Ù×÷
+	 * @param token   µÃµ½µÄtoken»òÕßticket£¬ĞèÒª±£´æ
 	 * @return
 	 */
 	public abstract boolean save(Token token);
 	/**
-	 * ä»æ•°æ®åº“å¾—åˆ°accessToken
-	 * ç”±å®¢æˆ·è‡ªå·±å®ç°æ•°æ®åº“çš„æŸ¥è¯¢æ“ä½œ
+	 * ´ÓÊı¾İ¿âµÃµ½accessToken
+	 * ÓÉ¿Í»§×Ô¼ºÊµÏÖÊı¾İ¿âµÄ²éÑ¯²Ù×÷
 	 * @return
 	 */
 	protected abstract String find();

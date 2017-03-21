@@ -1,14 +1,14 @@
 package com.yuanxd.wx.wechat4j.user;
 /**
- * äºŒç»´ç ç±»å‹
+ * ¶şÎ¬ÂëÀàĞÍ
  * @author Zhangxs
  * @version 2015-7-5
  */
 public enum QrcodeType {
-	/** ä¸´æ—¶äºŒç»´ç  */
+	/** ÁÙÊ±¶şÎ¬Âë */
 	QR_SCENE,
-	/** æ°¸ä¹…äºŒç»´ç  */
+	/** ÓÀ¾Ã¶şÎ¬Âë */
 	QR_LIMIT_SCENE,
-	/** æ°¸ä¹…çš„å­—ç¬¦ä¸²å‚æ•°å€¼ */
+	/** ÓÀ¾ÃµÄ×Ö·û´®²ÎÊıÖµ */
 	QR_LIMIT_STR_SCENE;
 }

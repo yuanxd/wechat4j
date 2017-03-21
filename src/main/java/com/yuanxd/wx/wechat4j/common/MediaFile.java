@@ -12,9 +12,9 @@ import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 
 /**
- * ä¸Šä¼ ä¸‹è½½å¤šåª’ä½“æ–‡ä»¶
+ * ÉÏ´«ÏÂÔØ¶àÃ½ÌåÎÄ¼ş
  * @author ChengNing
- * @date   2015å¹´1æœˆ6æ—¥
+ * @date   2015Äê1ÔÂ6ÈÕ
  */
 public class MediaFile {
 	
@@ -27,12 +27,12 @@ public class MediaFile {
 	
 	private MediaType type;
 	private File file;
-	private String mediaId;  //3å¤©å¤±æ•ˆ
-	private String createdTimestamp;//æ–‡ä»¶åˆ›å»ºæ—¶é—´æˆ³ï¼Œä¸Šä¼ ä¹‹åè¿”å›
+	private String mediaId;  //3ÌìÊ§Ğ§
+	private String createdTimestamp;//ÎÄ¼ş´´½¨Ê±¼ä´Á£¬ÉÏ´«Ö®ºó·µ»Ø
 	
 	
 	/**
-	 * æ–‡ä»¶ä¸Šä¼ url
+	 * ÎÄ¼şÉÏ´«url
 	 * @return
 	 */
 	private String uploadUrl(){
@@ -42,7 +42,7 @@ public class MediaFile {
 	}
 	
 	/**
-	 * æ–‡ä»¶ä¸‹è½½url
+	 * ÎÄ¼şÏÂÔØurl
 	 * @return
 	 */
 	private String downloadUrl(){
@@ -52,10 +52,10 @@ public class MediaFile {
 	}
 	
 	/**
-	 * æ–‡ä»¶ä¸Šä¼ 
+	 * ÎÄ¼şÉÏ´«
 	 * success: {"type":"TYPE","media_id":"MEDIA_ID","created_at":123456789}
 	 * error:   {"errcode":40004,"errmsg":"invalid media type"}
-	 * @return  media_id  æˆåŠŸè¿”å› media_id, å¤±è´¥è¿”å›null
+	 * @return  media_id  ³É¹¦·µ»Ø media_id, Ê§°Ü·µ»Ønull
 	 */
 	public String upload(File file,MediaType type){
 		this.file = file;
@@ -81,7 +81,7 @@ public class MediaFile {
 	}
 	
 	/**
-	 * æ–‡ä»¶ä¸‹è½½
+	 * ÎÄ¼şÏÂÔØ
 	 * @return  byte[]
 	 */
 	public byte[] download(String mediaId){

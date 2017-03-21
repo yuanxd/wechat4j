@@ -1,11 +1,11 @@
-ä½¿ç”¨æœ¬åŒ…éœ€è¦ç”³è¯·å¼€é€šå¾®ä¿¡æ”¯ä»˜åŠŸèƒ½å¹¶è®¾ç½®å•†æˆ·APIå¯†é’¥
+Ê¹ÓÃ±¾°üĞèÒªÉêÇë¿ªÍ¨Î¢ĞÅÖ§¸¶¹¦ÄÜ²¢ÉèÖÃÉÌ»§APIÃÜÔ¿
 
-å•†æˆ·å¹³å°ç™»å½•å…¥å£ï¼šhttps://pay.weixin.qq.com/index.php/home/login
-èœå•ï¼šAPIå®‰å…¨
-é€‰é¡¹ï¼šè®¾ç½®APIå¯†é’¥
+ÉÌ»§Æ½Ì¨µÇÂ¼Èë¿Ú£ºhttps://pay.weixin.qq.com/index.php/home/login
+²Ëµ¥£ºAPI°²È«
+Ñ¡Ïî£ºÉèÖÃAPIÃÜÔ¿
 
-éœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­é…ç½®ï¼š
-å•†æˆ·å· wechat.mch.id
-å•†æˆ·APIå¯†é’¥ wechat.mch.key 
+ĞèÒªÔÚÅäÖÃÎÄ¼şÖĞÅäÖÃ£º
+ÉÌ»§ºÅ wechat.mch.id
+ÉÌ»§APIÃÜÔ¿ wechat.mch.key 
 
-å¼€å‘æ–‡æ¡£ï¼šhttps://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_1
+¿ª·¢ÎÄµµ£ºhttps://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_1

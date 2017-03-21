@@ -32,8 +32,8 @@ import com.yuanxd.wx.wechat4j.response.WechatResponse;
 
 
 /**
- * wechatæ”¯æŒå…¥å£
- * æŠ½è±¡æ–¹æ³•ä¸­ï¼Œonå¼€å¤´çš„æ˜¯msgtypeçš„äº‹ä»¶ï¼Œæ— onçš„æ˜¯eventäº‹ä»¶
+ * wechatÖ§³ÖÈë¿Ú
+ * ³éÏó·½·¨ÖĞ£¬on¿ªÍ·µÄÊÇmsgtypeµÄÊÂ¼ş£¬ÎŞonµÄÊÇeventÊÂ¼ş
  * @author ChengNing
  * @date   2014-12-4
  */
@@ -48,8 +48,8 @@ public abstract class WechatSupport {
 	
 	
 	/**
-	 * æ„å»ºå¾®ä¿¡å¤„ç†
-	 * @param request   å¾®ä¿¡æœåŠ¡å‘è¿‡æ¥çš„httpè¯·æ±‚
+	 * ¹¹½¨Î¢ĞÅ´¦Àí
+	 * @param request   Î¢ĞÅ·şÎñ·¢¹ıÀ´µÄhttpÇëÇó
 	 */
 	public WechatSupport(HttpServletRequest request){
 		this.request = request;
@@ -58,7 +58,7 @@ public abstract class WechatSupport {
 	}
 
 	/**
-	 * wechatè°ƒç”¨å…¥å£ï¼Œè¿›è¡Œæ•°æ®æ¥æ”¶ï¼Œäº‹ä»¶åˆ†å‘
+	 * wechatµ÷ÓÃÈë¿Ú£¬½øĞĞÊı¾İ½ÓÊÕ£¬ÊÂ¼ş·Ö·¢
 	 * @return
 	 */
 	public String execute(){
@@ -78,14 +78,14 @@ public abstract class WechatSupport {
 		if(StringUtils.isNotBlank(echostr)){
      		return echostr;
 		}
-		//åˆ†å‘æ¶ˆæ¯ï¼Œå¾—åˆ°å“åº”
+		//·Ö·¢ÏûÏ¢£¬µÃµ½ÏìÓ¦
 		String result = dispatch();
 		logger.info("response data:" + result);
 		return result;
 	}
 	
 	/**
-	 * åˆ†å‘å¤„ç†ï¼Œå¾—åˆ°å“åº”
+	 * ·Ö·¢´¦Àí£¬µÃµ½ÏìÓ¦
 	 * @return
 	 */
 	private String dispatch() {
@@ -96,11 +96,11 @@ public abstract class WechatSupport {
 			logger.error("post data deal failed!");
 			e.printStackTrace();
 		}
-		// è§£ææ•°æ®
+		// ½âÎöÊı¾İ
 		setPostData(postDataStr);
-		// æ¶ˆæ¯åˆ†å‘å¤„ç†
+		// ÏûÏ¢·Ö·¢´¦Àí
 		dispatchMessage();
-		// å“åº”äº‹ä»¶
+		// ÏìÓ¦ÊÂ¼ş
 		String result = response();
 		return result;
 	}
@@ -108,7 +108,7 @@ public abstract class WechatSupport {
 
 	
 	/**
-	 * å¾—åˆ°postæ•°æ®ï¼Œå¯¹è±¡åŒ–
+	 * µÃµ½postÊı¾İ£¬¶ÔÏó»¯
 	 * @param xmlStr
 	 */
 	private void setPostData(String xmlStr){
@@ -123,7 +123,7 @@ public abstract class WechatSupport {
 	}
 
 	/**
-	 * æ¶ˆæ¯äº‹ä»¶åˆ†å‘
+	 * ÏûÏ¢ÊÂ¼ş·Ö·¢
 	 */
 	private void dispatchMessage(){
 		logger.info("distributeMessage start");
@@ -164,7 +164,7 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * eventäº‹ä»¶åˆ†å‘
+	 * eventÊÂ¼ş·Ö·¢
 	 */
 	private void dispatchEvent() {
 		EventType event = EventType.valueOf(wechatRequest.getEvent());
@@ -225,14 +225,14 @@ public abstract class WechatSupport {
 	
 
 	/**
-	 * è¿”å›å“åº”æ•°æ®
+	 * ·µ»ØÏìÓ¦Êı¾İ
 	 * @return
 	 */
 	private String response(){
 		String result = null;
 		try {
 			JaxbParser jaxbParser = new JaxbParser(WechatResponse.class);
-			//è®¾ç½®
+			//ÉèÖÃ
 			jaxbParser.setCdataNode(WechatResponse.CDATA_TAG);
 			result = jaxbParser.toXML(wechatResponse);
 		} catch (Exception e) {
@@ -242,7 +242,7 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å“åº”æ•°æ®åŸºç¡€æ„é€ 
+	 * ÏìÓ¦Êı¾İ»ù´¡¹¹Ôì
 	 */
 	private void responseBase(){
 		wechatResponse.setToUserName(this.wechatRequest.getFromUserName());
@@ -251,8 +251,8 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤æ–‡æœ¬æ¶ˆæ¯
-	 * @param content å›å¤çš„æ¶ˆæ¯å†…å®¹ï¼ˆæ¢è¡Œï¼šåœ¨contentä¸­èƒ½å¤Ÿæ¢è¡Œï¼Œå¾®ä¿¡å®¢æˆ·ç«¯å°±æ”¯æŒæ¢è¡Œæ˜¾ç¤ºï¼‰
+	 * »Ø¸´ÎÄ±¾ÏûÏ¢
+	 * @param content »Ø¸´µÄÏûÏ¢ÄÚÈİ£¨»»ĞĞ£ºÔÚcontentÖĞÄÜ¹»»»ĞĞ£¬Î¢ĞÅ¿Í»§¶Ë¾ÍÖ§³Ö»»ĞĞÏÔÊ¾£©
 	 */
 	public void responseText(String content){
 		responseBase();
@@ -261,8 +261,8 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤å›¾ç‰‡æ¶ˆæ¯
-	 * @param mediaId é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
+	 * »Ø¸´Í¼Æ¬ÏûÏ¢
+	 * @param mediaId Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
 	 */
 	public void responseImage(String mediaId){
 		responseBase();
@@ -273,8 +273,8 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤è¯­éŸ³æ¶ˆæ¯
-	 * @param mediaId  é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
+	 * »Ø¸´ÓïÒôÏûÏ¢
+	 * @param mediaId  Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
 	 */
 	public void responseVoice(String mediaId){
 		responseBase();
@@ -285,10 +285,10 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤è§†é¢‘æ¶ˆæ¯
-	 * @param mediaId      é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	 * @param title        è§†é¢‘æ¶ˆæ¯çš„æ ‡é¢˜
-	 * @param description  è§†é¢‘æ¶ˆæ¯çš„æè¿°
+	 * »Ø¸´ÊÓÆµÏûÏ¢
+	 * @param mediaId      Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+	 * @param title        ÊÓÆµÏûÏ¢µÄ±êÌâ
+	 * @param description  ÊÓÆµÏûÏ¢µÄÃèÊö
 	 */
 	public void responseVideo(String mediaId,String title,String description){
 		VideoResponse video = new VideoResponse();
@@ -299,8 +299,8 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤è§†é¢‘æ¶ˆæ¯
-	 * @param video  è§†é¢‘æ¶ˆæ¯
+	 * »Ø¸´ÊÓÆµÏûÏ¢
+	 * @param video  ÊÓÆµÏûÏ¢
 	 */
 	public void responseVideo(VideoResponse video){
 		responseBase();
@@ -309,12 +309,12 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤éŸ³ä¹æ¶ˆæ¯
-	 * @param title         éŸ³ä¹æ ‡é¢˜
-	 * @param description   éŸ³ä¹æè¿°
-	 * @param musicURL      éŸ³ä¹é“¾æ¥
-	 * @param hQMusicUrl    é«˜è´¨é‡éŸ³ä¹é“¾æ¥ï¼ŒWIFIç¯å¢ƒä¼˜å…ˆä½¿ç”¨è¯¥é“¾æ¥æ’­æ”¾éŸ³ä¹
-	 * @param thumbMediaId  ç¼©ç•¥å›¾çš„åª’ä½“idï¼Œé€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
+	 * »Ø¸´ÒôÀÖÏûÏ¢
+	 * @param title         ÒôÀÖ±êÌâ
+	 * @param description   ÒôÀÖÃèÊö
+	 * @param musicURL      ÒôÀÖÁ´½Ó
+	 * @param hQMusicUrl    ¸ßÖÊÁ¿ÒôÀÖÁ´½Ó£¬WIFI»·¾³ÓÅÏÈÊ¹ÓÃ¸ÃÁ´½Ó²¥·ÅÒôÀÖ
+	 * @param thumbMediaId  ËõÂÔÍ¼µÄÃ½Ìåid£¬Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
 	 */
 	public void responseMusic(String title,String description,
 			String musicURL,String hQMusicUrl,String thumbMediaId){
@@ -328,8 +328,8 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤éŸ³ä¹æ¶ˆæ¯
-	 * @param music  éŸ³ä¹æ¶ˆæ¯
+	 * »Ø¸´ÒôÀÖÏûÏ¢
+	 * @param music  ÒôÀÖÏûÏ¢
 	 */
 	public void responseMusic(MusicResponse music){
 		responseBase();
@@ -338,11 +338,11 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯ï¼Œå•æ¡å›¾æ–‡æ¶ˆæ¯
-	 * @param title         å›¾æ–‡æ¶ˆæ¯æ ‡é¢˜
-	 * @param description   å›¾æ–‡æ¶ˆæ¯æè¿°
-	 * @param picUrl        å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾360*200ï¼Œå°å›¾200*200
-	 * @param url           ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
+	 * »Ø¸´Í¼ÎÄÏûÏ¢£¬µ¥ÌõÍ¼ÎÄÏûÏ¢
+	 * @param title         Í¼ÎÄÏûÏ¢±êÌâ
+	 * @param description   Í¼ÎÄÏûÏ¢ÃèÊö
+	 * @param picUrl        Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼360*200£¬Ğ¡Í¼200*200
+	 * @param url           µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
 	 */
 	public void responseNew(String title,String description,String picUrl,String url){
 		ArticleResponse item = new ArticleResponse();
@@ -354,7 +354,7 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯å•æ¡
+	 * »Ø¸´Í¼ÎÄÏûÏ¢µ¥Ìõ
 	 * @param item
 	 */
 	public void responseNews(ArticleResponse item){
@@ -364,7 +364,7 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯
+	 * »Ø¸´Í¼ÎÄÏûÏ¢
 	 * @param items
 	 */
 	public void responseNews(List<ArticleResponse> items){
@@ -376,15 +376,15 @@ public abstract class WechatSupport {
 	}
 	
 	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°å¤šå®¢æœ
+	 * ÏûÏ¢×ª·¢µ½¶à¿Í·ş
 	 */
 	public void responseCustomerService(){
 		responseBase();
 		wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
 	}
 	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°æŒ‡å®šå®¢æœ
-	 * @param kfAccount å®¢æœè´¦å·
+	 * ÏûÏ¢×ª·¢µ½Ö¸¶¨¿Í·ş
+	 * @param kfAccount ¿Í·şÕËºÅ
 	 */
 	public void responseCustomerService(String kfAccount){
 		responseBase();
@@ -393,8 +393,8 @@ public abstract class WechatSupport {
 		
 	}
 	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°æŒ‡å®šå®¢æœ
-	 * @param kfAccount å®¢æœ
+	 * ÏûÏ¢×ª·¢µ½Ö¸¶¨¿Í·ş
+	 * @param kfAccount ¿Í·ş
 	 */
 	public void responseCustomerService(TransInfoResponse transInfo){
 		responseBase();
@@ -405,101 +405,101 @@ public abstract class WechatSupport {
 	
 	
 	/**
-	 * æ–‡æœ¬æ¶ˆæ¯å¤„ç†Msgtype=text
+	 * ÎÄ±¾ÏûÏ¢´¦ÀíMsgtype=text
 	 */
     protected abstract void onText();
 	/**
-	 * å›¾åƒæ¶ˆæ¯Msgtype=image
+	 * Í¼ÏñÏûÏ¢Msgtype=image
 	 */
     protected abstract void onImage();
 	/**
-	 * è¯­éŸ³æ¶ˆæ¯ Msgtype=voice
+	 * ÓïÒôÏûÏ¢ Msgtype=voice
 	 */
     protected abstract void onVoice();
 	/**
-	 * è§†é¢‘ æ¶ˆæ¯Msgtype=video
+	 * ÊÓÆµ ÏûÏ¢Msgtype=video
 	 */
     protected abstract void onVideo();
     /**
-     * å°è§†é¢‘ æ¶ˆæ¯Msgtype=shortvideo
+     * Ğ¡ÊÓÆµ ÏûÏ¢Msgtype=shortvideo
      */
     protected abstract void onShortVideo();
 	/**
-	 * åœ°ç†ä½ç½®æ¶ˆæ¯Msgtype=location
+	 * µØÀíÎ»ÖÃÏûÏ¢Msgtype=location
 	 */
     protected abstract void onLocation();
 	/**
-	 * é“¾æ¥æ¶ˆæ¯Msgtype=link
+	 * Á´½ÓÏûÏ¢Msgtype=link
 	 */
     protected abstract void onLink();
 	/**
-	 * æœªçŸ¥æ¶ˆæ¯ç±»å‹çš„é”™è¯¯å¤„ç†é€»è¾‘ï¼Œä¸éœ€è¦å¤„ç†åˆ™ç©ºæ–¹æ³•å³å¯
+	 * Î´ÖªÏûÏ¢ÀàĞÍµÄ´íÎó´¦ÀíÂß¼­£¬²»ĞèÒª´¦ÀíÔò¿Õ·½·¨¼´¿É
 	 */
     protected abstract void onUnknown();
 	
 	
 	/**
-	 * clickç‚¹å‡»äº‹ä»¶å¤„ç†event=location
+	 * clickµã»÷ÊÂ¼ş´¦Àíevent=location
 	 */
 	protected abstract void click();
 	/**
-	 * subscribeå…³æ³¨äº‹ä»¶å¤„ç†
+	 * subscribe¹Ø×¢ÊÂ¼ş´¦Àí
 	 */
 	protected abstract void subscribe();
 	/**
-	 * unSubscribeå–æ¶ˆå…³æ³¨äº‹ä»¶å¤„ç†
+	 * unSubscribeÈ¡Ïû¹Ø×¢ÊÂ¼ş´¦Àí
 	 */
 	protected abstract void unSubscribe();
 	/**
-	 * scanäº‹ä»¶å¤„ç†
+	 * scanÊÂ¼ş´¦Àí
 	 */
 	protected abstract void scan();
 	/**
-	 * locationäº‹ä»¶å¤„ç†event=location
+	 * locationÊÂ¼ş´¦Àíevent=location
 	 */
 	protected abstract void location();
 	/**
-	 * view äº‹ä»¶å¤„ç†event=location
+	 * view ÊÂ¼ş´¦Àíevent=location
 	 */
 	protected abstract void view();
 	/**
-	 * æ¨¡æ¿æ¶ˆæ¯å‘é€å›è°ƒ
+	 * Ä£°åÏûÏ¢·¢ËÍ»Øµ÷
 	 */
 	protected abstract void templateMsgCallback();
 	/**
-	 * æ‰«ç æ¨äº‹ä»¶
+	 * É¨ÂëÍÆÊÂ¼ş
 	 */
 	protected abstract void scanCodePush();
 	/**
-	 * æ‰«ç æ¨äº‹ä»¶ä¸”å¼¹å‡ºâ€œæ¶ˆæ¯æ¥æ”¶ä¸­â€æç¤ºæ¡†çš„äº‹ä»¶
+	 * É¨ÂëÍÆÊÂ¼şÇÒµ¯³ö¡°ÏûÏ¢½ÓÊÕÖĞ¡±ÌáÊ¾¿òµÄÊÂ¼ş
 	 */
 	protected abstract void scanCodeWaitMsg();
 	/**
-	 * å¼¹å‡ºç³»ç»Ÿæ‹ç…§å‘å›¾çš„äº‹ä»¶
+	 * µ¯³öÏµÍ³ÅÄÕÕ·¢Í¼µÄÊÂ¼ş
 	 */
 	protected abstract void picSysPhoto();
 	/**
-	 * å¼¹å‡ºæ‹ç…§æˆ–è€…ç›¸å†Œå‘å›¾çš„äº‹ä»¶
+	 * µ¯³öÅÄÕÕ»òÕßÏà²á·¢Í¼µÄÊÂ¼ş
 	 */
 	protected abstract void picPhotoOrAlbum();
 	/**
-	 * æ‰«ç æ¨äº‹ä»¶ä¸”å¼¹å‡ºâ€œæ¶ˆæ¯æ¥æ”¶ä¸­â€æç¤ºæ¡†çš„äº‹ä»¶
+	 * É¨ÂëÍÆÊÂ¼şÇÒµ¯³ö¡°ÏûÏ¢½ÓÊÕÖĞ¡±ÌáÊ¾¿òµÄÊÂ¼ş
 	 */
 	protected abstract void picWeixin();
 	/**
-	 * å¼¹å‡ºåœ°ç†ä½ç½®é€‰æ‹©å™¨çš„äº‹ä»¶
+	 * µ¯³öµØÀíÎ»ÖÃÑ¡ÔñÆ÷µÄÊÂ¼ş
 	 */
 	protected abstract void locationSelect();
 	/**
-	 * å®¢æœäººå‘˜æœ‰æ¥å…¥ä¼šè¯
+	 * ¿Í·şÈËÔ±ÓĞ½ÓÈë»á»°
 	 */
 	protected abstract void kfCreateSession();
 	/**
-	 * å®¢æœäººå‘˜æœ‰å…³é—­ä¼šè¯
+	 * ¿Í·şÈËÔ±ÓĞ¹Ø±Õ»á»°
 	 */
 	protected abstract void kfCloseSession();
 	/**
-	 * å®¢æœäººå‘˜æœ‰è½¬æ¥ä¼šè¯
+	 * ¿Í·şÈËÔ±ÓĞ×ª½Ó»á»°
 	 */
 	protected abstract void kfSwitchSession();
 }

@@ -4,20 +4,20 @@
 package com.yuanxd.wx.wechat4j.event;
 
 /**
- * å¾®ä¿¡æ¶ˆæ¯ç±»å‹,å¤§å°å†™å¯¹åº”å¾®ä¿¡æ¥å£ï¼ŒmsgTypeçš„æšä¸¾å€¼
+ * Î¢ĞÅÏûÏ¢ÀàĞÍ,´óĞ¡Ğ´¶ÔÓ¦Î¢ĞÅ½Ó¿Ú£¬msgTypeµÄÃ¶¾ÙÖµ
  * @author ChengNing
  * @date   2014-12-4
  */
 public enum MsgType {
-	event,        //äº‹ä»¶
-	text,         //æ–‡æœ¬æ¶ˆæ¯
+	event,        //ÊÂ¼ş
+	text,         //ÎÄ±¾ÏûÏ¢
 	image,
 	location,
 	link,
 	voice,
 	video,
-	shortvideo,	  //å°è§†é¢‘æ¶ˆæ¯
+	shortvideo,	  //Ğ¡ÊÓÆµÏûÏ¢
 	music,
 	news,
-	transfer_customer_service;//å®¢æœç³»ç»Ÿ
+	transfer_customer_service;//¿Í·şÏµÍ³
 }

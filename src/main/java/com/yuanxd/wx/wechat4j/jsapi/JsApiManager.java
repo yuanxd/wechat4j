@@ -7,8 +7,8 @@ import com.yuanxd.wx.wechat4j.token.TokenProxy;
 import com.yuanxd.wx.wechat4j.util.RandomStringGenerator;
 
 /**
- * JS SDK ç®¡ç†ç±»
- * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html">å¼€å‘æ–‡æ¡£</a></p>
+ * JS SDK ¹ÜÀíÀà
+ * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html">¿ª·¢ÎÄµµ</a></p>
  * Created by xuwen on 2015-12-11.
  */
 public class JsApiManager {
@@ -16,7 +16,7 @@ public class JsApiManager {
     private static Logger logger = Logger.getLogger(JsApiManager.class);
 
     /**
-     * ç»™éœ€è¦è°ƒç”¨JS SDKçš„URLç­¾å
+     * ¸øĞèÒªµ÷ÓÃJS SDKµÄURLÇ©Ãû
      *
      * @param url
      * @return

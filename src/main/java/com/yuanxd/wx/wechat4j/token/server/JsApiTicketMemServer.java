@@ -7,9 +7,9 @@ import com.yuanxd.wx.wechat4j.token.Ticket;
 import com.yuanxd.wx.wechat4j.token.TicketType;
 
 /**
- * å†…å­˜æ§åˆ¶å•ä¾‹
+ * ÄÚ´æ¿ØÖÆµ¥Àı
  * @author ChengNing
- * @date   2015å¹´1æœˆ29æ—¥
+ * @date   2015Äê1ÔÂ29ÈÕ
  */
 public class JsApiTicketMemServer implements IServer{
 
@@ -17,19 +17,19 @@ public class JsApiTicketMemServer implements IServer{
 	
 	private Ticket jsApiTicket = new Ticket(TicketType.jsapi);
 	
-	private int requestTimes = 1;//tokenè¯·æ±‚å¤±è´¥åé‡æ–°è¯·æ±‚çš„æ¬¡æ•°
+	private int requestTimes = 1;//tokenÇëÇóÊ§°ÜºóÖØĞÂÇëÇóµÄ´ÎÊı
 	
 	/**
-	 * ç§æœ‰æ„é€ 
+	 * Ë½ÓĞ¹¹Ôì
 	 */
 	private JsApiTicketMemServer(){
-		//è·å–æ–°çš„token
+		//»ñÈ¡ĞÂµÄtoken
 		refresh();
 	}
 	
 	/**
-	 * tokenä¸­æ§æœåŠ¡å™¨å®ä¾‹
-	 * @return ticketæœåŠ¡å™¨å®ä¾‹
+	 * tokenÖĞ¿Ø·şÎñÆ÷ÊµÀı
+	 * @return ticket·şÎñÆ÷ÊµÀı
 	 */
 	public static JsApiTicketMemServer instance(){
 		return ticketServer;
@@ -37,11 +37,11 @@ public class JsApiTicketMemServer implements IServer{
 	
 	
 	/**
-	 * é€šè¿‡ä¸­æ§æœåŠ¡å™¨å¾—åˆ°accessToken
+	 * Í¨¹ıÖĞ¿Ø·şÎñÆ÷µÃµ½accessToken
 	 * @return
 	 */
 	public String token(){
-		//æ²¡æœ‰å¯ç”¨çš„tokenï¼Œåˆ™å»åˆ·æ–°
+		//Ã»ÓĞ¿ÉÓÃµÄtoken£¬ÔòÈ¥Ë¢ĞÂ
 		if(!this.jsApiTicket.isValid()){
 			refresh();
 		}
@@ -49,11 +49,11 @@ public class JsApiTicketMemServer implements IServer{
 	}
 	
 	/**
-	 * æœåŠ¡å™¨åˆ·æ–°token
+	 * ·şÎñÆ÷Ë¢ĞÂtoken
 	 */
 	private void refresh(){
 		for(int i=0;i<requestTimes;i++){
-			//è¯·æ±‚æˆåŠŸåˆ™é€€å‡º
+			//ÇëÇó³É¹¦ÔòÍË³ö
 			if(this.jsApiTicket.request())
 				break;
 		}

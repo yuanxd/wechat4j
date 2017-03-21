@@ -5,17 +5,17 @@ import java.util.List;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.yuanxd.wx.wechat4j.event.EventType;
 /**
- * èœå•æŒ‰é’®
+ * ²Ëµ¥°´Å¥
  * @author Zhangxs
  * @version 2015-7-4
  */
 public class MenuButton {
-	private EventType type;//èœå•çš„å“åº”åŠ¨ä½œç±»å‹
-	private String name;//èœå•æ ‡é¢˜ï¼Œä¸è¶…è¿‡16ä¸ªå­—èŠ‚ï¼Œå­èœå•ä¸è¶…è¿‡40ä¸ªå­—èŠ‚
-	private String key;//clickç­‰ç‚¹å‡»ç±»å‹å¿…é¡»	èœå•KEYå€¼ï¼Œç”¨äºæ¶ˆæ¯æ¥å£æ¨é€ï¼Œä¸è¶…è¿‡128å­—èŠ‚
-	private String url;//viewç±»å‹å¿…é¡»	ç½‘é¡µé“¾æ¥ï¼Œç”¨æˆ·ç‚¹å‡»èœå•å¯æ‰“å¼€é“¾æ¥ï¼Œä¸è¶…è¿‡256å­—èŠ‚
-	private String mediaId;//media_idç±»å‹å’Œview_limitedç±»å‹å¿…é¡»	è°ƒç”¨æ–°å¢æ°¸ä¹…ç´ ææ¥å£è¿”å›çš„åˆæ³•media_id
-	private List<MenuButton> subButton;//å­èœå•,æ¯ä¸ªä¸€çº§èœå•æœ€å¤šåŒ…å«5ä¸ªäºŒçº§èœå•
+	private EventType type;//²Ëµ¥µÄÏìÓ¦¶¯×÷ÀàĞÍ
+	private String name;//²Ëµ¥±êÌâ£¬²»³¬¹ı16¸ö×Ö½Ú£¬×Ó²Ëµ¥²»³¬¹ı40¸ö×Ö½Ú
+	private String key;//clickµÈµã»÷ÀàĞÍ±ØĞë	²Ëµ¥KEYÖµ£¬ÓÃÓÚÏûÏ¢½Ó¿ÚÍÆËÍ£¬²»³¬¹ı128×Ö½Ú
+	private String url;//viewÀàĞÍ±ØĞë	ÍøÒ³Á´½Ó£¬ÓÃ»§µã»÷²Ëµ¥¿É´ò¿ªÁ´½Ó£¬²»³¬¹ı256×Ö½Ú
+	private String mediaId;//media_idÀàĞÍºÍview_limitedÀàĞÍ±ØĞë	µ÷ÓÃĞÂÔöÓÀ¾ÃËØ²Ä½Ó¿Ú·µ»ØµÄºÏ·¨media_id
+	private List<MenuButton> subButton;//×Ó²Ëµ¥,Ã¿¸öÒ»¼¶²Ëµ¥×î¶à°üº¬5¸ö¶ş¼¶²Ëµ¥
 	
 	public EventType getType() {
 		return type;

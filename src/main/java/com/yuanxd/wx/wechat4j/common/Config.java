@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ8æ—¥
+ * @date   2014Äê12ÔÂ8ÈÕ
  */
 public class Config {
 	
@@ -35,7 +35,7 @@ public class Config {
 		Properties p = new Properties();
 		InputStream inStream = this.getClass().getResourceAsStream(configFile);
 		if(inStream == null){
-			logger.error("æ ¹ç›®å½•ä¸‹æ‰¾ä¸åˆ°wechat4j.propertiesæ–‡ä»¶");
+			logger.error("¸ùÄ¿Â¼ÏÂÕÒ²»µ½wechat4j.propertiesÎÄ¼ş");
 			return;
 		}
 		try {
@@ -60,7 +60,7 @@ public class Config {
             if(StringUtils.isNotBlank(jsApiTicketServer))this.jsApiTicketServer = this.jsApiTicketServer.trim();
 			inStream.close();
 		} catch (IOException e) {
-			logger.error("load wechat4j.properties error,classæ ¹ç›®å½•ä¸‹æ‰¾ä¸åˆ°wechat4j.propertiesæ–‡ä»¶");
+			logger.error("load wechat4j.properties error,class¸ùÄ¿Â¼ÏÂÕÒ²»µ½wechat4j.propertiesÎÄ¼ş");
 			e.printStackTrace();
 		}
 		logger.info("load wechat4j.properties success");

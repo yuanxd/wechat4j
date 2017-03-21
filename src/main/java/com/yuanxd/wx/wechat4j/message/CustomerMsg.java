@@ -1,5 +1,5 @@
 /**
- * httpè¯·æ±‚æ–¹å¼: POST
+ * httpÇëÇó·½Ê½: POST
  * https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN
  */
 package com.yuanxd.wx.wechat4j.message;
@@ -20,9 +20,9 @@ import com.yuanxd.wx.wechat4j.response.VideoResponse;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 
 /**
- * å‘é€å®¢æœæ¶ˆæ¯
+ * ·¢ËÍ¿Í·şÏûÏ¢
  * @author ChengNing
- * @date   2014å¹´12æœˆ11æ—¥
+ * @date   2014Äê12ÔÂ11ÈÕ
  */
 public class CustomerMsg {
 	private static Logger logger = Logger.getLogger(CustomerMsg.class);
@@ -32,13 +32,13 @@ public class CustomerMsg {
 //	private String accessToken;
 	private String toUserOpenId;
 	private String msgType;   //msgtype
-	private String msgBody;   //å‘é€çš„æ¶ˆæ¯postæ•°æ®
+	private String msgBody;   //·¢ËÍµÄÏûÏ¢postÊı¾İ
 	
 	
 	/**
-	 * éœ€è¦ä¸»åŠ¨å»åˆ·æ–°access_token,ä¸å»ºè®®ä½¿ç”¨
-	 * å»ºè®®è‡ªå·±å»è·å–access_tokenä¿å­˜ï¼Œå¹¶å®šæ—¶åˆ·æ–°ã€‚
-	 * ç„¶åä½¿ç”¨SendMsg(String toUserOpenId,String accessToken)æ¥æ›¿ä»£æœ¬æ–¹æ³•
+	 * ĞèÒªÖ÷¶¯È¥Ë¢ĞÂaccess_token,²»½¨ÒéÊ¹ÓÃ
+	 * ½¨Òé×Ô¼ºÈ¥»ñÈ¡access_token±£´æ£¬²¢¶¨Ê±Ë¢ĞÂ¡£
+	 * È»ºóÊ¹ÓÃSendMsg(String toUserOpenId,String accessToken)À´Ìæ´ú±¾·½·¨
 	 * @param toUserOpenId
 	 */
 	public CustomerMsg(String toUserOpenId){
@@ -51,19 +51,19 @@ public class CustomerMsg {
 //	}
 
 	/**
-	 * å‘é€å®¢æœæ¶ˆæ¯
+	 * ·¢ËÍ¿Í·şÏûÏ¢
 	 * @param msgBody
 	 */
 	private void send(){
 		String accessToken = TokenProxy.accessToken();
 		if(StringUtils.isBlank(this.toUserOpenId))
 			return;
-		//tokenä¸å­˜åœ¨åˆ™é‡æ–°åˆ·æ–°token
+		//token²»´æÔÚÔòÖØĞÂË¢ĞÂtoken
 		if(StringUtils.isBlank(accessToken)){
-			logger.error("å‘é€å¤±è´¥ï¼Œæ— æ³•å¾—åˆ°accessToken");
+			logger.error("·¢ËÍÊ§°Ü£¬ÎŞ·¨µÃµ½accessToken");
 			return;
 		}
-		//éœ€è¦åˆ¤æ–­ä¸€ä¸‹ï¼Œé˜²æ­¢ä¸Šé¢åˆ·æ–°tokenå¤±è´¥
+		//ĞèÒªÅĞ¶ÏÒ»ÏÂ£¬·ÀÖ¹ÉÏÃæË¢ĞÂtokenÊ§°Ü
 		if(StringUtils.isNotBlank(accessToken)){
 			String url = MSG_URL + accessToken;
 			HttpUtils.post(url, msgBody);
@@ -97,7 +97,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€å›¾ç‰‡æ¶ˆæ¯
+	 * ·¢ËÍÍ¼Æ¬ÏûÏ¢
 	 * {
     "touser":"OPENID",
     "msgtype":"image",
@@ -125,7 +125,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€è¯­éŸ³æ¶ˆæ¯
+	 * ·¢ËÍÓïÒôÏûÏ¢
 	 * 
 	 * {
     "touser":"OPENID",
@@ -152,7 +152,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€è§†é¢‘æ¶ˆæ¯
+	 * ·¢ËÍÊÓÆµÏûÏ¢
 	 * 
 	 * 
 	 * @param title
@@ -170,7 +170,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€è§†é¢‘æ¶ˆæ¯
+	 * ·¢ËÍÊÓÆµÏûÏ¢
 	 * {
     "touser":"OPENID",
     "msgtype":"video",
@@ -203,7 +203,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€éŸ³ä¹æ¶ˆæ¯
+	 * ·¢ËÍÒôÀÖÏûÏ¢
 	 * @param title
 	 * @param description
 	 * @param musicURL
@@ -221,7 +221,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€éŸ³ä¹æ¶ˆæ¯
+	 * ·¢ËÍÒôÀÖÏûÏ¢
 	 * {
     "touser":"OPENID",
     "msgtype":"music",
@@ -234,7 +234,7 @@ public class CustomerMsg {
       "thumb_media_id":"THUMB_MEDIA_ID" 
     }
 }
-	 * @param music  éŸ³ä¹æ¶ˆæ¯
+	 * @param music  ÒôÀÖÏûÏ¢
 	 */
 	public void sendMusic(MusicResponse music){
 		this.msgType = MsgType.music.name();
@@ -256,11 +256,11 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€å›¾æ–‡æ¶ˆæ¯ï¼Œå•æ¡å›¾æ–‡æ¶ˆæ¯
-	 * @param Title         å›¾æ–‡æ¶ˆæ¯æ ‡é¢˜
-	 * @param Description   å›¾æ–‡æ¶ˆæ¯æè¿°
-	 * @param PicUrl        å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾360*200ï¼Œå°å›¾200*200
-	 * @param Url           ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
+	 * ·¢ËÍÍ¼ÎÄÏûÏ¢£¬µ¥ÌõÍ¼ÎÄÏûÏ¢
+	 * @param Title         Í¼ÎÄÏûÏ¢±êÌâ
+	 * @param Description   Í¼ÎÄÏûÏ¢ÃèÊö
+	 * @param PicUrl        Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼360*200£¬Ğ¡Í¼200*200
+	 * @param Url           µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
 	 */
 	public void sendNew(String title,String description,String picUrl,String url){
 		ArticleResponse item = new ArticleResponse();
@@ -272,7 +272,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€å›¾æ–‡æ¶ˆæ¯ï¼Œå•æ¡å›¾æ–‡æ¶ˆæ¯
+	 * ·¢ËÍÍ¼ÎÄÏûÏ¢£¬µ¥ÌõÍ¼ÎÄÏûÏ¢
 	 * @param item
 	 */
 	public void sendNews(ArticleResponse item){
@@ -282,7 +282,7 @@ public class CustomerMsg {
 	}
 	
 	/**
-	 * å‘é€å›¾æ–‡æ¶ˆæ¯
+	 * ·¢ËÍÍ¼ÎÄÏûÏ¢
 	 * {
     "touser":"OPENID",
     "msgtype":"news",

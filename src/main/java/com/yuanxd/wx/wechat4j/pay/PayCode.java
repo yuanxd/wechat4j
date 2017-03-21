@@ -1,8 +1,8 @@
 package com.yuanxd.wx.wechat4j.pay;
 
 /**
- * æ”¯ä»˜çš„ç»“æœ
- * å¯¹åº”ä»¥ä¸‹2é¡¹è¿”å›æ•°æ®
+ * Ö§¸¶µÄ½á¹û
+ * ¶ÔÓ¦ÒÔÏÂ2Ïî·µ»ØÊı¾İ
  * return_code
  * result_code
  * <p/>

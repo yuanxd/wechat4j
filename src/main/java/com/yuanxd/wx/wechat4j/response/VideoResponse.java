@@ -6,15 +6,15 @@ package com.yuanxd.wx.wechat4j.response;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
- * è§†é¢‘æ¶ˆæ¯
+ * ÊÓÆµÏûÏ¢
  * @author ChengNing
- * @date   2014å¹´12æœˆ7æ—¥
+ * @date   2014Äê12ÔÂ7ÈÕ
  */
 public class VideoResponse {
 
-	private String MediaId;     //é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	private String Title;       //è§†é¢‘æ¶ˆæ¯çš„æ ‡é¢˜
-	private String Description; //è§†é¢‘æ¶ˆæ¯çš„æè¿°
+	private String MediaId;     //Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+	private String Title;       //ÊÓÆµÏûÏ¢µÄ±êÌâ
+	private String Description; //ÊÓÆµÏûÏ¢µÄÃèÊö
 	private String ThumbMediaId;
 
 	@XmlElement(name="MediaId")

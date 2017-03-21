@@ -14,14 +14,13 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 
-
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ7æ—¥
+ * @date   2014Äê12ÔÂ7ÈÕ
  */
 public class JaxbParser {
 	
@@ -39,7 +38,7 @@ public class JaxbParser {
 	}
 	
 	/**
-	 * è®¾ç½®éœ€è¦åŒ…å«CDATAçš„èŠ‚ç‚¹
+	 * ÉèÖÃĞèÒª°üº¬CDATAµÄ½Úµã
 	 * @param cdataNode
 	 */
 	public void setCdataNode(String[] cdataNode) {
@@ -47,7 +46,7 @@ public class JaxbParser {
 	}
 
 	/**
-	 * è½¬ä¸ºxmlä¸²
+	 * ×ªÎªxml´®
 	 * @param obj
 	 * @return
 	 */
@@ -58,7 +57,7 @@ public class JaxbParser {
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.setProperty(Marshaller.JAXB_FRAGMENT, true);// å»æ‰æŠ¥æ–‡å¤´
+			m.setProperty(Marshaller.JAXB_FRAGMENT, true);// È¥µô±¨ÎÄÍ·
 		    OutputStream os = new ByteOutputStream();
 			StringWriter writer = new StringWriter();
 			XMLSerializer serializer = getXMLSerializer(os);
@@ -73,7 +72,7 @@ public class JaxbParser {
 	
 
 	/**
-	 * è½¬ä¸ºå¯¹è±¡
+	 * ×ªÎª¶ÔÏó
 	 * @param is
 	 * @return
 	 */
@@ -92,7 +91,7 @@ public class JaxbParser {
 	}
 	
 	/**
-	 * XMLè½¬ä¸ºå¯¹è±¡
+	 * XML×ªÎª¶ÔÏó
 	 * @param xmlStr
 	 * @return
 	 */
@@ -102,7 +101,7 @@ public class JaxbParser {
 	}
 	
 	/**
-	 * è®¾ç½®å±æ€§
+	 * ÉèÖÃÊôĞÔ
 	 * @param os
 	 * @return
 	 */
@@ -119,7 +118,7 @@ public class JaxbParser {
     }
 	
 	/**
-	 * é€‚é…cdata tag
+	 * ÊÊÅäcdata tag
 	 */
 	private void formatCDataTag(){
 		for(int i=0;i<cdataNode.length;i++){

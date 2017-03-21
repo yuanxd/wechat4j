@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.oauth.protocol.get_access_token;
 
 /**
- * 鍝嶅簲锛氶�氳繃code鎹㈠彇缃戦〉鎺堟潈access_token
+ * 响应：通过code换取网页授权access_token
  * Created by xuwen on 2015-12-11.
  */
 public class GetAccessTokenResponse {

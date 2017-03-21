@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.oauth.protocol.valid_access_token;
 
 /**
- * å“åº”ï¼šæ£€éªŒæˆæƒå‡­è¯ï¼ˆaccess_tokenï¼‰æ˜¯å¦æœ‰æ•ˆ
+ * ÏìÓ¦£º¼ìÑéÊÚÈ¨Æ¾Ö¤£¨access_token£©ÊÇ·ñÓĞĞ§
  * Created by xuwen on 2015-12-11.
  */
 public class ValidAccessTokenResponse {

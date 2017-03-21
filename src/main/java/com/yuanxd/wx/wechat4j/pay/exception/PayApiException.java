@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.yuanxd.wx.wechat4j.pay.PayCode;
 
 /**
- * 鏀粯API璋冪敤寮傚父
+ * 支付API调用异常
  * return_code=FAIL
  * <p/>
  * Created by xuwen on 2015-12-11.

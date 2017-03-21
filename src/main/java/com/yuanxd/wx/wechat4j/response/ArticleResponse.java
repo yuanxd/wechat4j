@@ -6,16 +6,16 @@ package com.yuanxd.wx.wechat4j.response;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
- * å›¾æ–‡æ¶ˆæ¯ä½“
+ * Í¼ÎÄÏûÏ¢Ìå
  * @author ChengNing
- * @date   2014å¹´12æœˆ7æ—¥
+ * @date   2014Äê12ÔÂ7ÈÕ
  */
 public class ArticleResponse {
 
-	private String Title;        //å›¾æ–‡æ¶ˆæ¯æ ‡é¢˜
-	private String Description;  //å›¾æ–‡æ¶ˆæ¯æè¿°
-	private String PicUrl;       //å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾360*200ï¼Œå°å›¾200*200
-	private String Url;          //ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
+	private String Title;        //Í¼ÎÄÏûÏ¢±êÌâ
+	private String Description;  //Í¼ÎÄÏûÏ¢ÃèÊö
+	private String PicUrl;       //Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼360*200£¬Ğ¡Í¼200*200
+	private String Url;          //µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
 	
 	@XmlElement(name="Title")
 	public String getTitle() {

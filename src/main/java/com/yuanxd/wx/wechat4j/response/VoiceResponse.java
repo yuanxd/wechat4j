@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ7æ—¥
+ * @date   2014Äê12ÔÂ7ÈÕ
  */
 public class VoiceResponse {
 

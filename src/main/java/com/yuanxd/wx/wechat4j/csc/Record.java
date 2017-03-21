@@ -1,18 +1,18 @@
 package com.yuanxd.wx.wechat4j.csc;
 
 /**
- * èŠå¤©è®°å½•
+ * ÁÄÌì¼ÇÂ¼
  * @author Zhangxs
  * @date 2015-7-7
  * @version
  */
 public class Record {
 
-	private String openid;//ç”¨æˆ·çš„æ ‡è¯†
-	private int opercode;//æ“ä½œID(ä¼šè¯çŠ¶æ€)
-    private String text;//èŠå¤©è®°å½•
-    private int time;//æ“ä½œæ—¶é—´ï¼ŒUNIXæ—¶é—´æˆ³
-    private String worker;//å®¢æœè´¦å·
+	private String openid;//ÓÃ»§µÄ±êÊ¶
+	private int opercode;//²Ù×÷ID(»á»°×´Ì¬)
+    private String text;//ÁÄÌì¼ÇÂ¼
+    private int time;//²Ù×÷Ê±¼ä£¬UNIXÊ±¼ä´Á
+    private String worker;//¿Í·şÕËºÅ
     
     public Record() {
     	super();
@@ -28,7 +28,7 @@ public class Record {
 	}
 	
 	/**
-	 * ç”¨æˆ·çš„æ ‡è¯†
+	 * ÓÃ»§µÄ±êÊ¶
 	 * @return
 	 */
 	public String getOpenid() {
@@ -38,7 +38,7 @@ public class Record {
 		this.openid = openid;
 	}
 	/**
-	 * æ“ä½œID(ä¼šè¯çŠ¶æ€)
+	 * ²Ù×÷ID(»á»°×´Ì¬)
 	 * @see RecordOperCode#getSessionState(int)
 	 */
 	public int getOpercode() {
@@ -48,7 +48,7 @@ public class Record {
 		this.opercode = opercode;
 	}
 	/**
-	 * èŠå¤©è®°å½•
+	 * ÁÄÌì¼ÇÂ¼
 	 * @return
 	 */
 	public String getText() {
@@ -58,7 +58,7 @@ public class Record {
 		this.text = text;
 	}
 	/**
-	 * æ“ä½œæ—¶é—´,UNIXæ—¶é—´æˆ³
+	 * ²Ù×÷Ê±¼ä,UNIXÊ±¼ä´Á
 	 * @return
 	 */
 	public int getTime() {
@@ -68,7 +68,7 @@ public class Record {
 		this.time = time;
 	}
 	/**
-	 * å®¢æœè´¦å·
+	 * ¿Í·şÕËºÅ
 	 * @return
 	 */
 	public String getWorker() {

@@ -2,13 +2,13 @@ package com.yuanxd.wx.wechat4j.user;
 
 import java.util.List;
 /**
- * å…³æ³¨è€…åˆ—è¡¨
+ * ¹Ø×¢ÕßÁÐ±í
  * @author Zhangxs
  * @version 2015-7-5
  */
 public class Data {
 	/**
-	 * ç”¨æˆ·åˆ—è¡¨
+	 * ÓÃ»§ÁÐ±í
 	 */
 	private List<String> openid;
 

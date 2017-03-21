@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.oauth.protocol.get_userinfo;
 
 /**
- * è¯·æ±‚ï¼šæ‹‰å–ç”¨æˆ·ä¿¡æ¯(éœ€scopeä¸º snsapi_userinfo)
+ * ÇëÇó£ºÀ­È¡ÓÃ»§ĞÅÏ¢(ĞèscopeÎª snsapi_userinfo)
  * Created by xuwen on 2015-12-11.
  */
 public class GetUserinfoRequest {

@@ -3,7 +3,7 @@ package com.yuanxd.wx.wechat4j.oauth.protocol.get_userinfo;
 import java.util.Arrays;
 
 /**
- * å“åº”ï¼šæ‹‰å–ç”¨æˆ·ä¿¡æ¯(éœ€scopeä¸º snsapi_userinfo)
+ * ÏìÓ¦£ºÀ­È¡ÓÃ»§ĞÅÏ¢(ĞèscopeÎª snsapi_userinfo)
  * Created by xuwen on 2015-12-11.
  */
 public class GetUserinfoResponse {

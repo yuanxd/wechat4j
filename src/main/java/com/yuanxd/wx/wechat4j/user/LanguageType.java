@@ -1,15 +1,15 @@
 package com.yuanxd.wx.wechat4j.user;
 /**
- * è¯­è¨€ç§ç±»
+ * ÓïÑÔÖÖÀà
  * @author Zhangxs
  * @version 2015-7-5
  */
 public enum LanguageType {
-	/** ç®€ä½“ */
+	/** ¼òÌå */
 	zh_CN,
-	/** ç¹ä½“ */
+	/** ·±Ìå */
 	zh_TW,
-	/** è‹±è¯­ */
+	/** Ó¢Óï */
 	en;
 
 }

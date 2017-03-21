@@ -3,7 +3,7 @@ package com.yuanxd.wx.wechat4j.csc;
 import java.util.HashMap;
 import java.util.Map;
 /**
- * æ“ä½œID(ä¼šè¯çŠ¶æ€)è¯´æ˜
+ * ²Ù×÷ID(»á»°×´Ì¬)ËµÃ÷
  * @author Zhangxs
  * @date 2015-7-8 
  * @version
@@ -12,17 +12,17 @@ public class RecordOperCode {
     private final static Map<Integer, String> operCodeMap = new HashMap<Integer, String>();
 
 	static {
-		 operCodeMap.put(1000,"åˆ›å»ºæœªæ¥å…¥ä¼šè¯");
-		 operCodeMap.put(1001,"æ¥å…¥ä¼šè¯");
-		 operCodeMap.put(1002,"ä¸»åŠ¨å‘èµ·ä¼šè¯");
-		 operCodeMap.put(1004,"å…³é—­ä¼šè¯");
-		 operCodeMap.put(1005,"æŠ¢æ¥ä¼šè¯");
-		 operCodeMap.put(2001,"å…¬ä¼—å·æ”¶åˆ°æ¶ˆæ¯");
-		 operCodeMap.put(2002,"å®¢æœå‘é€æ¶ˆæ¯");
-		 operCodeMap.put(2003,"å®¢æœæ”¶åˆ°æ¶ˆæ¯");
+		 operCodeMap.put(1000,"´´½¨Î´½ÓÈë»á»°");
+		 operCodeMap.put(1001,"½ÓÈë»á»°");
+		 operCodeMap.put(1002,"Ö÷¶¯·¢Æğ»á»°");
+		 operCodeMap.put(1004,"¹Ø±Õ»á»°");
+		 operCodeMap.put(1005,"ÇÀ½Ó»á»°");
+		 operCodeMap.put(2001,"¹«ÖÚºÅÊÕµ½ÏûÏ¢");
+		 operCodeMap.put(2002,"¿Í·ş·¢ËÍÏûÏ¢");
+		 operCodeMap.put(2003,"¿Í·şÊÕµ½ÏûÏ¢");
 	}
 	/**
-	 * æ ¹æ®opercodeè¿”å›ä¼šè¯çŠ¶æ€
+	 * ¸ù¾İopercode·µ»Ø»á»°×´Ì¬
 	 * @param opercode
 	 * @return
 	 */

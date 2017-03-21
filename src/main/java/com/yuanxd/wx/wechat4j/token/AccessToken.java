@@ -10,9 +10,9 @@ import com.yuanxd.wx.wechat4j.common.Config;
 
 
 /**
- * Access tokenå®ä½“æ¨¡å‹
+ * Access tokenÊµÌåÄ£ĞÍ
  * @author ChengNing
- * @date   2014å¹´12æœˆ12æ—¥
+ * @date   2014Äê12ÔÂ12ÈÕ
  */
 public class AccessToken extends Token {
 	
@@ -31,14 +31,14 @@ public class AccessToken extends Token {
 	}
 
 	/**
-	 * ç»„ç»‡accesstokençš„è¯·æ±‚utl
+	 * ×éÖ¯accesstokenµÄÇëÇóutl
 	 */
 	@Override
 	protected String accessTokenUrl() {
 		String appid = Config.instance().getAppid();
 		String appsecret = Config.instance().getAppSecret();
 		String url = ACCESS_TOKEN_URL + "&appid=" + appid + "&secret=" + appsecret;
-		logger.info("åˆ›å»ºè·å–access_token url");
+		logger.info("´´½¨»ñÈ¡access_token url");
 		return url;
 	}
 	

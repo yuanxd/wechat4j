@@ -6,9 +6,9 @@ package com.yuanxd.wx.wechat4j.token.server;
 
 
 /**
- * accessTokenä¸­æ§æœåŠ¡å™¨
+ * accessTokenÖĞ¿Ø·şÎñÆ÷
  * @author ChengNing
- * @date   2015å¹´1æœˆ9æ—¥
+ * @date   2015Äê1ÔÂ9ÈÕ
  */
 public interface TokenServer {
 	

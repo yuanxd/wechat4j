@@ -3,7 +3,7 @@ package com.yuanxd.wx.wechat4j.oauth.protocol.get_access_token;
 import com.yuanxd.wx.wechat4j.common.Config;
 
 /**
- * 璇锋眰锛氶�氳繃code鎹㈠彇缃戦〉鎺堟潈access_token
+ * 请求：通过code换取网页授权access_token
  * Created by xuwen on 2015-12-11.
  */
 public class GetAccessTokenRequest {

@@ -20,7 +20,7 @@ import org.apache.log4j.Logger;
 /**
  * 
  * @author chengn
- * @date 2014å¹´12æœˆ12æ—¥
+ * @date 2014Äê12ÔÂ12ÈÕ
  */
 public class HttpUtils {
 	private static Logger logger = Logger.getLogger(HttpUtils.class);
@@ -28,7 +28,7 @@ public class HttpUtils {
 	public static final int timeout = 10;
 
 	/**
-	 * post è¯·æ±‚
+	 * post ÇëÇó
 	 * 
 	 * @param url
 	 * @return
@@ -38,7 +38,7 @@ public class HttpUtils {
 	}
 	
 	/**
-	 * postè¯·æ±‚
+	 * postÇëÇó
 	 * @param url
 	 * @param data
 	 * @return
@@ -48,9 +48,9 @@ public class HttpUtils {
 	}
 	
 	/**
-	 * å‘é€http postè¯·æ±‚
+	 * ·¢ËÍhttp postÇëÇó
 	 * @param url       url
-	 * @param instream  postæ•°æ®çš„å­—èŠ‚æµ
+	 * @param instream  postÊı¾İµÄ×Ö½ÚÁ÷
 	 * @return
 	 */
 	public static String post(String url, InputStream instream){
@@ -60,14 +60,14 @@ public class HttpUtils {
 					.execute().returnResponse().getEntity();
 			return entity != null ? EntityUtils.toString(entity) : null;
 		} catch (Exception e) {
-			logger.error("postè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n post url:" + url);
+			logger.error("postÇëÇóÒì³££¬" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
 	/**
-	 * getè¯·æ±‚
+	 * getÇëÇó
 	 * @param url
 	 * @return
 	 */
@@ -76,7 +76,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * post è¯·æ±‚
+	 * post ÇëÇó
 	 * 
 	 * @param url
 	 * @param data
@@ -89,16 +89,16 @@ public class HttpUtils {
 					.execute().returnResponse().getEntity();
 			return entity != null ? EntityUtils.toString(entity) : null;
 		} catch (Exception e) {
-			logger.error("postè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n post url:" + url);
+			logger.error("postÇëÇóÒì³££¬" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
 	/**
-	 * ä¸Šä¼ æ–‡ä»¶
+	 * ÉÏ´«ÎÄ¼ş
 	 * @param url    URL
-	 * @param file   éœ€è¦ä¸Šä¼ çš„æ–‡ä»¶
+	 * @param file   ĞèÒªÉÏ´«µÄÎÄ¼ş
 	 * @return
 	 */
 	public static String postFile(String url,File file){
@@ -106,10 +106,10 @@ public class HttpUtils {
 	}
 	
 	/**
-	 * ä¸Šä¼ æ–‡ä»¶
+	 * ÉÏ´«ÎÄ¼ş
 	 * @param url    URL
-	 * @param name   æ–‡ä»¶çš„postå‚æ•°åç§°
-	 * @param file   ä¸Šä¼ çš„æ–‡ä»¶
+	 * @param name   ÎÄ¼şµÄpost²ÎÊıÃû³Æ
+	 * @param file   ÉÏ´«µÄÎÄ¼ş
 	 * @return
 	 */
 	public static String postFile(String url,String name,File file){
@@ -120,7 +120,7 @@ public class HttpUtils {
 			HttpEntity resEntity = request.execute().returnResponse().getEntity();
 			return resEntity != null ? EntityUtils.toString(resEntity) : null;
 		} catch (Exception e) {
-			logger.error("postFileè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n post url:" + url);
+			logger.error("postFileÇëÇóÒì³££¬" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
 		}
 		return null;
@@ -128,9 +128,9 @@ public class HttpUtils {
 	
 	
 	/**
-	 * ä¸‹è½½æ–‡ä»¶
+	 * ÏÂÔØÎÄ¼ş
 	 * @param url   URL
-	 * @return      æ–‡ä»¶çš„äºŒè¿›åˆ¶æµï¼Œå®¢æˆ·ç«¯ä½¿ç”¨outputStreamè¾“å‡ºä¸ºæ–‡ä»¶
+	 * @return      ÎÄ¼şµÄ¶ş½øÖÆÁ÷£¬¿Í»§¶ËÊ¹ÓÃoutputStreamÊä³öÎªÎÄ¼ş
 	 */
 	public static byte[] getFile(String url){
 		try {
@@ -138,14 +138,14 @@ public class HttpUtils {
 			HttpEntity resEntity = request.execute().returnResponse().getEntity();
 			return EntityUtils.toByteArray(resEntity);
 		} catch (Exception e) {
-			logger.error("postFileè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n post url:" + url);
+			logger.error("postFileÇëÇóÒì³££¬" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	/**
-	 * å‘é€getè¯·æ±‚
+	 * ·¢ËÍgetÇëÇó
 	 * 
 	 * @param url
 	 * @return
@@ -156,7 +156,7 @@ public class HttpUtils {
 					execute().returnResponse().getEntity();
 			return entity != null ? EntityUtils.toString(entity) : null;
 		} catch (Exception e) {
-			logger.error("getè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n get url:" + url);
+			logger.error("getÇëÇóÒì³££¬" + e.getMessage() + "\n get url:" + url);
 			e.printStackTrace();
 		}
 		return null;

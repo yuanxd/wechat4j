@@ -1,29 +1,29 @@
 package com.yuanxd.wx.wechat4j.menu;
 
 /**
- * 菜单按钮类型
+ * �˵���ť����
  * @author Zhangxs
  * @version 2015-7-4
  */
 public enum MenuButtonType {
-	/** 点击  */
+	/** ���  */
 	click,
-	/** 跳转URL */
+	/** ��תURL */
 	view,
-	/** 扫码推事件 */
+	/** ɨ�����¼� */
 	scancode_push,
-	/** 扫码推事件且弹出“消息接收中”提示框 */
+	/** ɨ�����¼��ҵ�������Ϣ�����С���ʾ�� */
 	scancode_waitmsg,
-	/** 弹出系统拍照发图 */
+	/** ����ϵͳ���շ�ͼ */
 	pic_sysphoto,
-	/** 弹出拍照或者相册发图 */
+	/** �������ջ�����ᷢͼ */
 	pic_photo_or_album,
-	/** 弹出微信相册发图器 */
+	/** ����΢����ᷢͼ�� */
 	pic_weixin,
-	/** 弹出地理位置选择器 */
+	/** ��������λ��ѡ���� */
 	location_select,
-	/** //下发消息（除文本消息） */
+	/** //�·���Ϣ�����ı���Ϣ�� */
 	media_id,
-	/** 跳转图文消息URL */
+	/** ��תͼ����ϢURL */
 	view_limited;
 }

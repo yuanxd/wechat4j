@@ -3,18 +3,18 @@ package com.yuanxd.wx.wechat4j.csc;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
- * ä¼šè¯çŠ¶æ€
+ * »á»°×´Ì¬
  * @author Zhangxs
  * @date 2015-7-8 
  * @version
  */
 public class CustomerServicesSession {
 	
-	private int createTime;//ä¼šè¯æ¥å…¥çš„æ—¶é—´
-    private String kfAccount;//å®¢æœ
-    private String openId;//å®¢æˆ·openid
+	private int createTime;//»á»°½ÓÈëµÄÊ±¼ä
+    private String kfAccount;//¿Í·ş
+    private String openId;//¿Í»§openid
 	/**
-	 * ä¼šè¯æ¥å…¥çš„æ—¶é—´
+	 * »á»°½ÓÈëµÄÊ±¼ä
 	 * @return
 	 */
 	@JSONField(name="createtime")
@@ -26,7 +26,7 @@ public class CustomerServicesSession {
 		this.createTime = createTime;
 	}
 	/**
-	 * å®¢æœ
+	 * ¿Í·ş
 	 * @return
 	 */
 	@JSONField(name="kf_account")
@@ -38,7 +38,7 @@ public class CustomerServicesSession {
 		this.kfAccount = kfAccount;
 	}
 	/**
-	 * å®¢æˆ·openid
+	 * ¿Í»§openid
 	 * @return
 	 */
 	@JSONField(name="openid")
