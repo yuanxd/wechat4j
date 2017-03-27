@@ -1,15 +1,15 @@
 package com.yuanxd.wx.wechat4j.user;
 /**
- * åˆ†ç»„
+ * ·Ö×é
  * @author Zhangxs
  * @version 2015-7-5
  */
 public class Group {
-	/**åˆ†ç»„id*/
+	/**·Ö×éid*/
 	private Integer id;
-	/**åˆ†ç»„åå­—*/
+	/**·Ö×éÃû×Ö*/
 	private String name;
-	/**åˆ†ç»„å†…ç”¨æˆ·æ•°é‡*/
+	/**·Ö×éÄÚÓÃ»§ÊıÁ¿*/
 	private int count;
 	public Integer getId() {
 		return id;

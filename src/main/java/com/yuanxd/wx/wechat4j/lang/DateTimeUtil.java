@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @author ChengNing
- * @date   2014å¹´10æœˆ30æ—¥
+ * @date   2014Äê10ÔÂ30ÈÕ
  */
 public class DateTimeUtil {
 	public static final String DEFAULT_FORMAT_DATE = "yyyy-MM-dd";
@@ -17,9 +17,9 @@ public class DateTimeUtil {
 	public static final String DEFAULT_FORMAT_DATETIME = "yyyy-MM-dd HH:mm:ss";
 	
 	/**
-	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ—¥æœŸ
-	 * @param dateString   æ—¥æœŸå­—ç¬¦ä¸²
-	 * @param format       æ ¼å¼åŒ–å­—ç¬¦ä¸²
+	 * ×Ö·û´®×ª»»ÎªÈÕÆÚ
+	 * @param dateString   ÈÕÆÚ×Ö·û´®
+	 * @param format       ¸ñÊ½»¯×Ö·û´®
 	 * @return
 	 */
 	public static Date getDateTime(String dateString,String format){
@@ -34,7 +34,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * é€šè¿‡æ—¶é—´å­—ç¬¦ä¸²å¾—åˆ°ä¸€ä¸ªDate
+	 * Í¨¹ıÊ±¼ä×Ö·û´®µÃµ½Ò»¸öDate
 	 * @param dateString eg:2010-01-01 10:10:00
 	 * @return
 	 */
@@ -43,7 +43,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è½¬æ¢ä¸€ä¸ªæ—¥æœŸä¸²ä¸ºDate
+	 * ×ª»»Ò»¸öÈÕÆÚ´®ÎªDate
 	 * @param date eg:2010-01-01
 	 * @return
 	 */
@@ -52,7 +52,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è½¬æ¢ä¸€ä¸ªæ—¶é—´ä¸²ä¸ºDate
+	 * ×ª»»Ò»¸öÊ±¼ä´®ÎªDate
 	 * @param time 10:10:00
 	 * @return
 	 */
@@ -62,7 +62,7 @@ public class DateTimeUtil {
 	
 	
 	/**
-	 * å°†ç»™å®šæ—¥æœŸè½¬æ¢ä¸ºæ—¥æœŸå­—ç¬¦ä¸²
+	 * ½«¸ø¶¨ÈÕÆÚ×ª»»ÎªÈÕÆÚ×Ö·û´®
 	 * @param date
 	 * @param format
 	 * @return
@@ -73,8 +73,8 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * å°†ç»™å®šçš„æ—¥æœŸæ—¶é—´è¾“å‡ºä¸ºé»˜è®¤å­—ç¬¦ä¸²æ ¼å¼
-	 * @param date eg:2010-01-01 10:10ï¼š00
+	 * ½«¸ø¶¨µÄÈÕÆÚÊ±¼äÊä³öÎªÄ¬ÈÏ×Ö·û´®¸ñÊ½
+	 * @param date eg:2010-01-01 10:10£º00
 	 * @return
 	 */
 	public static String toDateTimeStr(Date date){
@@ -82,7 +82,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * å°†ç»™å®šçš„æ—¥æœŸæ—¶é—´è¾“å‡ºä¸ºé»˜è®¤æ ¼å¼æ—¥æœŸå­—ç¬¦ä¸²
+	 * ½«¸ø¶¨µÄÈÕÆÚÊ±¼äÊä³öÎªÄ¬ÈÏ¸ñÊ½ÈÕÆÚ×Ö·û´®
 	 * @param date eg:2010-01-01
 	 * @return
 	 */
@@ -91,8 +91,8 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * å°†ç»™å®šçš„æ—¥æœŸæ—¶é—´è¾“å‡ºä¸ºé»˜è®¤æ ¼å¼æ—¶é—´å­—ç¬¦ä¸²
-	 * @param date eg:10:10ï¼š00
+	 * ½«¸ø¶¨µÄÈÕÆÚÊ±¼äÊä³öÎªÄ¬ÈÏ¸ñÊ½Ê±¼ä×Ö·û´®
+	 * @param date eg:10:10£º00
 	 * @return
 	 */
 	public static String toTimeStr(Date date){
@@ -100,7 +100,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * ä»Šå¤©çš„æ—¥æœŸå­—ç¬¦ä¸²
+	 * ½ñÌìµÄÈÕÆÚ×Ö·û´®
 	 * @return
 	 */
 	public static String todayStr(){
@@ -108,7 +108,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * ä»Šå¤©çš„æ—¥æœŸå­—ç¬¦ä¸²
+	 * ½ñÌìµÄÈÕÆÚ×Ö·û´®
 	 * @return
 	 */
 	public static Date today(){
@@ -116,7 +116,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è·å¾—ä»Šå¤©æŒ‡å®šæ—¶é—´çš„Date
+	 * »ñµÃ½ñÌìÖ¸¶¨Ê±¼äµÄDate
 	 * @param time
 	 * @return
 	 */
@@ -126,7 +126,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è·å–å½“å‰æ—¶é—´
+	 * »ñÈ¡µ±Ç°Ê±¼ä
 	 * @return eg:2012-01-01 01:01:00
 	 */
 	public static Date now(){
@@ -134,7 +134,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è·å–å½“å‰æ—¶é—´
+	 * »ñÈ¡µ±Ç°Ê±¼ä
 	 * @return eg:2012-01-01 01:01:00
 	 */
 	public static String nowStr(){
@@ -142,7 +142,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è·å–å½“å‰çš„æ—¶é—´
+	 * »ñÈ¡µ±Ç°µÄÊ±¼ä
 	 * @return eg:10:30:00
 	 */
 	public static String currentTimeStr(){
@@ -150,7 +150,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * è·å–å½“æœŸæ—¥æœŸ
+	 * »ñÈ¡µ±ÆÚÈÕÆÚ
 	 * @return eg:2012-01-01
 	 */
 	public static String currentDateStr(){
@@ -158,7 +158,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * å½“å‰çš„æ—¥æœŸå’Œæ—¶é—´ï¼Œç­‰äºnow()
+	 * µ±Ç°µÄÈÕÆÚºÍÊ±¼ä£¬µÈÓÚnow()
 	 * @return
 	 */
 	public static String currentStr(){
@@ -166,7 +166,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * ç³»ç»Ÿå½“å‰æ—¥æœŸ
+	 * ÏµÍ³µ±Ç°ÈÕÆÚ
 	 * @return
 	 */
 	public static Date current(){
@@ -174,7 +174,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * æ ¼å¼åŒ–å­—ç¬¦ä¸²ï¼Œä½¿ç”¨æŒ‡å®šDateæ›¿æ¢å…¶ä¸­çš„æ—¶é—´å‚æ•°,æ—¶é—´æ®µä½¿ç”¨{yyyy-mm-dd}æ ‡è¯†
+	 * ¸ñÊ½»¯×Ö·û´®£¬Ê¹ÓÃÖ¸¶¨DateÌæ»»ÆäÖĞµÄÊ±¼ä²ÎÊı,Ê±¼ä¶ÎÊ¹ÓÃ{yyyy-mm-dd}±êÊ¶
 	 * @param text
 	 * @param date
 	 * @return
@@ -195,7 +195,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * æ˜¯å¦ä¸€ä¸ªåˆæ³•çš„æ—¥æœŸ
+	 * ÊÇ·ñÒ»¸öºÏ·¨µÄÈÕÆÚ
 	 * @param date
 	 * @return
 	 */
@@ -204,7 +204,7 @@ public class DateTimeUtil {
 	}
 	
 	/**
-	 * æ˜¯å¦å¯ä»¥è§£æ
+	 * ÊÇ·ñ¿ÉÒÔ½âÎö
 	 * @param date
 	 * @return
 	 */

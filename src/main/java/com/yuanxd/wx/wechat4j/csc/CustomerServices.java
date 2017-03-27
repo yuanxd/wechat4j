@@ -3,23 +3,23 @@ package com.yuanxd.wx.wechat4j.csc;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
- * å®¢æœåŸºæœ¬ä¿¡æ¯
+ * ¿Í·ş»ù±¾ĞÅÏ¢
  * @author Zhangxs
  * @date 2015-7-8 
  * @version
  */
 public class CustomerServices {
-	private String kfAccount;//å®Œæ•´å®¢æœè´¦å·ï¼Œæ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
-	private String kfId;//	å®¢æœå·¥å·
-	private String kfHeadimgurl;//å®¢æœå¤´åƒurl
-	private String kfNick;//	å®¢æœæ˜µç§°
-	private Integer status;//	å®¢æœåœ¨çº¿çŠ¶æ€
-	private Integer autoAccept;//	å®¢æœè®¾ç½®çš„æœ€å¤§è‡ªåŠ¨æ¥å…¥æ•°
-	private Integer acceptedCase;//	å®¢æœå½“å‰æ­£åœ¨æ¥å¾…çš„ä¼šè¯æ•°
+	private String kfAccount;//ÍêÕû¿Í·şÕËºÅ£¬¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
+	private String kfId;//	¿Í·ş¹¤ºÅ
+	private String kfHeadimgurl;//¿Í·şÍ·Ïñurl
+	private String kfNick;//	¿Í·şêÇ³Æ
+	private Integer status;//	¿Í·şÔÚÏß×´Ì¬
+	private Integer autoAccept;//	¿Í·şÉèÖÃµÄ×î´ó×Ô¶¯½ÓÈëÊı
+	private Integer acceptedCase;//	¿Í·şµ±Ç°ÕıÔÚ½Ó´ıµÄ»á»°Êı
 	
 	/**
-	 * å®Œæ•´å®¢æœè´¦å·<br/>
-	 * æ ¼å¼ä¸ºï¼šè´¦å·å‰ç¼€@å…¬ä¼—å·å¾®ä¿¡å·
+	 * ÍêÕû¿Í·şÕËºÅ<br/>
+	 * ¸ñÊ½Îª£ºÕËºÅÇ°×º@¹«ÖÚºÅÎ¢ĞÅºÅ
 	 * @return
 	 */
 	@JSONField(name="kf_account")
@@ -31,7 +31,7 @@ public class CustomerServices {
 		this.kfAccount = kfAccount;
 	}
 	/**
-	 * å®¢æœå·¥å·
+	 * ¿Í·ş¹¤ºÅ
 	 * @return
 	 */
 	@JSONField(name="kf_id")
@@ -43,7 +43,7 @@ public class CustomerServices {
 		this.kfId = kfId;
 	}
 	/**
-	 * å®¢æœå¤´åƒurl
+	 * ¿Í·şÍ·Ïñurl
 	 * @return
 	 */
 	@JSONField(name="kf_headimgurl")
@@ -55,7 +55,7 @@ public class CustomerServices {
 		this.kfHeadimgurl = kfHeadimgurl;
 	}
 	/**
-	 * å®¢æœæ˜µç§°
+	 * ¿Í·şêÇ³Æ
 	 * @return
 	 */
 	@JSONField(name="kf_nick")
@@ -67,10 +67,10 @@ public class CustomerServices {
 		this.kfNick = kfNick;
 	}
 	/**
-	 * å®¢æœåœ¨çº¿çŠ¶æ€</br>
-	 *  1:pcåœ¨çº¿</br>
-	 *  2:æ‰‹æœºåœ¨çº¿</br>
-	 *  3:pcå’Œæ‰‹æœºåŒæ—¶åœ¨çº¿
+	 * ¿Í·şÔÚÏß×´Ì¬</br>
+	 *  1:pcÔÚÏß</br>
+	 *  2:ÊÖ»úÔÚÏß</br>
+	 *  3:pcºÍÊÖ»úÍ¬Ê±ÔÚÏß
 	 * @return
 	 */
 	@JSONField(name="status")
@@ -82,7 +82,7 @@ public class CustomerServices {
 		this.status = status;
 	}
 	/**
-	 * å®¢æœè®¾ç½®çš„æœ€å¤§è‡ªåŠ¨æ¥å…¥æ•°
+	 * ¿Í·şÉèÖÃµÄ×î´ó×Ô¶¯½ÓÈëÊı
 	 * @return
 	 */
 	@JSONField(name="auto_accept")
@@ -94,7 +94,7 @@ public class CustomerServices {
 		this.autoAccept = autoAccept;
 	}
 	/**
-	 * å®¢æœå½“å‰æ­£åœ¨æ¥å¾…çš„ä¼šè¯æ•°
+	 * ¿Í·şµ±Ç°ÕıÔÚ½Ó´ıµÄ»á»°Êı
 	 * @return
 	 */
 	@JSONField(name="accepted_case")

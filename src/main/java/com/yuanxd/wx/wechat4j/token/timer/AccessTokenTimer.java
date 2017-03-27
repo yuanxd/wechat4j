@@ -12,24 +12,24 @@ import com.yuanxd.wx.wechat4j.token.server.AccessTokenServer;
 import com.yuanxd.wx.wechat4j.token.server.CustomerServer;
 
 /**
- * access token å®šæ—¶å™¨
+ * access token ¶¨Ê±Æ÷
  * @author ChengNing
- * @date   2015å¹´1æœˆ8æ—¥
+ * @date   2015Äê1ÔÂ8ÈÕ
  */
 public class AccessTokenTimer extends TimerTask{
 	
 	private static Logger logger = Logger.getLogger(AccessTokenTimer.class);
 	
-	//accessTokenæœ‰æ•ˆæœŸ7200ç§’,æå‰200ç§’è¯·æ±‚æ–°çš„token
+	//accessTokenÓĞĞ§ÆÚ7200Ãë,ÌáÇ°200ÃëÇëÇóĞÂµÄtoken
 	public static final long PERIOD = 7000 * 1000;
-	public static final long DELAY = 0; //æ­¤ä»»åŠ¡çš„å»¶è¿Ÿæ—¶é—´ä¸º0ï¼Œå³ç«‹å³æ‰§è¡Œ
+	public static final long DELAY = 0; //´ËÈÎÎñµÄÑÓ³ÙÊ±¼äÎª0£¬¼´Á¢¼´Ö´ĞĞ
 
 	@Override
 	public void run() {
-		logger.info("accessToken å®šæ—¶ä»»åŠ¡å¯åŠ¨ï¼Œè·å–æ–°çš„accessToken");
-		//å¾—åˆ°æ–°çš„access token
+		logger.info("accessToken ¶¨Ê±ÈÎÎñÆô¶¯£¬»ñÈ¡ĞÂµÄaccessToken");
+		//µÃµ½ĞÂµÄaccess token
 		AccessToken accessToken = new AccessToken();
-		//è·å–æˆåŠŸä¹‹åæŒä¹…åŒ–accessToken
+		//»ñÈ¡³É¹¦Ö®ºó³Ö¾Ã»¯accessToken
 		if(accessToken.request()){
 			AccessTokenServer accessTokenServer = new AccessTokenServer();
 			CustomerServer customerServer = (CustomerServer)accessTokenServer.customerServer();

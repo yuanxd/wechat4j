@@ -6,8 +6,8 @@ import com.yuanxd.wx.wechat4j.common.Config;
 
 
 /**
- * ç»Ÿä¸€ä¸‹å•è¯·æ±‚å¯¹è±¡
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">å¼€å‘æ–‡æ¡£</p>
+ * Í³Ò»ÏÂµ¥ÇëÇó¶ÔÏó
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */

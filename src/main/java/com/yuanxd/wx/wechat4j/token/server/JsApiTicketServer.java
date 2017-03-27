@@ -7,9 +7,9 @@ import com.yuanxd.wx.wechat4j.common.Config;
 
 
 /**
- * Ticket serveré€‚é…å™¨
+ * Ticket serverÊÊÅäÆ÷
  * @author ChengNing
- * @date   2015å¹´1æœˆ29æ—¥
+ * @date   2015Äê1ÔÂ29ÈÕ
  */
 public class JsApiTicketServer extends AbsServer implements TicketServer  {
 

@@ -5,8 +5,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.yuanxd.wx.wechat4j.common.Config;
 
 /**
- * ä¸‹è½½å¯¹è´¦å•è¯·æ±‚å¯¹è±¡
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_6">å¼€å‘æ–‡æ¡£</p>
+ * ÏÂÔØ¶ÔÕËµ¥ÇëÇó¶ÔÏó
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_6">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-13.
  */

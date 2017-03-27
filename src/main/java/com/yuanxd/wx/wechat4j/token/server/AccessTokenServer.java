@@ -6,9 +6,9 @@ package com.yuanxd.wx.wechat4j.token.server;
 import com.yuanxd.wx.wechat4j.common.Config;
 
 /**
- * é€‚é…å™¨
+ * ÊÊÅäÆ÷
  * @author ChengNing
- * @date   2015å¹´1æœˆ30æ—¥
+ * @date   2015Äê1ÔÂ30ÈÕ
  */
 public class AccessTokenServer extends AbsServer implements TokenServer {
 	

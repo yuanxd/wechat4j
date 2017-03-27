@@ -15,9 +15,9 @@ import com.yuanxd.wx.wechat4j.token.timer.JsApiTicketTimer;
 
 
 /**
- * Access Token ç›‘å¬å™¨
+ * Access Token ¼àÌıÆ÷
  * @author ChengNing
- * @date   2015å¹´1æœˆ8æ—¥
+ * @date   2015Äê1ÔÂ8ÈÕ
  */
 public class TokenListener implements ServletContextListener{
 	
@@ -27,11 +27,11 @@ public class TokenListener implements ServletContextListener{
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		log.info("accessTokenç›‘å¬å™¨å¯åŠ¨..........");
+		log.info("accessToken¼àÌıÆ÷Æô¶¯..........");
 		timer = new Timer(true);
-		//æ³¨å†Œå®šæ—¶ä»»åŠ¡
+		//×¢²á¶¨Ê±ÈÎÎñ
 		registeAccessTokenTimer();
-		//æ³¨å†Œjsapi_ticketå®šæ—¶å™¨
+		//×¢²ájsapi_ticket¶¨Ê±Æ÷
 		registeJsApiTicketTimer();
 	}
 	
@@ -41,16 +41,16 @@ public class TokenListener implements ServletContextListener{
 	}
 	
 	/**
-	 * æ³¨å†ŒaccessTokenå®šæ—¶å™¨
+	 * ×¢²áaccessToken¶¨Ê±Æ÷
 	 */
 	private void registeAccessTokenTimer(){
 		AccessTokenTimer accessTokenTimer = new AccessTokenTimer();
 		timer.schedule(accessTokenTimer, AccessTokenTimer.DELAY,AccessTokenTimer.PERIOD);
-		log.info("accessTokenå®šæ—¶å™¨æ³¨å†ŒæˆåŠŸï¼Œæ‰§è¡Œé—´éš”ä¸º" + AccessTokenTimer.PERIOD);
+		log.info("accessToken¶¨Ê±Æ÷×¢²á³É¹¦£¬Ö´ĞĞ¼ä¸ôÎª" + AccessTokenTimer.PERIOD);
 	}
 	
 	/**
-	 * æ³¨å†Œjsapi_ticketå®šæ—¶å™¨
+	 * ×¢²ájsapi_ticket¶¨Ê±Æ÷
 	 */
 	private void registeJsApiTicketTimer(){
 		JsApiTicketTimer jsApiTicketTimer = new JsApiTicketTimer();

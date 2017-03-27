@@ -5,10 +5,10 @@ package com.yuanxd.wx.wechat4j.message.template;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ24æ—¥
+ * @date   2014Äê12ÔÂ24ÈÕ
  */
 public class TemplateMsgData {
-	private String name; //jsonä¸­çš„æ•°æ®åç§°
+	private String name; //jsonÖĞµÄÊı¾İÃû³Æ
 	private String value; //keynote value
 	private String color; //data keynote color
 	

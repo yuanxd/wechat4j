@@ -7,7 +7,7 @@ package com.yuanxd.wx.wechat4j.token.server;
 /**
  * 
  * @author ChengNing
- * @date   2015å¹´1æœˆ7æ—¥
+ * @date   2015Äê1ÔÂ7ÈÕ
  */
 public interface IServer {
 	

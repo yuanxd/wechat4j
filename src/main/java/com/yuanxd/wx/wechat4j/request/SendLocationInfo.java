@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ7æ—¥
+ * @date   2015Äê1ÔÂ7ÈÕ
  */
 public class SendLocationInfo {
 	private String Location_X;

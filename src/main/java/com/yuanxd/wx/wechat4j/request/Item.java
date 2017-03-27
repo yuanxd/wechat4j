@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ6æ—¥
+ * @date   2015Äê1ÔÂ6ÈÕ
  */
 public class Item {
 	private String PicMd5Sum;

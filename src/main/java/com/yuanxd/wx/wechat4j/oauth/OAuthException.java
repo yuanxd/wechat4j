@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.oauth;
 
 /**
- * OAuth API è°ƒç”¨å¼‚å¸¸
+ * OAuth API µ÷ÓÃÒì³£
  * Created by xuwen on 2015-12-11.
  */
 public class OAuthException extends Exception {

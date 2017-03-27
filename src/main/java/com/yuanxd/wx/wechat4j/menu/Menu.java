@@ -4,7 +4,7 @@ import java.util.List;
 
 
 /**
- * 微信菜单
+ * ΢�Ų˵�
  * @author Zhangxs
  * @version 2015-7-4
  */

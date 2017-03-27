@@ -5,8 +5,8 @@ import javax.xml.bind.annotation.XmlElement;
 import com.yuanxd.wx.wechat4j.common.Config;
 
 /**
- * H5è°ƒèµ·æ”¯ä»˜APIçš„å‚æ•°å¯¹è±¡
- * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6">å¼€å‘æ–‡æ¡£</p>
+ * H5µ÷ÆğÖ§¸¶APIµÄ²ÎÊı¶ÔÏó
+ * <p><a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */
@@ -14,7 +14,7 @@ public class H5PayParam {
     private String appid = Config.instance().getAppid();
     private String timeStamp;
     private String nonceStr;
-    private String packageWithPrepayId; // å‚æ•°åpackage
+    private String packageWithPrepayId; // ²ÎÊıÃûpackage
     private String signType = "MD5";
     private String paySign;
 

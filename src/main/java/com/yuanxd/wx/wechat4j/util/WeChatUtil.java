@@ -4,13 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.yuanxd.wx.wechat4j.exception.WeChatException;
 import com.yuanxd.wx.wechat4j.exception.WeChatReturnCode;
 /**
- * å·¥å…·ç±»
+ * ¹¤¾ßÀà
  * @author Zhangxs
  * @version 2015-7-4
  */
 public class WeChatUtil {
 	/**
-	 * åˆ¤æ–­æ˜¯å¦è¯·æ±‚æˆåŠŸ
+	 * ÅĞ¶ÏÊÇ·ñÇëÇó³É¹¦
 	 * @param resultStr
 	 * @throws WeChatException
 	 */
@@ -22,7 +22,7 @@ public class WeChatUtil {
 			if (errMsg.equals("")) {
 				errMsg = jsonObject.getString("errmsg");
 			}
-			throw new WeChatException("å¼‚å¸¸ç :"+errCode+";å¼‚å¸¸è¯´æ˜:"+errMsg);
+			throw new WeChatException("Òì³£Âë:"+errCode+";Òì³£ËµÃ÷:"+errMsg);
 		}
 	}
 }

@@ -12,7 +12,7 @@ import com.yuanxd.wx.wechat4j.lang.HttpUtils;
 import com.yuanxd.wx.wechat4j.token.TokenProxy;
 import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 /**
- * 寰俊鑿滃崟鎿嶄綔
+ * 微信菜单操作
  * @author Zhangxs
  * @version 2015-7-4
  */
@@ -28,20 +28,20 @@ public class MenuManager {
 		this.accessToken = TokenProxy.accessToken();
 	}
 	/**
-	 * 鍒涘缓鑿滃崟
+	 * 创建菜单
 	 * @throws WeChatException 
 	 */
 	public void create(Menu menu) throws WeChatException{
-		logger.info("鍒涘缓鑿滃崟");
+		logger.info("创建菜单");
 		String resultStr = HttpUtils.post(MENU_CREATE_POST_URL+this.accessToken, JSON.toJSONString(menu));
 		WeChatUtil.isSuccess(resultStr);
 	}
 	
 	/**
-	 * 鏌ヨ鑿滃崟
+	 * 查询菜单
 	 */
 	public Menu getMenu() {	
-		logger.info("鏌ヨ鑿滃崟");
+		logger.info("查询菜单");
 		String resultStr = HttpUtils.get(MENU_GET_GET_URL+this.accessToken);
 		try {
 			WeChatUtil.isSuccess(resultStr);
@@ -54,11 +54,11 @@ public class MenuManager {
 		return menu;
 	}
 	/**
-	 * 鍒犻櫎鑿滃崟
+	 * 删除菜单
 	 * @throws WeChatException 
 	 */
 	public void delete() throws WeChatException{
-		logger.info("鍒犻櫎鑿滃崟");
+		logger.info("删除菜单");
 		String resultStr = HttpUtils.get(MENU_DEL_GET_URL+this.accessToken);
 		WeChatUtil.isSuccess(resultStr);
 	}

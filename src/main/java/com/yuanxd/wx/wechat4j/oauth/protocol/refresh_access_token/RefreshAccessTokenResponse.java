@@ -1,7 +1,7 @@
 package com.yuanxd.wx.wechat4j.oauth.protocol.refresh_access_token;
 
 /**
- * 鍝嶅簲锛氬埛鏂癮ccess_token锛堝鏋滈渶瑕侊級
+ * 响应：刷新access_token（如果需要）
  * Created by xuwen on 2015-12-11.
  */
 public class RefreshAccessTokenResponse {

@@ -27,28 +27,28 @@ import com.yuanxd.wx.wechat4j.oauth.protocol.valid_access_token.ValidAccessToken
 import com.yuanxd.wx.wechat4j.oauth.protocol.valid_access_token.ValidAccessTokenResponse;
 
 /**
- * ç½‘é¡µæˆæƒè·å–ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
- * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html">å¼€å‘æ–‡æ¡£</a></p>
+ * ÍøÒ³ÊÚÈ¨»ñÈ¡ÓÃ»§»ù±¾ĞÅÏ¢
+ * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html">¿ª·¢ÎÄµµ</a></p>
  * Created by xuwen on 2015/12/11.
  */
 public class OAuthManager {
 
     private static Logger logger = Logger.getLogger(OAuthManager.class);
 
-    /*ç”ŸæˆOAuthé‡å®šå‘URIï¼ˆç”¨æˆ·åŒæ„æˆæƒï¼Œè·å–codeï¼‰*/
+    /*Éú³ÉOAuthÖØ¶¨ÏòURI£¨ÓÃ»§Í¬ÒâÊÚÈ¨£¬»ñÈ¡code£©*/
     private static final String HTTPS_OPEN_WEIXIN_QQ_COM_CONNECT_OAUTH2_AUTHORIZE = "https://open.weixin.qq.com/connect/oauth2/authorize";
-    /*é€šè¿‡codeæ¢å–ç½‘é¡µæˆæƒaccess_token*/
+    /*Í¨¹ıcode»»È¡ÍøÒ³ÊÚÈ¨access_token*/
     private static final String HTTPS_API_WEIXIN_QQ_COM_SNS_OAUTH2_ACCESS_TOKEN = "https://api.weixin.qq.com/sns/oauth2/access_token";
-    /*åˆ·æ–°access_tokenï¼ˆå¦‚æœéœ€è¦ï¼‰*/
+    /*Ë¢ĞÂaccess_token£¨Èç¹ûĞèÒª£©*/
     private static final String HTTPS_API_WEIXIN_QQ_COM_SNS_OAUTH2_REFRESH_TOKEN = "https://api.weixin.qq.com/sns/oauth2/refresh_token";
-    /*æ‹‰å–ç”¨æˆ·ä¿¡æ¯(éœ€scopeä¸º snsapi_userinfo)*/
+    /*À­È¡ÓÃ»§ĞÅÏ¢(ĞèscopeÎª snsapi_userinfo)*/
     private static final String HTTPS_API_WEIXIN_QQ_COM_SNS_USERINFO = "https://api.weixin.qq.com/sns/userinfo";
-    /*æ£€éªŒæˆæƒå‡­è¯ï¼ˆaccess_tokenï¼‰æ˜¯å¦æœ‰æ•ˆ*/
+    /*¼ìÑéÊÚÈ¨Æ¾Ö¤£¨access_token£©ÊÇ·ñÓĞĞ§*/
     private static final String HTTPS_API_WEIXIN_QQ_COM_SNS_AUTH = "https://api.weixin.qq.com/sns/auth";
 
     /**
-     * ç”ŸæˆOAuthé‡å®šå‘URIï¼ˆç”¨æˆ·åŒæ„æˆæƒï¼Œè·å–codeï¼‰
-     * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.B8.80.E6.AD.A5.EF.BC.9A.E7.94.A8.E6.88.B7.E5.90.8C.E6.84.8F.E6.8E.88.E6.9D.83.EF.BC.8C.E8.8E.B7.E5.8F.96code">å¼€å‘æ–‡æ¡£</a></p>
+     * Éú³ÉOAuthÖØ¶¨ÏòURI£¨ÓÃ»§Í¬ÒâÊÚÈ¨£¬»ñÈ¡code£©
+     * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.B8.80.E6.AD.A5.EF.BC.9A.E7.94.A8.E6.88.B7.E5.90.8C.E6.84.8F.E6.8E.88.E6.9D.83.EF.BC.8C.E8.8E.B7.E5.8F.96code">¿ª·¢ÎÄµµ</a></p>
      *
      * @param redirectURI
      * @param scope
@@ -68,8 +68,8 @@ public class OAuthManager {
     }
 
     /**
-     * é€šè¿‡codeæ¢å–ç½‘é¡µæˆæƒaccess_token
-     * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E9.80.9A.E8.BF.87code.E6.8D.A2.E5.8F.96.E7.BD.91.E9.A1.B5.E6.8E.88.E6.9D.83access_token">å¼€å‘æ–‡æ¡£</a></p>
+     * Í¨¹ıcode»»È¡ÍøÒ³ÊÚÈ¨access_token
+     * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E9.80.9A.E8.BF.87code.E6.8D.A2.E5.8F.96.E7.BD.91.E9.A1.B5.E6.8E.88.E6.9D.83access_token">¿ª·¢ÎÄµµ</a></p>
      *
      * @param request
      * @return
@@ -81,8 +81,8 @@ public class OAuthManager {
     }
 
     /**
-     * åˆ·æ–°access_tokenï¼ˆå¦‚æœéœ€è¦ï¼‰
-     * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.B8.89.E6.AD.A5.EF.BC.9A.E5.88.B7.E6.96.B0access_token.EF.BC.88.E5.A6.82.E6.9E.9C.E9.9C.80.E8.A6.81.EF.BC.89">å¼€å‘æ–‡æ¡£</a></p>
+     * Ë¢ĞÂaccess_token£¨Èç¹ûĞèÒª£©
+     * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E4.B8.89.E6.AD.A5.EF.BC.9A.E5.88.B7.E6.96.B0access_token.EF.BC.88.E5.A6.82.E6.9E.9C.E9.9C.80.E8.A6.81.EF.BC.89">¿ª·¢ÎÄµµ</a></p>
      *
      * @param request
      * @return
@@ -94,8 +94,8 @@ public class OAuthManager {
     }
 
     /**
-     * æ‹‰å–ç”¨æˆ·ä¿¡æ¯(éœ€scopeä¸º snsapi_userinfo)
-     * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E6.8B.89.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF.28.E9.9C.80scope.E4.B8.BA_snsapi_userinfo.29">å¼€å‘æ–‡æ¡£</a></p>
+     * À­È¡ÓÃ»§ĞÅÏ¢(ĞèscopeÎª snsapi_userinfo)
+     * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E6.8B.89.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF.28.E9.9C.80scope.E4.B8.BA_snsapi_userinfo.29">¿ª·¢ÎÄµµ</a></p>
      *
      * @param request
      * @return
@@ -108,8 +108,8 @@ public class OAuthManager {
 
 
     /**
-     * æ£€éªŒæˆæƒå‡­è¯ï¼ˆaccess_tokenï¼‰æ˜¯å¦æœ‰æ•ˆ
-     * <p>å‚è€ƒ<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E9.99.84.EF.BC.9A.E6.A3.80.E9.AA.8C.E6.8E.88.E6.9D.83.E5.87.AD.E8.AF.81.EF.BC.88access_token.EF.BC.89.E6.98.AF.E5.90.A6.E6.9C.89.E6.95.88">å¼€å‘æ–‡æ¡£</a></p>
+     * ¼ìÑéÊÚÈ¨Æ¾Ö¤£¨access_token£©ÊÇ·ñÓĞĞ§
+     * <p>²Î¿¼<a href="http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html#.E9.99.84.EF.BC.9A.E6.A3.80.E9.AA.8C.E6.8E.88.E6.9D.83.E5.87.AD.E8.AF.81.EF.BC.88access_token.EF.BC.89.E6.98.AF.E5.90.A6.E6.9C.89.E6.95.88">¿ª·¢ÎÄµµ</a></p>
      *
      * @param request
      * @return
@@ -121,7 +121,7 @@ public class OAuthManager {
     }
 
     /**
-     * ä½¿ç”¨UTF-8è¿›è¡ŒURLç¼–ç 
+     * Ê¹ÓÃUTF-8½øĞĞURL±àÂë
      *
      * @param str
      * @return
@@ -137,7 +137,7 @@ public class OAuthManager {
     }
 
     /**
-     * æ£€æŸ¥å“åº”ç»“æœæ˜¯å¦æ­£ç¡®
+     * ¼ì²éÏìÓ¦½á¹ûÊÇ·ñÕıÈ·
      *
      * @param response
      */
@@ -151,7 +151,7 @@ public class OAuthManager {
     }
 
     /**
-     * post è¯·æ±‚
+     * post ÇëÇó
      *
      * @param url
      * @param data
@@ -180,14 +180,14 @@ public class OAuthManager {
                     .execute().returnResponse().getEntity();
             return entity != null ? EntityUtils.toString(entity, Consts.UTF_8) : null;
         } catch (Exception e) {
-            logger.error("postè¯·æ±‚å¼‚å¸¸ï¼Œ" + e.getMessage() + "\n post url:" + url);
+            logger.error("postÇëÇóÒì³££¬" + e.getMessage() + "\n post url:" + url);
             e.printStackTrace();
         }
         return null;
     }
 
     /**
-     * post è¯·æ±‚
+     * post ÇëÇó
      *
      * @param url
      * @return

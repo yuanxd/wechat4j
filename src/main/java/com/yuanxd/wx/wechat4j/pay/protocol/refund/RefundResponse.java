@@ -3,8 +3,8 @@ package com.yuanxd.wx.wechat4j.pay.protocol.refund;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * ç”³è¯·é€€æ¬¾å“åº”å¯¹è±¡
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">å¼€å‘æ–‡æ¡£</p>
+ * ÉêÇëÍË¿îÏìÓ¦¶ÔÏó
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */

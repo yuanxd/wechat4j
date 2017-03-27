@@ -14,21 +14,21 @@ import com.yuanxd.wx.wechat4j.token.server.JsApiTicketServer;
 
 /**
  * @author ChengNing
- * @date 2015å¹´1æœˆ29æ—¥
+ * @date 2015Äê1ÔÂ29ÈÕ
  */
 public class JsApiTicketTimer extends TimerTask {
 
 	private static Logger logger = Logger.getLogger(JsApiTicketTimer.class);
-	// jsapi_ticketæœ‰æ•ˆæœŸ7200ç§’,æå‰200ç§’è¯·æ±‚æ–°çš„token
+	// jsapi_ticketÓĞĞ§ÆÚ7200Ãë,ÌáÇ°200ÃëÇëÇóĞÂµÄtoken
 	public static final long PERIOD = 7000 * 1000;
-	public static final long DELAY = 0; // æ­¤ä»»åŠ¡çš„å»¶è¿Ÿæ—¶é—´ä¸º0ï¼Œå³ç«‹å³æ‰§è¡Œ
+	public static final long DELAY = 0; // ´ËÈÎÎñµÄÑÓ³ÙÊ±¼äÎª0£¬¼´Á¢¼´Ö´ĞĞ
 
 	@Override
 	public void run() {
-		logger.info("jsapi_ticket å®šæ—¶ä»»åŠ¡å¯åŠ¨ï¼Œè·å–æ–°çš„jsapi_ticket");
-		// å¾—åˆ°æ–°çš„access token
+		logger.info("jsapi_ticket ¶¨Ê±ÈÎÎñÆô¶¯£¬»ñÈ¡ĞÂµÄjsapi_ticket");
+		// µÃµ½ĞÂµÄaccess token
 		Ticket jsapiTicket = new Ticket(TicketType.jsapi);
-		// æ‰‹åŠ¨è·å–æˆåŠŸä¹‹åæŒä¹…åŒ–accessToken
+		// ÊÖ¶¯»ñÈ¡³É¹¦Ö®ºó³Ö¾Ã»¯accessToken
 		if (jsapiTicket.request()) {
 			JsApiTicketServer jsapiTicketServer = new JsApiTicketServer();
 			CustomerServer customerServer = (CustomerServer) jsapiTicketServer

@@ -3,8 +3,8 @@ package com.yuanxd.wx.wechat4j.pay.protocol.unifiedorder;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * ç»Ÿä¸€ä¸‹å•å“åº”å¯¹è±¡
- * <p>å‚è€ƒ<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">å¼€å‘æ–‡æ¡£</p>
+ * Í³Ò»ÏÂµ¥ÏìÓ¦¶ÔÏó
+ * <p>²Î¿¼<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1">¿ª·¢ÎÄµµ</p>
  * <p/>
  * Created by xuwen on 2015-12-10.
  */
@@ -19,7 +19,7 @@ public class UnifiedorderResponse {
     private String result_code;
     private String err_code;
     private String err_code_des;
-    /*ä»¥ä¸‹å­—æ®µåœ¨return_code å’Œresult_codeéƒ½ä¸ºSUCCESSçš„æ—¶å€™æœ‰è¿”å›*/
+    /*ÒÔÏÂ×Ö¶ÎÔÚreturn_code ºÍresult_code¶¼ÎªSUCCESSµÄÊ±ºòÓĞ·µ»Ø*/
     private String trade_type;
     private String prepay_id;
     private String code_url;

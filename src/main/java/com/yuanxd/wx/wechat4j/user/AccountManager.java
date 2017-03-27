@@ -13,7 +13,7 @@ import com.yuanxd.wx.wechat4j.token.TokenProxy;
 import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 
 /**
- * è´¦æˆ·ç®¡ç†
+ * ÕË»§¹ÜÀí
  *
  * @author Zhangxs
  * @version 2015-7-5
@@ -21,15 +21,15 @@ import com.yuanxd.wx.wechat4j.util.WeChatUtil;
 public class AccountManager {
     Logger logger = Logger.getLogger(AccountManager.class);
 
-    //é•¿é“¾æ¥è½¬çŸ­é“¾æ¥æ¥å£
+    //³¤Á´½Ó×ª¶ÌÁ´½Ó½Ó¿Ú
     private static final String SHORTURL_POST_URL = "https://api.weixin.qq.com/cgi-bin/shorturl?access_token=";
-    //ç”Ÿæˆå¸¦å‚æ•°çš„äºŒç»´ç 
+    //Éú³É´ø²ÎÊıµÄ¶şÎ¬Âë
     private static final String QRCODE_POST_URL = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=";
 
     /**
-     * é•¿é“¾æ¥è½¬çŸ­é“¾æ¥æ¥å£
+     * ³¤Á´½Ó×ª¶ÌÁ´½Ó½Ó¿Ú
      *
-     * @param longUrl éœ€è¦è½¬æ¢çš„é•¿é“¾æ¥
+     * @param longUrl ĞèÒª×ª»»µÄ³¤Á´½Ó
      * @return
      */
     public String shortUrl(String longUrl) {
@@ -52,9 +52,9 @@ public class AccountManager {
     }
 
     /**
-     * åˆ›å»ºæ°¸ä¹…äºŒç»´ç 
+     * ´´½¨ÓÀ¾Ã¶şÎ¬Âë
      *
-     * @param sceneId åœºæ™¯å€¼ID,ç›®å‰å‚æ•°åªæ”¯æŒ1--100000
+     * @param sceneId ³¡¾°ÖµID,Ä¿Ç°²ÎÊıÖ»Ö§³Ö1--100000
      * @return
      */
     public Qrcode createQrcodePerpetual(long sceneId) {
@@ -62,9 +62,9 @@ public class AccountManager {
     }
 
     /**
-     * åˆ›å»ºæ°¸ä¹…äºŒç»´ç 
+     * ´´½¨ÓÀ¾Ã¶şÎ¬Âë
      *
-     * @param sceneStr åœºæ™¯å€¼ID,é•¿åº¦é™åˆ¶ä¸º1åˆ°64
+     * @param sceneStr ³¡¾°ÖµID,³¤¶ÈÏŞÖÆÎª1µ½64
      * @return
      */
     public Qrcode createQrcodePerpetualstr(String sceneStr) {
@@ -72,10 +72,10 @@ public class AccountManager {
     }
 
     /**
-     * åˆ›å»ºä¸´æ—¶äºŒç»´ç 
+     * ´´½¨ÁÙÊ±¶şÎ¬Âë
      *
-     * @param sceneId       åœºæ™¯å€¼ID
-     * @param expireSeconds äºŒç»´ç æœ‰æ•ˆæ—¶é—´ï¼Œä»¥ç§’ä¸ºå•ä½,æœ€å¤§ä¸è¶…è¿‡604800ï¼ˆå³7å¤©ï¼‰ã€‚
+     * @param sceneId       ³¡¾°ÖµID
+     * @param expireSeconds ¶şÎ¬ÂëÓĞĞ§Ê±¼ä£¬ÒÔÃëÎªµ¥Î»,×î´ó²»³¬¹ı604800£¨¼´7Ìì£©¡£
      * @return
      */
     public Qrcode createQrcodeTemporary(long sceneId, int expireSeconds) {

@@ -10,16 +10,16 @@ import com.yuanxd.wx.wechat4j.token.server.TokenServer;
 
 
 /**
- * AccessTokenä»£ç†
- * æ‰€æœ‰è·å–accessTokençš„åœ°æ–¹éƒ½é€šè¿‡æ­¤ä»£ç†è·å¾—
- * è·å¾—æ–¹æ³•String token = AccessTokenProxy.token()
+ * AccessToken´úÀí
+ * ËùÓĞ»ñÈ¡accessTokenµÄµØ·½¶¼Í¨¹ı´Ë´úÀí»ñµÃ
+ * »ñµÃ·½·¨String token = AccessTokenProxy.token()
  * @author ChengNing
- * @date   2015å¹´1æœˆ9æ—¥
+ * @date   2015Äê1ÔÂ9ÈÕ
  */
 public class TokenProxy {
 	
 	/**
-	 * é€šè¿‡ä»£ç†å¾—åˆ°accessTokençš„ä¸²
+	 * Í¨¹ı´úÀíµÃµ½accessTokenµÄ´®
 	 */
 	public static String accessToken(){
 		TokenServer accessTokenServer = new AccessTokenServer();
@@ -27,7 +27,7 @@ public class TokenProxy {
 	}
 	
 	/**
-	 * é€šè¿‡ä»£ç†å¾—åˆ°jsapi_ticket
+	 * Í¨¹ı´úÀíµÃµ½jsapi_ticket
 	 */
 	public static String jsApiTicket(){
 		TicketServer ticketServer = new JsApiTicketServer();

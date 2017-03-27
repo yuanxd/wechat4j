@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ11æ—¥
+ * @date   2014Äê12ÔÂ11ÈÕ
  */
 public class StreamUtils {
 	

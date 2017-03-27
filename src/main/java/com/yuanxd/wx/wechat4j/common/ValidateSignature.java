@@ -8,7 +8,7 @@ import java.util.Arrays;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * ç”¨äºå¾®ä¿¡çš„å‰é¢éªŒè¯
+ * ÓÃÓÚÎ¢ĞÅµÄÇ°ÃæÑéÖ¤
  * @author ChengNing
  * @date   2014-12-4
  */
@@ -20,7 +20,7 @@ public class ValidateSignature {
 	private String token;
 	
 	/**
-	 * å‰é¢éªŒè¯æ„é€ 
+	 * Ç°ÃæÑéÖ¤¹¹Ôì
 	 * @param signature
 	 * @param timestamp
 	 * @param nonce
@@ -34,9 +34,9 @@ public class ValidateSignature {
 	}
 	
 	/**
-	 * éªŒè¯
+	 * ÑéÖ¤
 	 * @param token
-	 * @return true éªŒè¯é€šè¿‡ï¼Œfalse éªŒè¯å¤±è´¥
+	 * @return true ÑéÖ¤Í¨¹ı£¬false ÑéÖ¤Ê§°Ü
 	 */
 	public boolean check(){
 		String sha1 = encode();
@@ -44,7 +44,7 @@ public class ValidateSignature {
 	}
 	
 	/**
-	 * å¾—åˆ°åŠ å¯†åçš„æ•°æ®
+	 * µÃµ½¼ÓÃÜºóµÄÊı¾İ
 	 * @return
 	 */
 	private String encode(){

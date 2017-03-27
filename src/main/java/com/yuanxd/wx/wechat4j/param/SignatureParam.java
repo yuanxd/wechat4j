@@ -6,9 +6,9 @@ package com.yuanxd.wx.wechat4j.param;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * å¾®ä¿¡èº«ä»½è®¤è¯å‚æ•°
+ * Î¢ĞÅÉí·İÈÏÖ¤²ÎÊı
  * @author ChengNing
- * @date   2014å¹´12æœˆ6æ—¥
+ * @date   2014Äê12ÔÂ6ÈÕ
  */
 public class SignatureParam {
 	

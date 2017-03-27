@@ -3,13 +3,13 @@ package com.yuanxd.wx.wechat4j.response;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
- * æŒ‡å®šå®¢æœ
+ * Ö¸¶¨¿Í·ş
  * @author Zhangxs
  * @version 2015-7-7
  */
 
 public class TransInfoResponse {
-	private String KfAccount;//æŒ‡å®šä¼šè¯æ¥å…¥çš„å®¢æœè´¦å·
+	private String KfAccount;//Ö¸¶¨»á»°½ÓÈëµÄ¿Í·şÕËºÅ
 	
 	public TransInfoResponse() {
 		super();

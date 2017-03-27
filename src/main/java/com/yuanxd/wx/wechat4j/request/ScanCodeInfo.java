@@ -7,11 +7,11 @@ import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author ChengNing
- * @date   2015å¹´1æœˆ7æ—¥
+ * @date   2015Äê1ÔÂ7ÈÕ
  */
 public class ScanCodeInfo {
-	private String ScanType;   //æ‰«æç±»å‹ï¼Œä¸€èˆ¬æ˜¯qrcode
-	private String ScanResult; //æ‰«æç»“æœï¼Œå³äºŒç»´ç å¯¹åº”çš„å­—ç¬¦ä¸²ä¿¡æ¯
+	private String ScanType;   //É¨ÃèÀàĞÍ£¬Ò»°ãÊÇqrcode
+	private String ScanResult; //É¨Ãè½á¹û£¬¼´¶şÎ¬Âë¶ÔÓ¦µÄ×Ö·û´®ĞÅÏ¢
 	
 	@XmlElement(name="ScanType")
 	public String getScanType() {

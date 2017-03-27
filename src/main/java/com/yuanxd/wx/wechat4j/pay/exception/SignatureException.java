@@ -1,13 +1,13 @@
 package com.yuanxd.wx.wechat4j.pay.exception;
 
 /**
- * ç­¾åå¼‚å¸¸
+ * Ç©ÃûÒì³£
  * Created by xuwen on 2015-12-12.
  */
 public class SignatureException extends Exception {
 
     public SignatureException() {
-        super("è¿”å›ç»“æœçš„ç­¾åæ ¡éªŒå¤±è´¥ï¼Œæ•°æ®å¯èƒ½å·²ç»è¢«ç¯¡æ”¹");
+        super("·µ»Ø½á¹ûµÄÇ©ÃûĞ£ÑéÊ§°Ü£¬Êı¾İ¿ÉÄÜÒÑ¾­±»´Û¸Ä");
     }
 
 }

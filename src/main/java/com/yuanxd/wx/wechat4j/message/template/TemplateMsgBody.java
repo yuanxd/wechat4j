@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author ChengNing
- * @date   2014å¹´12æœˆ24æ—¥
+ * @date   2014Äê12ÔÂ24ÈÕ
  */
 public class TemplateMsgBody {
 	private String touser;

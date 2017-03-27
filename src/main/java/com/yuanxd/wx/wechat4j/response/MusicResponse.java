@@ -6,17 +6,17 @@ package com.yuanxd.wx.wechat4j.response;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
- * éŸ³ä¹æ¶ˆæ¯ç±»å‹
+ * ÒôÀÖÏûÏ¢ÀàĞÍ
  * @author ChengNing
  * @date   2014-12-4
  */
 public class MusicResponse {
 
-	private String Title;        //éŸ³ä¹æ ‡é¢˜
-	private String Description;  //éŸ³ä¹æè¿°
-	private String MusicURL;     //éŸ³ä¹é“¾æ¥
-	private String HQMusicUrl;   //é«˜è´¨é‡éŸ³ä¹é“¾æ¥ï¼ŒWIFIç¯å¢ƒä¼˜å…ˆä½¿ç”¨è¯¥é“¾æ¥æ’­æ”¾éŸ³ä¹
-	private String ThumbMediaId; //ç¼©ç•¥å›¾çš„åª’ä½“idï¼Œé€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
+	private String Title;        //ÒôÀÖ±êÌâ
+	private String Description;  //ÒôÀÖÃèÊö
+	private String MusicURL;     //ÒôÀÖÁ´½Ó
+	private String HQMusicUrl;   //¸ßÖÊÁ¿ÒôÀÖÁ´½Ó£¬WIFI»·¾³ÓÅÏÈÊ¹ÓÃ¸ÃÁ´½Ó²¥·ÅÒôÀÖ
+	private String ThumbMediaId; //ËõÂÔÍ¼µÄÃ½Ìåid£¬Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
 	
 
 	@XmlElement(name="Title")

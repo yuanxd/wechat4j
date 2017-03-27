@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * ç”¨äºå›å¤çš„åŸºæœ¬æ¶ˆæ¯ç±»å‹
+ * ÓÃÓÚ»Ø¸´µÄ»ù±¾ÏûÏ¢ÀàĞÍ
  * @author ChengNing
  * @date   2014-12-4
  */

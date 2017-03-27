@@ -28,478 +28,529 @@ import com.yuanxd.wx.wechat4j.response.VideoResponse;
 import com.yuanxd.wx.wechat4j.response.VoiceResponse;
 import com.yuanxd.wx.wechat4j.response.WechatResponse;
 
-
-
-
 /**
- * wechatæ”¯æŒå…¥å£
- * æŠ½è±¡æ–¹æ³•ä¸­ï¼Œonå¼€å¤´çš„æ˜¯msgtypeçš„äº‹ä»¶ï¼Œæ— onçš„æ˜¯eventäº‹ä»¶
+ * wechatÖ§³ÖÈë¿Ú
+ * ³éÏó·½·¨ÖĞ£¬on¿ªÍ·µÄÊÇmsgtypeµÄÊÂ¼ş£¬ÎŞonµÄÊÇeventÊÂ¼ş
+ * 
  * @author ChengNing
- * @date   2014-12-4
+ * @date 2014-12-4
  */
 public abstract class WechatSupport {
-	
-	Logger logger = Logger.getLogger(WechatSupport.class);
-	
-	private HttpServletRequest request;
-	
-	protected WechatRequest wechatRequest;
-	protected WechatResponse wechatResponse;
-	
-	
-	/**
-	 * æ„å»ºå¾®ä¿¡å¤„ç†
-	 * @param request   å¾®ä¿¡æœåŠ¡å‘è¿‡æ¥çš„httpè¯·æ±‚
-	 */
-	public WechatSupport(HttpServletRequest request){
-		this.request = request;
-		this.wechatRequest = new WechatRequest();
-		this.wechatResponse = new WechatResponse();
-	}
 
-	/**
-	 * wechatè°ƒç”¨å…¥å£ï¼Œè¿›è¡Œæ•°æ®æ¥æ”¶ï¼Œäº‹ä»¶åˆ†å‘
-	 * @return
-	 */
-	public String execute(){
-		logger.debug("WechatSupport run");
-		SignatureParam param = new SignatureParam(request);
-		String signature =param.getSignature();
-		String timestamp = param.getTimestamp();
-		String nonce = param.getNonce();
-		String echostr = param.getEchostr();
-		String token = Config.instance().getToken();
-		
-		ValidateSignature validateSignature = new ValidateSignature(signature, 
-				timestamp, nonce, token);
-		if(!validateSignature.check()){
-			return "error";
-		}
-		if(StringUtils.isNotBlank(echostr)){
-     		return echostr;
-		}
-		//åˆ†å‘æ¶ˆæ¯ï¼Œå¾—åˆ°å“åº”
-		String result = dispatch();
-		logger.info("response data:" + result);
-		return result;
-	}
-	
-	/**
-	 * åˆ†å‘å¤„ç†ï¼Œå¾—åˆ°å“åº”
-	 * @return
-	 */
-	private String dispatch() {
-		String postDataStr = null;
-		try {
-			 postDataStr = StreamUtils.streamToString(request.getInputStream());
-		} catch (IOException e) {
-			logger.error("post data deal failed!");
-			e.printStackTrace();
-		}
-		// è§£ææ•°æ®
-		setPostData(postDataStr);
-		// æ¶ˆæ¯åˆ†å‘å¤„ç†
-		dispatchMessage();
-		// å“åº”äº‹ä»¶
-		String result = response();
-		return result;
-	}
-	
+    Logger logger = Logger.getLogger(WechatSupport.class);
 
-	
-	/**
-	 * å¾—åˆ°postæ•°æ®ï¼Œå¯¹è±¡åŒ–
-	 * @param xmlStr
-	 */
-	private void setPostData(String xmlStr){
-		logger.info("parse post data:" + xmlStr);
-		try {
-			JaxbParser jaxbParser = new JaxbParser(WechatRequest.class);
-			this.wechatRequest = (WechatRequest)jaxbParser.toObj(xmlStr);
-		} catch (Exception e) {
-			logger.error("post data parse error");
-			e.printStackTrace();
-		}
-	}
+    private HttpServletRequest request;
 
-	/**
-	 * æ¶ˆæ¯äº‹ä»¶åˆ†å‘
-	 */
-	private void dispatchMessage(){
-		logger.info("distributeMessage start");
-		if(StringUtils.isBlank(wechatRequest.getMsgType())){
-			logger.info("msgType is null");
-		}
-		MsgType msgType = MsgType.valueOf(wechatRequest.getMsgType());
-		logger.info("msgType is " + msgType.name());
-		switch (msgType) {
-		case event:
-			dispatchEvent();
-			break;
-		case text:
-			onText();
-			break;
-		case image:
-			onImage();
-			break;
-		case voice:
-			onVoice();
-			break;
-		case video:
-			onVideo();
-			break;
-		case shortvideo:
-			onShortVideo();
-			break;
-		case location:
-			onLocation();
-			break;
-		case link:
-			onLink();
-			break;
-		default:
-			onUnknown();
-			break;
-		}
-	}
-	
-	/**
-	 * eventäº‹ä»¶åˆ†å‘
-	 */
-	private void dispatchEvent() {
-		EventType event = EventType.valueOf(wechatRequest.getEvent());
-		logger.info("dispatch event,event is " + event.name());
-		switch (event) {
-		case CLICK:
-			click();
-			break;
-		case subscribe:
-			subscribe();
-			break;
-		case unsubscribe:
-			unSubscribe();
-			break;
-		case SCAN:
-			scan();
-			break;
-		case LOCATION:
-			location();
-			break;
-		case VIEW:
-			view();
-			break;
-		case TEMPLATESENDJOBFINISH:
-			templateMsgCallback();
-			break;
-		case scancode_push:
-			scanCodePush();
-			break;
-		case scancode_waitmsg:
-			scanCodeWaitMsg();
-		    break;
-		case pic_sysphoto:
-			picSysPhoto();
-		    break;
-		case pic_photo_or_album:
-			picPhotoOrAlbum();
-		    break;
-		case pic_weixin:
-			picWeixin();
-		    break;
-		case location_select:
-			locationSelect();
-		    break;
-		case kf_create_session:
-			kfCreateSession();
-			break;
-		case kf_close_session:
-			kfCloseSession();
-			break;
-		case kf_switch_session:
-			kfSwitchSession();
-			break;
-		default:
-			break;
-		}
-	}
-	
+    protected WechatRequest wechatRequest;
+    protected WechatResponse wechatResponse;
 
-	/**
-	 * è¿”å›å“åº”æ•°æ®
-	 * @return
-	 */
-	private String response(){
-		String result = null;
-		try {
-			JaxbParser jaxbParser = new JaxbParser(WechatResponse.class);
-			//è®¾ç½®
-			jaxbParser.setCdataNode(WechatResponse.CDATA_TAG);
-			result = jaxbParser.toXML(wechatResponse);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
-	/**
-	 * å“åº”æ•°æ®åŸºç¡€æ„é€ 
-	 */
-	private void responseBase(){
-		wechatResponse.setToUserName(this.wechatRequest.getFromUserName());
-		wechatResponse.setFromUserName(wechatRequest.getToUserName());
-		wechatResponse.setCreateTime(wechatRequest.getCreateTime());
-	}
-	
-	/**
-	 * å›å¤æ–‡æœ¬æ¶ˆæ¯
-	 * @param content å›å¤çš„æ¶ˆæ¯å†…å®¹ï¼ˆæ¢è¡Œï¼šåœ¨contentä¸­èƒ½å¤Ÿæ¢è¡Œï¼Œå¾®ä¿¡å®¢æˆ·ç«¯å°±æ”¯æŒæ¢è¡Œæ˜¾ç¤ºï¼‰
-	 */
-	public void responseText(String content){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.text.name());
-		wechatResponse.setContent(content);
-	}
-	
-	/**
-	 * å›å¤å›¾ç‰‡æ¶ˆæ¯
-	 * @param mediaId é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	 */
-	public void responseImage(String mediaId){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.image.name());
-		ImageResponse image = new ImageResponse();
-		image.setMediaId(mediaId);
-		wechatResponse.setImage(image);
-	}
-	
-	/**
-	 * å›å¤è¯­éŸ³æ¶ˆæ¯
-	 * @param mediaId  é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	 */
-	public void responseVoice(String mediaId){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.voice.name());
-		VoiceResponse voice = new VoiceResponse();
-		voice.setMediaId(mediaId);
-		wechatResponse.setVoice(voice);
-	}
-	
-	/**
-	 * å›å¤è§†é¢‘æ¶ˆæ¯
-	 * @param mediaId      é€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	 * @param title        è§†é¢‘æ¶ˆæ¯çš„æ ‡é¢˜
-	 * @param description  è§†é¢‘æ¶ˆæ¯çš„æè¿°
-	 */
-	public void responseVideo(String mediaId,String title,String description){
-		VideoResponse video = new VideoResponse();
-		video.setMediaId(mediaId);
-		video.setTitle(title);
-		video.setDescription(description);
-		responseVideo(video);
-	}
-	
-	/**
-	 * å›å¤è§†é¢‘æ¶ˆæ¯
-	 * @param video  è§†é¢‘æ¶ˆæ¯
-	 */
-	public void responseVideo(VideoResponse video){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.video.name());
-		wechatResponse.setVideo(video);
-	}
-	
-	/**
-	 * å›å¤éŸ³ä¹æ¶ˆæ¯
-	 * @param title         éŸ³ä¹æ ‡é¢˜
-	 * @param description   éŸ³ä¹æè¿°
-	 * @param musicURL      éŸ³ä¹é“¾æ¥
-	 * @param hQMusicUrl    é«˜è´¨é‡éŸ³ä¹é“¾æ¥ï¼ŒWIFIç¯å¢ƒä¼˜å…ˆä½¿ç”¨è¯¥é“¾æ¥æ’­æ”¾éŸ³ä¹
-	 * @param thumbMediaId  ç¼©ç•¥å›¾çš„åª’ä½“idï¼Œé€šè¿‡ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶ï¼Œå¾—åˆ°çš„id
-	 */
-	public void responseMusic(String title,String description,
-			String musicURL,String hQMusicUrl,String thumbMediaId){
-		MusicResponse music = new MusicResponse();
-		music.setTitle(title);
-		music.setDescription(description);
-		music.setMusicURL(musicURL);
-		music.setHQMusicUrl(hQMusicUrl);
-		music.setThumbMediaId(thumbMediaId);
-		responseMusic(music);
-	}
-	
-	/**
-	 * å›å¤éŸ³ä¹æ¶ˆæ¯
-	 * @param music  éŸ³ä¹æ¶ˆæ¯
-	 */
-	public void responseMusic(MusicResponse music){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.music.name());
-		wechatResponse.setMusic(music);
-	}
-	
-	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯ï¼Œå•æ¡å›¾æ–‡æ¶ˆæ¯
-	 * @param title         å›¾æ–‡æ¶ˆæ¯æ ‡é¢˜
-	 * @param description   å›¾æ–‡æ¶ˆæ¯æè¿°
-	 * @param picUrl        å›¾ç‰‡é“¾æ¥ï¼Œæ”¯æŒJPGã€PNGæ ¼å¼ï¼Œè¾ƒå¥½çš„æ•ˆæœä¸ºå¤§å›¾360*200ï¼Œå°å›¾200*200
-	 * @param url           ç‚¹å‡»å›¾æ–‡æ¶ˆæ¯è·³è½¬é“¾æ¥
-	 */
-	public void responseNew(String title,String description,String picUrl,String url){
-		ArticleResponse item = new ArticleResponse();
-		item.setTitle(title);
-		item.setDescription(description);
-		item.setPicUrl(picUrl);
-		item.setUrl(url);
-		responseNews(item);
-	}
-	
-	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯å•æ¡
-	 * @param item
-	 */
-	public void responseNews(ArticleResponse item){
-		List<ArticleResponse> items = new ArrayList<ArticleResponse>();
-		items.add(item);
-		responseNews(items);
-	}
-	
-	/**
-	 * å›å¤å›¾æ–‡æ¶ˆæ¯
-	 * @param items
-	 */
-	public void responseNews(List<ArticleResponse> items){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.news.name());
-		wechatResponse.setArticleCount(String.valueOf(items.size()));
-		wechatResponse.setArticle(items);
-		
-	}
-	
-	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°å¤šå®¢æœ
-	 */
-	public void responseCustomerService(){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
-	}
-	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°æŒ‡å®šå®¢æœ
-	 * @param kfAccount å®¢æœè´¦å·
-	 */
-	public void responseCustomerService(String kfAccount){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
-		wechatResponse.setTransInfo(new TransInfoResponse(kfAccount));
-		
-	}
-	/**
-	 * æ¶ˆæ¯è½¬å‘åˆ°æŒ‡å®šå®¢æœ
-	 * @param kfAccount å®¢æœ
-	 */
-	public void responseCustomerService(TransInfoResponse transInfo){
-		responseBase();
-		wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
-		wechatResponse.setTransInfo(transInfo);
-		
-	}
-	
-	
-	/**
-	 * æ–‡æœ¬æ¶ˆæ¯å¤„ç†Msgtype=text
-	 */
-    protected abstract void onText();
-	/**
-	 * å›¾åƒæ¶ˆæ¯Msgtype=image
-	 */
-    protected abstract void onImage();
-	/**
-	 * è¯­éŸ³æ¶ˆæ¯ Msgtype=voice
-	 */
-    protected abstract void onVoice();
-	/**
-	 * è§†é¢‘ æ¶ˆæ¯Msgtype=video
-	 */
-    protected abstract void onVideo();
     /**
-     * å°è§†é¢‘ æ¶ˆæ¯Msgtype=shortvideo
+     * ¹¹½¨Î¢ĞÅ´¦Àí
+     * 
+     * @param request
+     *            Î¢ĞÅ·şÎñ·¢¹ıÀ´µÄhttpÇëÇó
+     */
+    public WechatSupport(HttpServletRequest request) {
+        this.request = request;
+        this.wechatRequest = new WechatRequest();
+        this.wechatResponse = new WechatResponse();
+    }
+
+    /**
+     * wechatµ÷ÓÃÈë¿Ú£¬½øĞĞÊı¾İ½ÓÊÕ£¬ÊÂ¼ş·Ö·¢
+     * 
+     * @return
+     */
+    public String execute() {
+        logger.debug("WechatSupport run");
+        SignatureParam param = new SignatureParam(request);
+        String signature = param.getSignature();
+        String timestamp = param.getTimestamp();
+        String nonce = param.getNonce();
+        String echostr = param.getEchostr();
+        String token = Config.instance().getToken();
+
+        ValidateSignature validateSignature = new ValidateSignature(signature, timestamp, nonce, token);
+        if (!validateSignature.check()) { return "error"; }
+        if (StringUtils.isNotBlank(echostr)) { return echostr; }
+        //·Ö·¢ÏûÏ¢£¬µÃµ½ÏìÓ¦
+        String result = dispatch();
+        logger.info("response data:" + result);
+        return result;
+    }
+
+    /**
+     * ·Ö·¢´¦Àí£¬µÃµ½ÏìÓ¦
+     * 
+     * @return
+     */
+    private String dispatch() {
+        String postDataStr = null;
+        try {
+            postDataStr = StreamUtils.streamToString(request.getInputStream());
+        }
+        catch (IOException e) {
+            logger.error("post data deal failed!");
+            e.printStackTrace();
+        }
+        // ½âÎöÊı¾İ
+        setPostData(postDataStr);
+        // ÏûÏ¢·Ö·¢´¦Àí
+        dispatchMessage();
+        // ÏìÓ¦ÊÂ¼ş
+        String result = response();
+        return result;
+    }
+
+    /**
+     * µÃµ½postÊı¾İ£¬¶ÔÏó»¯
+     * 
+     * @param xmlStr
+     */
+    private void setPostData(String xmlStr) {
+        logger.info("parse post data:\n" + xmlStr);
+        try {
+            JaxbParser jaxbParser = new JaxbParser(WechatRequest.class);
+            this.wechatRequest = (WechatRequest) jaxbParser.toObj(xmlStr);
+        }
+        catch (Exception e) {
+            logger.error("post data parse error");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * ÏûÏ¢ÊÂ¼ş·Ö·¢
+     */
+    private void dispatchMessage() {
+        logger.info("distributeMessage start");
+        if (StringUtils.isBlank(wechatRequest.getMsgType())) {
+            logger.info("msgType is null");
+        }
+        MsgType msgType = MsgType.valueOf(wechatRequest.getMsgType());
+        logger.info("msgType is " + msgType.name());
+        switch (msgType) {
+        case event:
+            dispatchEvent();
+            break;
+        case text:
+            onText();
+            break;
+        case image:
+            onImage();
+            break;
+        case voice:
+            onVoice();
+            break;
+        case video:
+            onVideo();
+            break;
+        case shortvideo:
+            onShortVideo();
+            break;
+        case location:
+            onLocation();
+            break;
+        case link:
+            onLink();
+            break;
+        default:
+            onUnknown();
+            break;
+        }
+    }
+
+    /**
+     * eventÊÂ¼ş·Ö·¢
+     */
+    private void dispatchEvent() {
+        EventType event = EventType.valueOf(wechatRequest.getEvent());
+        logger.info("dispatch event,event is " + event.name());
+        switch (event) {
+        case CLICK:
+            click();
+            break;
+        case subscribe:
+            subscribe();
+            break;
+        case unsubscribe:
+            unSubscribe();
+            break;
+        case SCAN:
+            scan();
+            break;
+        case LOCATION:
+            location();
+            break;
+        case VIEW:
+            view();
+            break;
+        case TEMPLATESENDJOBFINISH:
+            templateMsgCallback();
+            break;
+        case scancode_push:
+            scanCodePush();
+            break;
+        case scancode_waitmsg:
+            scanCodeWaitMsg();
+            break;
+        case pic_sysphoto:
+            picSysPhoto();
+            break;
+        case pic_photo_or_album:
+            picPhotoOrAlbum();
+            break;
+        case pic_weixin:
+            picWeixin();
+            break;
+        case location_select:
+            locationSelect();
+            break;
+        case kf_create_session:
+            kfCreateSession();
+            break;
+        case kf_close_session:
+            kfCloseSession();
+            break;
+        case kf_switch_session:
+            kfSwitchSession();
+            break;
+        default:
+            break;
+        }
+    }
+
+    /**
+     * ·µ»ØÏìÓ¦Êı¾İ
+     * 
+     * @return
+     */
+    private String response() {
+        String result = null;
+        try {
+            JaxbParser jaxbParser = new JaxbParser(WechatResponse.class);
+            //ÉèÖÃ
+            jaxbParser.setCdataNode(WechatResponse.CDATA_TAG);
+            result = jaxbParser.toXML(wechatResponse);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * ÏìÓ¦Êı¾İ»ù´¡¹¹Ôì
+     */
+    private void responseBase() {
+        wechatResponse.setToUserName(this.wechatRequest.getFromUserName());
+        wechatResponse.setFromUserName(wechatRequest.getToUserName());
+        wechatResponse.setCreateTime(wechatRequest.getCreateTime());
+    }
+
+    /**
+     * »Ø¸´ÎÄ±¾ÏûÏ¢
+     * 
+     * @param content
+     *            »Ø¸´µÄÏûÏ¢ÄÚÈİ£¨»»ĞĞ£ºÔÚcontentÖĞÄÜ¹»»»ĞĞ£¬Î¢ĞÅ¿Í»§¶Ë¾ÍÖ§³Ö»»ĞĞÏÔÊ¾£©
+     */
+    public void responseText(String content) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.text.name());
+        wechatResponse.setContent(content);
+    }
+
+    /**
+     * »Ø¸´Í¼Æ¬ÏûÏ¢
+     * 
+     * @param mediaId
+     *            Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+     */
+    public void responseImage(String mediaId) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.image.name());
+        ImageResponse image = new ImageResponse();
+        image.setMediaId(mediaId);
+        wechatResponse.setImage(image);
+    }
+
+    /**
+     * »Ø¸´ÓïÒôÏûÏ¢
+     * 
+     * @param mediaId
+     *            Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+     */
+    public void responseVoice(String mediaId) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.voice.name());
+        VoiceResponse voice = new VoiceResponse();
+        voice.setMediaId(mediaId);
+        wechatResponse.setVoice(voice);
+    }
+
+    /**
+     * »Ø¸´ÊÓÆµÏûÏ¢
+     * 
+     * @param mediaId
+     *            Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+     * @param title
+     *            ÊÓÆµÏûÏ¢µÄ±êÌâ
+     * @param description
+     *            ÊÓÆµÏûÏ¢µÄÃèÊö
+     */
+    public void responseVideo(String mediaId, String title, String description) {
+        VideoResponse video = new VideoResponse();
+        video.setMediaId(mediaId);
+        video.setTitle(title);
+        video.setDescription(description);
+        responseVideo(video);
+    }
+
+    /**
+     * »Ø¸´ÊÓÆµÏûÏ¢
+     * 
+     * @param video
+     *            ÊÓÆµÏûÏ¢
+     */
+    public void responseVideo(VideoResponse video) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.video.name());
+        wechatResponse.setVideo(video);
+    }
+
+    /**
+     * »Ø¸´ÒôÀÖÏûÏ¢
+     * 
+     * @param title
+     *            ÒôÀÖ±êÌâ
+     * @param description
+     *            ÒôÀÖÃèÊö
+     * @param musicURL
+     *            ÒôÀÖÁ´½Ó
+     * @param hQMusicUrl
+     *            ¸ßÖÊÁ¿ÒôÀÖÁ´½Ó£¬WIFI»·¾³ÓÅÏÈÊ¹ÓÃ¸ÃÁ´½Ó²¥·ÅÒôÀÖ
+     * @param thumbMediaId
+     *            ËõÂÔÍ¼µÄÃ½Ìåid£¬Í¨¹ıÉÏ´«¶àÃ½ÌåÎÄ¼ş£¬µÃµ½µÄid
+     */
+    public void responseMusic(String title, String description, String musicURL, String hQMusicUrl,
+            String thumbMediaId) {
+        MusicResponse music = new MusicResponse();
+        music.setTitle(title);
+        music.setDescription(description);
+        music.setMusicURL(musicURL);
+        music.setHQMusicUrl(hQMusicUrl);
+        music.setThumbMediaId(thumbMediaId);
+        responseMusic(music);
+    }
+
+    /**
+     * »Ø¸´ÒôÀÖÏûÏ¢
+     * 
+     * @param music
+     *            ÒôÀÖÏûÏ¢
+     */
+    public void responseMusic(MusicResponse music) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.music.name());
+        wechatResponse.setMusic(music);
+    }
+
+    /**
+     * »Ø¸´Í¼ÎÄÏûÏ¢£¬µ¥ÌõÍ¼ÎÄÏûÏ¢
+     * 
+     * @param title
+     *            Í¼ÎÄÏûÏ¢±êÌâ
+     * @param description
+     *            Í¼ÎÄÏûÏ¢ÃèÊö
+     * @param picUrl
+     *            Í¼Æ¬Á´½Ó£¬Ö§³ÖJPG¡¢PNG¸ñÊ½£¬½ÏºÃµÄĞ§¹ûÎª´óÍ¼360*200£¬Ğ¡Í¼200*200
+     * @param url
+     *            µã»÷Í¼ÎÄÏûÏ¢Ìø×ªÁ´½Ó
+     */
+    public void responseNew(String title, String description, String picUrl, String url) {
+        ArticleResponse item = new ArticleResponse();
+        item.setTitle(title);
+        item.setDescription(description);
+        item.setPicUrl(picUrl);
+        item.setUrl(url);
+        responseNews(item);
+    }
+
+    /**
+     * »Ø¸´Í¼ÎÄÏûÏ¢µ¥Ìõ
+     * 
+     * @param item
+     */
+    public void responseNews(ArticleResponse item) {
+        List<ArticleResponse> items = new ArrayList<ArticleResponse>();
+        items.add(item);
+        responseNews(items);
+    }
+
+    /**
+     * »Ø¸´Í¼ÎÄÏûÏ¢
+     * 
+     * @param items
+     */
+    public void responseNews(List<ArticleResponse> items) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.news.name());
+        wechatResponse.setArticleCount(String.valueOf(items.size()));
+        wechatResponse.setArticle(items);
+
+    }
+
+    /**
+     * ÏûÏ¢×ª·¢µ½¶à¿Í·ş
+     */
+    public void responseCustomerService() {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
+    }
+
+    /**
+     * ÏûÏ¢×ª·¢µ½Ö¸¶¨¿Í·ş
+     * 
+     * @param kfAccount
+     *            ¿Í·şÕËºÅ
+     */
+    public void responseCustomerService(String kfAccount) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
+        wechatResponse.setTransInfo(new TransInfoResponse(kfAccount));
+
+    }
+
+    /**
+     * ÏûÏ¢×ª·¢µ½Ö¸¶¨¿Í·ş
+     * 
+     * @param kfAccount
+     *            ¿Í·ş
+     */
+    public void responseCustomerService(TransInfoResponse transInfo) {
+        responseBase();
+        wechatResponse.setMsgType(MsgType.transfer_customer_service.name());
+        wechatResponse.setTransInfo(transInfo);
+
+    }
+
+    /**
+     * ÎÄ±¾ÏûÏ¢´¦ÀíMsgtype=text
+     */
+    protected abstract void onText();
+
+    /**
+     * Í¼ÏñÏûÏ¢Msgtype=image
+     */
+    protected abstract void onImage();
+
+    /**
+     * ÓïÒôÏûÏ¢ Msgtype=voice
+     */
+    protected abstract void onVoice();
+
+    /**
+     * ÊÓÆµ ÏûÏ¢Msgtype=video
+     */
+    protected abstract void onVideo();
+
+    /**
+     * Ğ¡ÊÓÆµ ÏûÏ¢Msgtype=shortvideo
      */
     protected abstract void onShortVideo();
-	/**
-	 * åœ°ç†ä½ç½®æ¶ˆæ¯Msgtype=location
-	 */
+
+    /**
+     * µØÀíÎ»ÖÃÏûÏ¢Msgtype=location
+     */
     protected abstract void onLocation();
-	/**
-	 * é“¾æ¥æ¶ˆæ¯Msgtype=link
-	 */
+
+    /**
+     * Á´½ÓÏûÏ¢Msgtype=link
+     */
     protected abstract void onLink();
-	/**
-	 * æœªçŸ¥æ¶ˆæ¯ç±»å‹çš„é”™è¯¯å¤„ç†é€»è¾‘ï¼Œä¸éœ€è¦å¤„ç†åˆ™ç©ºæ–¹æ³•å³å¯
-	 */
+
+    /**
+     * Î´ÖªÏûÏ¢ÀàĞÍµÄ´íÎó´¦ÀíÂß¼­£¬²»ĞèÒª´¦ÀíÔò¿Õ·½·¨¼´¿É
+     */
     protected abstract void onUnknown();
-	
-	
-	/**
-	 * clickç‚¹å‡»äº‹ä»¶å¤„ç†event=location
-	 */
-	protected abstract void click();
-	/**
-	 * subscribeå…³æ³¨äº‹ä»¶å¤„ç†
-	 */
-	protected abstract void subscribe();
-	/**
-	 * unSubscribeå–æ¶ˆå…³æ³¨äº‹ä»¶å¤„ç†
-	 */
-	protected abstract void unSubscribe();
-	/**
-	 * scanäº‹ä»¶å¤„ç†
-	 */
-	protected abstract void scan();
-	/**
-	 * locationäº‹ä»¶å¤„ç†event=location
-	 */
-	protected abstract void location();
-	/**
-	 * view äº‹ä»¶å¤„ç†event=location
-	 */
-	protected abstract void view();
-	/**
-	 * æ¨¡æ¿æ¶ˆæ¯å‘é€å›è°ƒ
-	 */
-	protected abstract void templateMsgCallback();
-	/**
-	 * æ‰«ç æ¨äº‹ä»¶
-	 */
-	protected abstract void scanCodePush();
-	/**
-	 * æ‰«ç æ¨äº‹ä»¶ä¸”å¼¹å‡ºâ€œæ¶ˆæ¯æ¥æ”¶ä¸­â€æç¤ºæ¡†çš„äº‹ä»¶
-	 */
-	protected abstract void scanCodeWaitMsg();
-	/**
-	 * å¼¹å‡ºç³»ç»Ÿæ‹ç…§å‘å›¾çš„äº‹ä»¶
-	 */
-	protected abstract void picSysPhoto();
-	/**
-	 * å¼¹å‡ºæ‹ç…§æˆ–è€…ç›¸å†Œå‘å›¾çš„äº‹ä»¶
-	 */
-	protected abstract void picPhotoOrAlbum();
-	/**
-	 * æ‰«ç æ¨äº‹ä»¶ä¸”å¼¹å‡ºâ€œæ¶ˆæ¯æ¥æ”¶ä¸­â€æç¤ºæ¡†çš„äº‹ä»¶
-	 */
-	protected abstract void picWeixin();
-	/**
-	 * å¼¹å‡ºåœ°ç†ä½ç½®é€‰æ‹©å™¨çš„äº‹ä»¶
-	 */
-	protected abstract void locationSelect();
-	/**
-	 * å®¢æœäººå‘˜æœ‰æ¥å…¥ä¼šè¯
-	 */
-	protected abstract void kfCreateSession();
-	/**
-	 * å®¢æœäººå‘˜æœ‰å…³é—­ä¼šè¯
-	 */
-	protected abstract void kfCloseSession();
-	/**
-	 * å®¢æœäººå‘˜æœ‰è½¬æ¥ä¼šè¯
-	 */
-	protected abstract void kfSwitchSession();
+
+    /**
+     * clickµã»÷ÊÂ¼ş´¦Àíevent=location
+     */
+    protected abstract void click();
+
+    /**
+     * subscribe¹Ø×¢ÊÂ¼ş´¦Àí
+     */
+    protected abstract void subscribe();
+
+    /**
+     * unSubscribeÈ¡Ïû¹Ø×¢ÊÂ¼ş´¦Àí
+     */
+    protected abstract void unSubscribe();
+
+    /**
+     * scanÊÂ¼ş´¦Àí
+     */
+    protected abstract void scan();
+
+    /**
+     * locationÊÂ¼ş´¦Àíevent=location
+     */
+    protected abstract void location();
+
+    /**
+     * view ÊÂ¼ş´¦Àíevent=location
+     */
+    protected abstract void view();
+
+    /**
+     * Ä£°åÏûÏ¢·¢ËÍ»Øµ÷
+     */
+    protected abstract void templateMsgCallback();
+
+    /**
+     * É¨ÂëÍÆÊÂ¼ş
+     */
+    protected abstract void scanCodePush();
+
+    /**
+     * É¨ÂëÍÆÊÂ¼şÇÒµ¯³ö¡°ÏûÏ¢½ÓÊÕÖĞ¡±ÌáÊ¾¿òµÄÊÂ¼ş
+     */
+    protected abstract void scanCodeWaitMsg();
+
+    /**
+     * µ¯³öÏµÍ³ÅÄÕÕ·¢Í¼µÄÊÂ¼ş
+     */
+    protected abstract void picSysPhoto();
+
+    /**
+     * µ¯³öÅÄÕÕ»òÕßÏà²á·¢Í¼µÄÊÂ¼ş
+     */
+    protected abstract void picPhotoOrAlbum();
+
+    /**
+     * É¨ÂëÍÆÊÂ¼şÇÒµ¯³ö¡°ÏûÏ¢½ÓÊÕÖĞ¡±ÌáÊ¾¿òµÄÊÂ¼ş
+     */
+    protected abstract void picWeixin();
+
+    /**
+     * µ¯³öµØÀíÎ»ÖÃÑ¡ÔñÆ÷µÄÊÂ¼ş
+     */
+    protected abstract void locationSelect();
+
+    /**
+     * ¿Í·şÈËÔ±ÓĞ½ÓÈë»á»°
+     */
+    protected abstract void kfCreateSession();
+
+    /**
+     * ¿Í·şÈËÔ±ÓĞ¹Ø±Õ»á»°
+     */
+    protected abstract void kfCloseSession();
+
+    /**
+     * ¿Í·şÈËÔ±ÓĞ×ª½Ó»á»°
+     */
+    protected abstract void kfSwitchSession();
 }
