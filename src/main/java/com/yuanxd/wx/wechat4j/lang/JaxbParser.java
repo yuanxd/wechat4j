@@ -22,8 +22,8 @@ public class JaxbParser {
     private static Logger logger = Logger.getLogger(JaxbParser.class);
 
     private Class<?> clazz;
-    private String[] cdataNode;
 
+    private String[] cdataNode;
     /**
      * 
      * @param clazz
